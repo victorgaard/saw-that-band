@@ -3,11 +3,13 @@
     "next",
     "next/core-web-vitals",
     "airbnb",
-    "airbnb-hooks",
+    "airbnb/hooks",
     "prettier"
   ],
   "plugins": ["prettier"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "import/extensions": [
       "error",
