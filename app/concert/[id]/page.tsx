@@ -1,4 +1,4 @@
-import { Data, getData } from '@/app/page';
+import bands from '@/app/(components)/bands';
 import Link from 'next/link';
 
 type ConcertProps = {
@@ -8,8 +8,7 @@ type ConcertProps = {
 };
 
 async function getSetlist(params: string) {
-  const data: Data[] = await getData();
-  const concert = data.find(c => c.id.toString() === params);
+  const concert = bands.find(c => c.id.toString() === params);
 
   if (concert) {
     const { band, city, date } = concert;
