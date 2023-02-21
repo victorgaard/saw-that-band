@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="flex min-h-screen">
           <div className="flex w-24 shrink-0 items-end justify-center border-r bg-gray-100 pb-8">
             <p className="rotate-180 [writing-mode:vertical-lr]">
-              victor saw that band
+              <span className="font-semibold">victor</span> saw that band
             </p>
           </div>
           <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-8">

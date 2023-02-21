@@ -1,8 +1,15 @@
 import Link from 'next/link';
 
-async function getData() {
+export type Data = {
+  id: number;
+  band: string;
+  date: string;
+  city: string;
+};
+
+export async function getData() {
   const res = await fetch(
-    'https://gist.githubusercontent.com/victorgaard/dcd7afebd12b8cbf9fb296fe7fee78a0/raw/3da1beb4c99ffed476ce76f3a7db3165d01def93/data.json'
+    'https://gist.githubusercontent.com/victorgaard/dcd7afebd12b8cbf9fb296fe7fee78a0/raw/855bc5d3abf4fca7b834c40240a9b1c22f446f21/data.json'
   );
 
   if (!res.ok) {
@@ -13,13 +20,23 @@ async function getData() {
 }
 
 export default async function Home() {
-  const data = await getData();
+  const data: Data[] = await getData();
 
   return (
     <main>
-      <Link href="/concert/qualquer-parada">Go to concert</Link>
-      <div className="m-8"> </div>
-      {JSON.stringify(data)}
+      {data.map(concert => (
+        <div
+          key={concert.id}
+          className="mb-8 flex items-center justify-between rounded-lg p-6 hover:bg-gray-100"
+        >
+          <div>
+            <p className="font-semibold">{concert.band}</p>
+            <p>{concert.city}</p>
+            <p>{concert.date}</p>
+          </div>
+          <Link href={`/concert/${concert.id}`}>Go to concert</Link>
+        </div>
+      ))}
     </main>
   );
 }
