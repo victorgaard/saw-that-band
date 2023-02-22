@@ -58,15 +58,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb1f737960c4e070e773691376',
-    genre: [
-      'british power metal',
-      'comic',
-      'comic metal',
-      'metal',
-      'pirate',
-      'power metal',
-      'scottish metal'
-    ],
+    genre: ['pirate metal', 'metal', 'power metal', 'scottish metal'],
     times: 1
   },
   {
@@ -90,8 +82,15 @@ const bands: Data[] = [
     band: 'Almah',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb090efaba35954d08dd0bff95',
-    genre: ['dance pop'],
+    picture: 'https://i.scdn.co/image/ab67616d0000b273f68141d8a50a0f994ea091b2',
+    genre: [
+      'brazilian metal',
+      'brazilian power metal',
+      'brazilian progressive metal',
+      'christian power metal',
+      'neo classical metal',
+      'power metal'
+    ],
     times: 1
   },
   {
@@ -245,14 +244,8 @@ const bands: Data[] = [
     band: 'Armahda',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb922cfaf258406578ccb12bcc',
-    genre: [
-      'big beat',
-      'electronica',
-      'nu jazz',
-      'nu skool breaks',
-      'trip hop'
-    ],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebc6416ae218b9fe0be39c1613',
+    genre: ['brazilian metal'],
     times: 1
   },
   {
@@ -352,7 +345,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab67616d0000b2739040f3014541c40f8cf8d246',
-    genre: [],
+    genre: ['heavy metal marching band'],
     times: 1
   },
   {
@@ -413,7 +406,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebc264ab7cfef61742a905b694',
-    genre: ['oi'],
+    genre: ['street punk rock', 'oi', 'polish-british punk rock'],
     times: 1
   },
   {
@@ -533,7 +526,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab67616d0000b273bf912d8fad11527c808d90cf',
-    genre: ['metal tico'],
+    genre: ['death metal'],
     times: 1
   },
   {
@@ -542,7 +535,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb8cea57cb9005d491478711a2',
-    genre: ['melodic death metal'],
+    genre: ['melodic death metal', 'progressive death metal'],
     times: 1
   },
   {
@@ -694,8 +687,8 @@ const bands: Data[] = [
     band: 'Dr. Sin',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab67616d0000b2733f9bbd138e079c3d28af9a1a',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab67616d0000b273cd94ebd30f21a4eaeb4b2aaa',
+    genre: ['brazilian metal', 'hard rock brasileiro'],
     times: 1
   },
   {
@@ -762,7 +755,6 @@ const bands: Data[] = [
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebe8581fc1b573119b7eb0b69b',
     genre: [
-      'bow pop',
       'celtic metal',
       'folk metal',
       'hurdy-gurdy',
@@ -1112,7 +1104,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebb41251b65ec5a668851d1425',
-    genre: [],
+    genre: ['progressive metal', 'post metal', 'djent', 'belgium metal'],
     times: 1
   },
   {
@@ -1202,8 +1194,8 @@ const bands: Data[] = [
     band: 'Irfan',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab67616d0000b273ff8bc29915857091170859dc',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab67616d0000b2734fb9b5f2af924c6c2eac1cf9',
+    genre: ['medieval folk', 'neoclassical darkwave', 'rune folk'],
     times: 1
   },
   {
@@ -1212,7 +1204,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebdc52c8e309e46aa8430a0fa0',
-    genre: ['hard rock', 'metal', 'nwobhm', 'rock'],
+    genre: ['heavy metal', 'hard rock', 'metal', 'nwobhm', 'rock'],
     times: 3
   },
   {
@@ -1221,7 +1213,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb0c094d5430cde352463b0175',
-    genre: ['slayer'],
+    genre: ['metalcore', 'groove metal', 'ukrainian metal'],
     times: 1
   },
   {
@@ -1230,7 +1222,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebb49da949964bb9e65c6294ef',
-    genre: ['modern cello'],
+    genre: ['modern cello', 'post-rock'],
     times: 1
   },
   {
@@ -1239,7 +1231,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab67616d0000b273c2166d0dced6e6d235010683',
-    genre: [],
+    genre: ['ambient', 'experimental', 'avant-garde'],
     times: 1
   },
   {
@@ -1403,8 +1395,8 @@ const bands: Data[] = [
     band: 'Labirinto',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb8a4714c055ccb3f9ca489c97',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebf13bfe10602ee72cc0ee9c62',
+    genre: ['brazilian post-rock'],
     times: 2
   },
   {
@@ -1445,8 +1437,13 @@ const bands: Data[] = [
     band: 'MONO',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5ebc58994058a2938098a666224',
-    genre: ['livetronica'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb0518ddbbcf1fcaaf24b4ce76',
+    genre: [
+      'downtempo',
+      'instrumental post-rock',
+      'japanese post-rock',
+      'post-rock'
+    ],
     times: 2
   },
   {
@@ -1474,8 +1471,12 @@ const bands: Data[] = [
     band: 'Maraton',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5ebbc1c38d4517cbba473404089',
-    genre: ['danish electronic'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb9b2803d644d5356697ffc8ad',
+    genre: [
+      'deep progressive rock',
+      'norwegian alternative rock',
+      'norwegian prog'
+    ],
     times: 1
   },
   {
@@ -1584,11 +1585,10 @@ const bands: Data[] = [
     city: [],
     picture: 'https://i.scdn.co/image/ab6772690000c46c3ca4ece56e5fd4324ff7bd36',
     genre: [
-      'album rock',
       'hard rock',
       'melodic thrash',
-      'metal',
       'old school thrash',
+      'metal',
       'speed metal',
       'thrash metal',
       'us power metal'
@@ -1678,8 +1678,15 @@ const bands: Data[] = [
     band: 'Nile',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/6511b1fe261da3b6c6b69ae2aa771cfd307a18ae',
-    genre: ['disco'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebc87c1edbfc3323c5878c53a0',
+    genre: [
+      'brutal death metal',
+      'death metal',
+      'metal',
+      'oriental metal',
+      'south carolina metal',
+      'technical death metal'
+    ],
     times: 1
   },
   {
@@ -1723,8 +1730,8 @@ const bands: Data[] = [
     band: 'Odradek',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab67616d0000b2734788a31a7ff3a5e1c54e676e',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebb459136f3fed492e3b1cc4aa',
+    genre: ['instrumental rock', 'brazilian indie rock'],
     times: 1
   },
   {
@@ -1732,15 +1739,8 @@ const bands: Data[] = [
     band: 'Omnia',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5ebe9804a3aae3f13cb642660ff',
-    genre: [
-      'pop dance',
-      'progressive house',
-      'progressive trance',
-      'trance',
-      'ukrainian edm',
-      'uplifting trance'
-    ],
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb1efacd8f9f0b7056adfd94f9',
+    genre: ['hurdy-gurdy', 'medieval folk', 'rune folk'],
     times: 1
   },
   {
@@ -1750,12 +1750,12 @@ const bands: Data[] = [
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb3040441678d87d72616179d0',
     genre: [
-      'alternative metal',
       'metal',
       'progressive death metal',
       'progressive metal',
       'swedish metal',
-      'swedish progressive metal'
+      'swedish progressive metal',
+      'alternative metal'
     ],
     times: 5
   },
@@ -1978,7 +1978,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb47232cbc9f3fee07dbc4c474',
-    genre: ['technical death metal'],
+    genre: ['technical death metal', 'death metal'],
     times: 1
   },
   {
@@ -1986,8 +1986,16 @@ const bands: Data[] = [
     band: 'Riverside',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb6bdc01eb2e9415dab0ef87f3',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb4095e0f487f93541ab8ab7f5',
+    genre: [
+      'alternative metal',
+      'art rock',
+      'polish prog',
+      'prog metal',
+      'progressive metal',
+      'progressive rock',
+      'symphonic rock'
+    ],
     times: 2
   },
   {
@@ -2023,8 +2031,18 @@ const bands: Data[] = [
     band: 'Saor',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb434a7526f8a622e4b3c3bb79',
-    genre: ['german hip hop'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebe2e53fc76fd443f9d81b89a6',
+    genre: [
+      'atmospheric black metal',
+      'autonomous black metal',
+      'british black metal',
+      'celtic metal',
+      'folk black metal',
+      'forest black metal',
+      'scottish metal',
+      'uk post-metal',
+      'voidgaze'
+    ],
     times: 1
   },
   {
@@ -2033,15 +2051,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb70f2373fff07f1b5c9ab1607',
-    genre: [
-      'album rock',
-      'glam metal',
-      'hard rock',
-      'metal',
-      'nwobhm',
-      'power metal',
-      'rock'
-    ],
+    genre: ['metal', 'hard rock', 'power metal', 'nwobhm', 'rock'],
     times: 3
   },
   {
@@ -2060,7 +2070,6 @@ const bands: Data[] = [
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb7440170c0628c2945da819c3',
     genre: [
-      'album rock',
       'german hard rock',
       'german metal',
       'german rock',
@@ -2075,8 +2084,8 @@ const bands: Data[] = [
     band: 'SEIMS',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb66bcb571de6ca33f659bd977',
-    genre: [],
+    picture: 'https://i.scdn.co/image/ab67616d0000b273d1e167feb3e03724a969c2b3',
+    genre: ['math-rock', 'post-rock', 'jazz hardcore'],
     times: 1
   },
   {
@@ -2109,8 +2118,13 @@ const bands: Data[] = [
     band: 'Shaman',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eb329005c1968b0739880d1502',
-    genre: ['russian pop'],
+    picture: 'https://i.scdn.co/image/ab67616d0000b2730be199bbe7ae13e71afa2a5c',
+    genre: [
+      'brazilian metal',
+      'brazilian power metal',
+      'brazilian progressive metal',
+      'progressive power metal'
+    ],
     times: 1
   },
   {
@@ -2168,13 +2182,9 @@ const bands: Data[] = [
     city: [],
     picture: 'https://i.scdn.co/image/8c81130db7b5f933412c4906c30327817f1e1b43',
     genre: [
-      'alternative metal',
       'death metal',
-      'hard rock',
       'metal',
-      'nu metal',
       'old school thrash',
-      'rock',
       'speed metal',
       'thrash metal'
     ],
@@ -2382,7 +2392,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb73fe8c087ca106d32fe4d6cb',
-    genre: ['comic', 'german country', 'german pop', 'german rock'],
+    genre: ['comic', 'german rock', 'country rock'],
     times: 1
   },
   {
@@ -2410,7 +2420,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb101138dec19b8a19ff0ebcda',
-    genre: [],
+    genre: ['melodic death metal', 'swedish metal', 'melodeath'],
     times: 1
   },
   {
@@ -2437,7 +2447,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eb4c0c7787467fbdeee2826d46',
-    genre: ['dreamo', 'piano rock', 'progressive post-hardcore'],
+    genre: ['dreamo', 'piano rock', 'progressive post-hardcore', 'jazz rock'],
     times: 1
   },
   {
@@ -2466,7 +2476,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab67616d0000b273fad20e076097d508988e371d',
-    genre: ['modern progressive rock'],
+    genre: ['progressive rock'],
     times: 1
   },
   {
@@ -2492,7 +2502,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5eba542eee06e6eb9d77374c396',
-    genre: [],
+    genre: ['doom metal', 'black metal', 'atmospheric metal'],
     times: 1
   },
   {
@@ -2599,8 +2609,8 @@ const bands: Data[] = [
     band: 'Viper',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5ebfb618514fdfd77a55641080c',
-    genre: ['gabba', 'happy hardcore', 'hardcore techno', 'uptempo hardcore'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5ebfec23058ecd1c4760428b864',
+    genre: ['brazilian metal'],
     times: 1
   },
   {
@@ -2609,7 +2619,7 @@ const bands: Data[] = [
     date: [],
     city: [],
     picture: 'https://i.scdn.co/image/ab6761610000e5ebc5c957763a0e90d1c16121bd',
-    genre: ['medieval rock'],
+    genre: ['folk metal', 'german metal', 'medieval rock'],
     times: 1
   },
   {
@@ -2617,8 +2627,8 @@ const bands: Data[] = [
     band: 'Vogons',
     date: [],
     city: [],
-    picture: 'https://i.scdn.co/image/ab6761610000e5eba001a078524111f3e1b30928',
-    genre: ['dark electro', 'swedish synth', 'swedish synthpop'],
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb8f173c0d65c0b1400490b93a',
+    genre: ['instrumental rock', 'post-rock', 'jazz rock'],
     times: 1
   },
   {
