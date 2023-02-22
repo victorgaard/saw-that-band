@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <main>
       <p className="mb-8 text-lg font-semibold">
-        Victor saw {bands.length} bands
+        Victor saw {bands.length} bands live
       </p>
       {bands.map(concert => (
         <div

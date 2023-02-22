@@ -32,7 +32,7 @@ async function getSetlist(params: string) {
     }
 
     const json = await res.json();
-    let blep;
+    let concertInfo;
 
     if (json.setlist[0].sets.set.length > 0) {
       const coordinates = json.setlist[0].venue.city.coords;
@@ -40,17 +40,17 @@ async function getSetlist(params: string) {
         (c: { encore?: number; song: { name: string }[] }) => c.song
       );
 
-      blep = {
+      concertInfo = {
         concert,
         coordinates,
         setlist:
           setlist.length > 1 ? [...setlist[0], ...setlist[1]] : [...setlist[0]]
       };
     } else {
-      blep = { concert };
+      concertInfo = { concert };
     }
 
-    return blep;
+    return concertInfo;
   }
 
   return undefined;
