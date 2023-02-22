@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import bands from '../bands/bands';
+import bands from '../data/bands';
 
 export default async function Home() {
   return (

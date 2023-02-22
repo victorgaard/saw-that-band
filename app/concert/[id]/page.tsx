@@ -1,4 +1,4 @@
-import bands from '@/bands/bands';
+import bands from '@/data/bands';
 import Link from 'next/link';
 
 type ConcertProps = {
