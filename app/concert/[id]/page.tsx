@@ -1,4 +1,4 @@
-import bands from '@/app/(components)/bands';
+import bands from '@/bands/bands';
 import Link from 'next/link';
 
 type ConcertProps = {
