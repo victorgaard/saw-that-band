@@ -1,5 +1,6 @@
 import bands from '@/data/bands';
 import Link from 'next/link';
+import getSetlist from '../helpers/getSetlist';
 
 type ConcertProps = {
   params: {
@@ -7,53 +8,14 @@ type ConcertProps = {
   };
 };
 
-async function getSetlist(params: string) {
-  const concert = bands.find(c => c.id.toString() === params);
+export const metadata = {
+  title: 'Setlist'
+};
 
-  if (concert) {
-    const { band, city, date } = concert;
-
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('x-api-key', process.env.SETLIST_API_KEY!);
-
-    const res = await fetch(
-      `${process.env.SETLIST_URL}/search/setlists?artistName=${band}&city=${city}&date=${date}`,
-      {
-        method: 'GET',
-        credentials: 'include',
-        redirect: 'follow',
-        headers
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data');
-    }
-
-    const json = await res.json();
-    let concertInfo;
-
-    if (json.setlist[0].sets.set.length > 0) {
-      const coordinates = json.setlist[0].venue.city.coords;
-      const setlist = json.setlist[0].sets.set.map(
-        (c: { encore?: number; song: { name: string }[] }) => c.song
-      );
-
-      concertInfo = {
-        concert,
-        coordinates,
-        setlist:
-          setlist.length > 1 ? [...setlist[0], ...setlist[1]] : [...setlist[0]]
-      };
-    } else {
-      concertInfo = { concert };
-    }
-
-    return concertInfo;
-  }
-
-  return undefined;
+export async function generateStaticParams() {
+  return bands.map(band => ({
+    id: band.id.toString()
+  }));
 }
 
 async function Concert({ params }: ConcertProps) {
