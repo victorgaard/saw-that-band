@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import bands from '../data/bands';
 
@@ -14,13 +15,13 @@ export default async function Home() {
         >
           <div className="flex items-center gap-8">
             <div className="h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-gray-300">
-              <picture>
-                <img
-                  src={concert.picture}
-                  alt={concert.band}
-                  className="h-[96px] w-[96px] object-cover"
-                />
-              </picture>
+              <Image
+                width={96}
+                height={96}
+                src={concert.picture}
+                alt={concert.band}
+                className="h-[96px] w-[96px] object-cover"
+              />
             </div>
             <div>
               <p className="font-semibold">{concert.band}</p>
