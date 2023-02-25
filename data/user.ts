@@ -1,6 +1,7 @@
 export type UserLink = {
   type:
     | 'spotify'
+    | 'youtube'
     | 'deezer'
     | 'apple'
     | 'lastfm'

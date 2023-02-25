@@ -51,7 +51,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={font.className}>
       <head />
-      <body className="antialiased">
+      <body className="overflow-hidden antialiased">
         <div className="flex min-h-screen">
           <div className="flex w-24 shrink-0 items-end justify-center border-r bg-gray-100 pb-8">
             <p className="rotate-180 [writing-mode:vertical-lr]">
@@ -75,18 +75,23 @@ export default async function RootLayout({
                 </p>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col gap-2">
               <p className="font-semibold">Links</p>
               <div className="flex flex-col gap-1">
                 {profile.links.map(link => (
-                  <a href={link.url} target="_blank" rel="noreferrer">
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {link.type}
                   </a>
                 ))}
               </div>
             </div>
           </div>
-          <div className="max-h-screen w-full overflow-y-auto bg-gray-50 py-8 px-24">
+          <div className="relative max-h-screen w-full overflow-y-auto bg-gray-50 py-8 px-24">
             {children}
           </div>
         </div>

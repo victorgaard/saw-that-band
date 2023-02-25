@@ -21,18 +21,21 @@ async function getSetlist(params: string) {
     );
 
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      console.log('Failed to fetch data');
     }
 
     const json = await res.json();
     let concertInfo;
 
-    if (json.setlist[0].sets.set.length > 0) {
+    if (
+      json.code !== 404 &&
+      !json.message &&
+      json.setlist[0].sets.set.length > 0
+    ) {
       const coordinates = json.setlist[0].venue.city.coords;
       const setlist = json.setlist[0].sets.set.map(
         (c: { encore?: number; song: { name: string }[] }) => c.song
       );
-
       concertInfo = {
         concert,
         coordinates,
