@@ -10,6 +10,7 @@
   "rules": {
     "camelcase": "off",
     "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/jsx-filename-extension": "off",
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "import/extensions": [

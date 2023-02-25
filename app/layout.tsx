@@ -3,6 +3,7 @@ import './globals.css';
 import { Work_Sans } from 'next/font/google';
 import user from '@/data/user';
 import Image from 'next/image';
+import Balancer from 'react-wrap-balancer';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -69,7 +70,9 @@ export default async function RootLayout({
               />
               <div>
                 <p className="font-semibold">{profile.name}</p>
-                <p>{profile.bio}</p>
+                <p>
+                  <Balancer>{profile.bio}</Balancer>
+                </p>
               </div>
             </div>
             <div>
