@@ -8,6 +8,7 @@
   ],
   "plugins": ["prettier"],
   "rules": {
+    "camelcase": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],

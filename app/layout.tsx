@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Work_Sans } from 'next/font/google';
+import user from '@/data/user';
+import Image from 'next/image';
 
-const font = Inter({ subsets: ['latin'] });
+const font = Work_Sans({ subsets: ['latin'] });
 
 export const metadata = {
   title: {
@@ -33,7 +35,18 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export async function getUser() {
+  const res = user;
+  return res;
+}
+
+export default async function RootLayout({
+  children
+}: {
+  children: ReactNode;
+}) {
+  const profile = await getUser();
+
   return (
     <html lang="en" className={font.className}>
       <head />
@@ -41,12 +54,34 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="flex min-h-screen">
           <div className="flex w-24 shrink-0 items-end justify-center border-r bg-gray-100 pb-8">
             <p className="rotate-180 [writing-mode:vertical-lr]">
-              <span className="font-semibold">victor</span> saw that band
+              <span className="font-semibold">{profile.name}</span> saw that
+              band
             </p>
           </div>
           <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-8">
-            <p>foto</p>
-            <p>otas coisa</p>
+            <div className="flex flex-col gap-6">
+              <Image
+                src={profile.picture}
+                width={255}
+                height={255}
+                alt={(profile.name, 'photo')}
+                className="h-[255px] w-[255px] rounded-lg object-cover shadow-xl"
+              />
+              <div>
+                <p className="font-semibold">{profile.name}</p>
+                <p>{profile.bio}</p>
+              </div>
+            </div>
+            <div>
+              <p className="font-semibold">Links</p>
+              <div className="flex flex-col gap-1">
+                {profile.links.map(link => (
+                  <a href={link.url} target="_blank" rel="noreferrer">
+                    {link.type}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="max-h-screen w-full overflow-y-auto bg-gray-50 py-8 px-24">
             {children}
