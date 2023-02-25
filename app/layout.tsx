@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import './globals.css';
-import { Inter } from '@next/font/google';
+import { Inter } from 'next/font/google';
 
 const font = Inter({ subsets: ['latin'] });
 
@@ -36,10 +36,6 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={font.className}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
       <body className="antialiased">
         <div className="flex min-h-screen">
