@@ -26,8 +26,6 @@ async function Concert({ params }: ConcertProps) {
       <Link href="/">Back</Link>
       <div className="m-8"> </div>
       <div className="font-semibold">{data?.concert.band}</div>
-      <div>{data?.concert.city}</div>
-      <div>{data?.concert.date}</div>
       <div className="m-8"> </div>
       {data && data.setlist
         ? data.setlist.map((music: { name: string }, idx: number) => (

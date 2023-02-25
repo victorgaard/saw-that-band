@@ -25,8 +25,6 @@ export default async function Home() {
             </div>
             <div>
               <p className="font-semibold">{concert.band}</p>
-              <p>{concert.city}</p>
-              <p>{concert.date}</p>
               <div className="flex items-center gap-2">
                 {concert.genre.slice(0, 3).map(c => (
                   <p key={c} className="rounded-full bg-gray-200 p-2 text-xs">

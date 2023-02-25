@@ -4,14 +4,14 @@ async function getSetlist(params: string) {
   const concert = bands.find(c => c.id.toString() === params);
 
   if (concert) {
-    const { band, city, date } = concert;
+    const { band, concerts } = concert;
 
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('x-api-key', process.env.SETLIST_API_KEY!);
 
     const res = await fetch(
-      `${process.env.SETLIST_URL}/search/setlists?artistName=${band}&city=${city}&date=${date}`,
+      `${process.env.SETLIST_URL}/search/setlists?artistName=${band}&city=${concerts[0].location}&date=${concerts[0].date}`,
       {
         method: 'GET',
         credentials: 'include',
