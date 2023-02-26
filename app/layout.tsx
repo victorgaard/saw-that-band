@@ -1,9 +1,10 @@
-import { ReactNode } from 'react';
 import './globals.css';
+import { ReactNode } from 'react';
 import { Work_Sans } from 'next/font/google';
-import user from '@/data/user';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
+import user from '@/data/user';
+import bands, { Bands, Concerts } from '@/data/bands';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -41,12 +42,77 @@ export async function getUser() {
   return res;
 }
 
+export async function getBands() {
+  const res = bands;
+  return res;
+}
+
+function getFirstAndLastConcert(concerts: Concerts[]) {
+  // Convert the string date to a Date object
+  const dates = concerts.map(
+    concert => new Date(concert.date.split('-').reverse().join('-'))
+  );
+
+  // Sort the list to get the earliest date
+  dates.sort((a, b) => Number(a) - Number(b));
+
+  // Convert the Date object back to the string date
+  const firstConcertDate = dates[0]
+    .toLocaleDateString('pt-BR')
+    .replaceAll('/', '-');
+
+  const lastConcertDate = dates[dates.length - 1]
+    .toLocaleDateString('pt-BR')
+    .replaceAll('/', '-');
+
+  // Find the object inside concerts array that matches the earliest date found
+  const firstConcert = concerts.find(
+    concert => concert.date === firstConcertDate
+  );
+
+  // Find the object inside concerts array that matches the latest date found
+  const lastConcert = concerts.find(
+    concert => concert.date === lastConcertDate
+  );
+
+  // Return the first concert object
+  return { firstConcert, lastConcert };
+}
+
+function getMostSeenBand(allBands: Bands[]) {
+  const newBandsArray = [...allBands];
+  return newBandsArray
+    .sort((a, b) => b.concerts.length - a.concerts.length)
+    .slice(0, 5);
+}
+
+function getBandGenres(allBands: Bands[]) {
+  const newBandsArray = [...allBands];
+  return newBandsArray
+    .sort((a, b) => b.concerts.length - a.concerts.length)
+    .slice(0, 5);
+}
+
 export default async function RootLayout({
   children
 }: {
   children: ReactNode;
 }) {
   const profile = await getUser();
+  const profileBands = await getBands();
+
+  const concerts = profileBands.map(band => band.concerts);
+  const formattedConcerts = ([] as Concerts[]).concat(...concerts);
+
+  const findTheFirstAndLastConcert = getFirstAndLastConcert(formattedConcerts);
+
+  const firstConcert = profileBands.find(band =>
+    band.concerts.includes(findTheFirstAndLastConcert.firstConcert as Concerts)
+  );
+  const lastConcert = profileBands.find(band =>
+    band.concerts.includes(findTheFirstAndLastConcert.lastConcert as Concerts)
+  );
+  const mostSeenBands = getMostSeenBand(profileBands);
 
   return (
     <html lang="en" className={font.className}>
@@ -60,24 +126,74 @@ export default async function RootLayout({
             </p>
           </div>
           <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-8">
-            <div className="flex flex-col gap-6">
-              <Image
-                src={profile.picture}
-                width={255}
-                height={255}
-                alt={(profile.name, 'photo')}
-                className="h-[255px] w-[255px] rounded-lg object-cover shadow-xl"
-              />
+            <div className="flex flex-col gap-8">
+              <div className="flex items-center gap-4">
+                <Image
+                  priority
+                  src={profile.picture}
+                  width={88}
+                  height={88}
+                  alt={(profile.name, 'photo')}
+                  className="h-[88px] w-[88px] shrink-0 rounded-lg object-cover shadow-xl"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">{user.fullName}</p>
+                  <p className="text-sm">{user.handle}</p>
+                  <p className="text-sm">joined {user.createdAt}</p>
+                </div>
+              </div>
               <div>
-                <p className="font-semibold">{profile.name}</p>
+                <p className="font-semibold">Bio</p>
                 <p>
                   <Balancer>{profile.bio}</Balancer>
                 </p>
               </div>
+              <div>
+                <p className="font-semibold">Bands seen live</p>
+                <p>{profileBands.length}</p>
+              </div>
+              <div>
+                <p className="font-semibold">Total concerts</p>
+                <p>{formattedConcerts.length}</p>
+              </div>
+              <div>
+                <p className="font-semibold">First concert</p>
+                <p>{firstConcert?.band}</p>
+                <p>
+                  {firstConcert?.concerts[0].date} @{' '}
+                  {firstConcert?.concerts[0].location}
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold">Last concert</p>
+                <p>{lastConcert?.band}</p>
+                <p>
+                  {lastConcert?.concerts[0].date} @{' '}
+                  {lastConcert?.concerts[0].location}
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold">Most seen bands</p>
+                {mostSeenBands.map(band => (
+                  <p key={band.id} className="flex justify-between">
+                    <span>{band.band}</span>
+                    <span>{band.concerts.length}x</span>
+                  </p>
+                ))}
+              </div>
+              <div>
+                <p className="font-semibold">Bands genre</p>
+                {mostSeenBands.map(band => (
+                  <p key={band.id} className="flex justify-between">
+                    <span>{band.band}</span>
+                    <span>{band.concerts.length}x</span>
+                  </p>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col gap-2">
               <p className="font-semibold">Links</p>
-              <div className="flex flex-col gap-1">
+              <div className="flex gap-2">
                 {profile.links.map(link => (
                   <a
                     key={link.url}

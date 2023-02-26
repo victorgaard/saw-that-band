@@ -1,15 +1,17 @@
-export type Data = {
+export type Concerts = {
+  date: string;
+  location: string;
+};
+
+export type Bands = {
   id: number;
   band: string;
   picture: string;
   genre: string[];
-  concerts: {
-    date: string;
-    location: string;
-  }[];
+  concerts: Concerts[];
 };
 
-const bands: Data[] = [
+const bands: Bands[] = [
   {
     id: 1,
     band: '1349',

@@ -10,7 +10,7 @@ export default async function Home() {
         className="fixed w-[675px] rounded-full border bg-white/80 p-6 backdrop-blur-xl transition-all focus:shadow-2xl"
       />
       <div className="w-[675px] pt-24">
-        {bands.map(concert => (
+        {bands.slice(0, 25).map(concert => (
           <Link
             href={`/concert/${concert.id}`}
             key={concert.id}
@@ -27,7 +27,12 @@ export default async function Home() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-lg font-semibold">{concert.band}</p>
+                <div className="flex gap-2 text-lg font-semibold">
+                  <span>{concert.band}</span>
+                  {concert.concerts.length > 1 && (
+                    <span>- saw {concert.concerts.length} times</span>
+                  )}
+                </div>
                 <div className="flex items-center gap-2">
                   {concert.genre.slice(0, 3).map(c => (
                     <p

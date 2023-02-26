@@ -13,6 +13,8 @@ export type UserLink = {
 
 export type User = {
   id: number;
+  handle: string;
+  createdAt: string;
   name: string;
   lastName: string;
   fullName: string;
@@ -23,6 +25,8 @@ export type User = {
 
 const user: User = {
   id: 1,
+  handle: '@elvengaard',
+  createdAt: '2023-02-26T16:11:52Z',
   name: 'Victor',
   lastName: 'Santos',
   fullName: 'Victor Santos',

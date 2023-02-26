@@ -21,7 +21,7 @@ async function getSetlist(params: string) {
     );
 
     if (!res.ok) {
-      console.log('Failed to fetch data');
+      throw new Error(`Failed to fetch data on: ${concert.id}`);
     }
 
     const json = await res.json();
