@@ -3,6 +3,16 @@ import Link from 'next/link';
 import bands from '../data/bands';
 
 export default async function Home() {
+  bands.sort((a, b) => {
+    if (a.band < b.band) {
+      return -1;
+    }
+    if (a.band > b.band) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <main className="flex flex-col items-center">
       <input
@@ -10,7 +20,7 @@ export default async function Home() {
         className="fixed w-[675px] rounded-full border bg-white/80 p-6 backdrop-blur-xl transition-all focus:shadow-2xl"
       />
       <div className="w-[675px] pt-24">
-        {bands.slice(0, 25).map(concert => (
+        {bands.map(concert => (
           <Link
             href={`/concert/${concert.id}`}
             key={concert.id}

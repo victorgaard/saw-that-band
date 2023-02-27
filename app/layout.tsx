@@ -91,7 +91,7 @@ type TopGenres = {
   count: number;
 };
 
-function getBandGenres(allBands: Bands[]): TopGenres[] {
+function getBandGenres(allBands: Bands[]) {
   const newBandsArray = [...allBands];
   const topGenres: Record<string, number> = newBandsArray.reduce(
     (counts: Record<string, number>, band) => {

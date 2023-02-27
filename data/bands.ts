@@ -3567,6 +3567,25 @@ const bands: Bands[] = [
         location: 'ArcTangent'
       }
     ]
+  },
+  {
+    id: 197,
+    band: 'Manowar',
+    picture: 'https://i.scdn.co/image/ab6761610000e5eba4780fe15900fbd223cd4f48',
+    genre: [
+      'comic metal',
+      'hard rock',
+      'metal',
+      'power metal',
+      'rock',
+      'us power metal'
+    ],
+    concerts: [
+      {
+        date: '25-02-2023',
+        location: 'Berlin'
+      }
+    ]
   }
 ];
 
