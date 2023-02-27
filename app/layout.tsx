@@ -120,6 +120,19 @@ function getBandGenres(allBands: Bands[]) {
   return sortTopGenres.slice(0, 5);
 }
 
+function formatDate(date: number) {
+  const DAY_MILLISECONDS = 1000 * 60 * 60 * 24;
+
+  const rtf = new Intl.RelativeTimeFormat('en', {
+    numeric: 'auto'
+  });
+  const daysDifference = Math.round(
+    (date - new Date().getTime()) / DAY_MILLISECONDS
+  );
+
+  return rtf.format(daysDifference, 'day');
+}
+
 export default async function RootLayout({
   children
 }: {
@@ -142,6 +155,10 @@ export default async function RootLayout({
   const mostSeenBands = getMostSeenBand(profileBands);
 
   const genres = getBandGenres(profileBands);
+
+  const hasJoinedAt = formatDate(
+    new Date(user.createdAt.slice(0, 10)).getTime()
+  );
 
   return (
     <html lang="en" className={font.className}>
@@ -168,7 +185,7 @@ export default async function RootLayout({
                 <div className="flex flex-col">
                   <p className="font-semibold">{user.fullName}</p>
                   <p className="text-sm">{user.handle}</p>
-                  <p className="text-sm">joined {user.createdAt}</p>
+                  <p className="text-sm">joined {hasJoinedAt}</p>
                 </div>
               </div>
               <div>

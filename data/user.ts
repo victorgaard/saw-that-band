@@ -25,7 +25,7 @@ export type User = {
 
 const user: User = {
   id: 1,
-  handle: '@elvengaard',
+  handle: '@victor',
   createdAt: '2023-02-26T16:11:52Z',
   name: 'Victor',
   lastName: 'Santos',
