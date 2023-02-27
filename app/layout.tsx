@@ -86,11 +86,38 @@ function getMostSeenBand(allBands: Bands[]) {
     .slice(0, 5);
 }
 
-function getBandGenres(allBands: Bands[]) {
+type TopGenres = {
+  genre: string;
+  count: number;
+};
+
+function getBandGenres(allBands: Bands[]): TopGenres[] {
   const newBandsArray = [...allBands];
-  return newBandsArray
-    .sort((a, b) => b.concerts.length - a.concerts.length)
-    .slice(0, 5);
+  const topGenres: Record<string, number> = newBandsArray.reduce(
+    (counts: Record<string, number>, band) => {
+      // Loop through each genre in the bands genres array using forEach()
+      band.genre.forEach(genre => {
+        // If the genre is already in the counts object, increment its count by 1
+        if (genre in counts) {
+          const newCounts = counts;
+          newCounts[genre] += 1;
+        }
+        // Otherwise, add the genre to the counts object with a count of 1
+        else {
+          const newCounts = counts;
+          newCounts[genre] = 1;
+        }
+      });
+      // Return the counts object after processing the genres of the current band
+      return counts;
+    },
+    {}
+  );
+  const sortTopGenres: TopGenres[] = Object.entries(topGenres)
+    .sort((a, b) => b[1] - a[1])
+    .map(([genre, count]) => ({ genre, count }));
+
+  return sortTopGenres.slice(0, 5);
 }
 
 export default async function RootLayout({
@@ -102,7 +129,7 @@ export default async function RootLayout({
   const profileBands = await getBands();
 
   const concerts = profileBands.map(band => band.concerts);
-  const formattedConcerts = ([] as Concerts[]).concat(...concerts);
+  const formattedConcerts: Concerts[] = ([] as Concerts[]).concat(...concerts);
 
   const findTheFirstAndLastConcert = getFirstAndLastConcert(formattedConcerts);
 
@@ -113,6 +140,8 @@ export default async function RootLayout({
     band.concerts.includes(findTheFirstAndLastConcert.lastConcert as Concerts)
   );
   const mostSeenBands = getMostSeenBand(profileBands);
+
+  const genres = getBandGenres(profileBands);
 
   return (
     <html lang="en" className={font.className}>
@@ -182,11 +211,11 @@ export default async function RootLayout({
                 ))}
               </div>
               <div>
-                <p className="font-semibold">Bands genre</p>
-                {mostSeenBands.map(band => (
-                  <p key={band.id} className="flex justify-between">
-                    <span>{band.band}</span>
-                    <span>{band.concerts.length}x</span>
+                <p className="font-semibold">Genres</p>
+                {genres.map(genre => (
+                  <p key={genre.genre} className="flex justify-between">
+                    <span>{genre.genre}</span>
+                    <span>{genre.count}</span>
                   </p>
                 ))}
               </div>
