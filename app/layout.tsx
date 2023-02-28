@@ -142,9 +142,11 @@ export default async function RootLayout({
   const profileBands = await getBands();
 
   const concerts = profileBands.map(band => band.concerts);
-  const formattedConcerts: Concerts[] = ([] as Concerts[]).concat(...concerts);
-
-  const findTheFirstAndLastConcert = getFirstAndLastConcert(formattedConcerts);
+  const concertsArray: Concerts[] = [];
+  const unifiedConcertsDatesAndLocations = concertsArray.concat(...concerts);
+  const findTheFirstAndLastConcert = getFirstAndLastConcert(
+    unifiedConcertsDatesAndLocations
+  );
 
   const firstConcert = profileBands.find(band =>
     band.concerts.includes(findTheFirstAndLastConcert.firstConcert as Concerts)
@@ -200,7 +202,7 @@ export default async function RootLayout({
               </div>
               <div>
                 <p className="font-semibold">Total concerts</p>
-                <p>{formattedConcerts.length}</p>
+                <p>{unifiedConcertsDatesAndLocations.length}</p>
               </div>
               <div>
                 <p className="font-semibold">First concert</p>
