@@ -1,3 +1,4 @@
+import bands from '@/data/bands';
 import Link from 'next/link';
 import getSetlist from '../helpers/getSetlist';
 
@@ -11,11 +12,11 @@ export const metadata = {
   title: 'Setlist'
 };
 
-/* export async function generateStaticParams() {
+export async function generateStaticParams() {
   return bands.map(band => ({
     id: band.id.toString()
   }));
-} */
+}
 
 async function Concert({ params }: ConcertProps) {
   const data = await getSetlist(params.id);
