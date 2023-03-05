@@ -205,21 +205,31 @@ export default async function RootLayout({
                 <p className="font-semibold">Total concerts</p>
                 <p>{unifiedConcertsDatesAndLocations.length}</p>
               </div>
-              <div>
+              <div className="group">
                 <p className="font-semibold">First concert</p>
-                <p>{firstConcert?.band}</p>
-                <p>
-                  {firstConcert?.concerts[0].date} @{' '}
-                  {firstConcert?.concerts[0].location}
-                </p>
+                <Link
+                  href={`/concert/${firstConcert?.id}`}
+                  className="group-hover:text-gray-500"
+                >
+                  <p>{firstConcert?.band}</p>
+                  <p>
+                    {firstConcert?.concerts[0].date} @{' '}
+                    {firstConcert?.concerts[0].location}
+                  </p>
+                </Link>
               </div>
-              <div>
+              <div className="group">
                 <p className="font-semibold">Last concert</p>
-                <p>{lastConcert?.band}</p>
-                <p>
-                  {lastConcert?.concerts[0].date} @{' '}
-                  {lastConcert?.concerts[0].location}
-                </p>
+                <Link
+                  href={`/concert/${lastConcert?.id}`}
+                  className="group-hover:text-gray-500"
+                >
+                  <p>{lastConcert?.band}</p>
+                  <p>
+                    {lastConcert?.concerts[0].date} @{' '}
+                    {lastConcert?.concerts[0].location}
+                  </p>
+                </Link>
               </div>
               <div>
                 <p className="font-semibold">Most seen bands</p>
@@ -227,7 +237,7 @@ export default async function RootLayout({
                   <Link
                     href={`/?search=${band.band}`}
                     key={band.id}
-                    className="flex justify-between"
+                    className="flex justify-between hover:text-gray-500"
                   >
                     <span>{band.band}</span>
                     <span>{band.concerts.length}x</span>
@@ -240,7 +250,7 @@ export default async function RootLayout({
                   <Link
                     href={`/?search=${genre.genre}`}
                     key={genre.genre}
-                    className="flex justify-between"
+                    className="flex justify-between hover:text-gray-500"
                   >
                     <span>{genre.genre}</span>
                     <span>{genre.count}</span>
@@ -257,6 +267,7 @@ export default async function RootLayout({
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
+                    className="hover:text-gray-500"
                   >
                     {link.type}
                   </a>
