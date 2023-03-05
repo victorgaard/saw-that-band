@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 import user from '@/data/user';
 import bands, { Bands, Concerts } from '@/data/bands';
+import Link from 'next/link';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -223,19 +224,27 @@ export default async function RootLayout({
               <div>
                 <p className="font-semibold">Most seen bands</p>
                 {mostSeenBands.map(band => (
-                  <p key={band.id} className="flex justify-between">
+                  <Link
+                    href={`/?search=${band.band}`}
+                    key={band.id}
+                    className="flex justify-between"
+                  >
                     <span>{band.band}</span>
                     <span>{band.concerts.length}x</span>
-                  </p>
+                  </Link>
                 ))}
               </div>
               <div>
                 <p className="font-semibold">Genres</p>
                 {genres.map(genre => (
-                  <p key={genre.genre} className="flex justify-between">
+                  <Link
+                    href={`/?search=${genre.genre}`}
+                    key={genre.genre}
+                    className="flex justify-between"
+                  >
                     <span>{genre.genre}</span>
                     <span>{genre.count}</span>
-                  </p>
+                  </Link>
                 ))}
               </div>
             </div>

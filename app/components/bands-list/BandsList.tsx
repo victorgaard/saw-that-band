@@ -3,31 +3,45 @@
 import { Bands } from '@/data/bands';
 import Image from 'next/image';
 import Link from 'next/link';
-import useBandsListSearch from './hooks/useBandsListSearch';
+import { useRouter } from 'next/navigation';
+import useBandsList from './hooks/useBandsList';
 
 type BandsListProps = {
   bands: Bands[];
 };
 
 function BandsList({ bands }: BandsListProps) {
-  const { filteredBands, query, handleChange, setQuery } = useBandsListSearch({
-    bands
-  });
+  const { filteredBands, query, handleChange, infiniteScrollDiv } =
+    useBandsList({
+      bands
+    });
+  const router = useRouter();
 
   return (
     <div className="flex flex-col items-center">
-      <input
-        onChange={e => handleChange(e)}
-        value={query}
-        placeholder="Search for the band, genre or location"
-        className="fixed w-[675px] rounded-full border bg-white/80 p-6 backdrop-blur-xl transition-all focus:shadow-2xl"
-      />
+      <div className="fixed w-[675px]">
+        <input
+          onChange={e => handleChange(e)}
+          value={query}
+          placeholder="Search for the band, genre or location"
+          className="w-full rounded-full border bg-white/80 p-6 backdrop-blur-xl transition-all focus:shadow-2xl"
+        />
+        {query && (
+          <button
+            onClick={() => router.push('/')}
+            type="button"
+            className="absolute right-4 top-2 h-14 w-14 rounded-full bg-gray-50 hover:bg-gray-100"
+          >
+            x
+          </button>
+        )}
+      </div>
       <div className="w-[675px] pt-24">
         {filteredBands?.map(concert => (
           <Link
             href={`/concert/${concert.id}`}
             key={concert.id}
-            className="mb-8 flex items-center justify-between rounded-lg p-6 hover:bg-gray-100"
+            className="flex items-center justify-between rounded-lg p-6 hover:bg-gray-100"
           >
             <div className="flex items-center gap-8">
               <div className="h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-gray-300">
@@ -54,7 +68,7 @@ function BandsList({ bands }: BandsListProps) {
                       className="whitespace-nowrap rounded-full bg-gray-200 p-2 text-xs hover:bg-gray-300"
                       onClick={e => {
                         e.preventDefault();
-                        setQuery(genre);
+                        router.push(`/?search=${genre}`);
                       }}
                     >
                       {genre}
@@ -71,6 +85,7 @@ function BandsList({ bands }: BandsListProps) {
           </Link>
         ))}
       </div>
+      <div ref={infiniteScrollDiv}> </div>
     </div>
   );
 }

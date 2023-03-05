@@ -1,15 +1,22 @@
 'use client';
 
 import { Bands } from '@/data/bands';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import useIsVisible from './useIsVisible';
 
-type useBandsListSearchProps = {
+type useBandsListProps = {
   bands: Bands[];
 };
 
-function useBandsListSearch({ bands }: useBandsListSearchProps) {
+function useBandsList({ bands }: useBandsListProps) {
   const [query, setQuery] = useState('');
   const [filteredBands, setfilteredBands] = useState<Bands[]>();
+  const infiniteScrollDiv = useRef(null);
+  const searchParams = useSearchParams();
+  const searchedParam = searchParams.get('search');
+  const router = useRouter();
+  const loadMore = useIsVisible(infiniteScrollDiv);
 
   const sortBandsAlphabetically = useCallback(() => {
     const sorted = bands.sort((a, b) => {
@@ -21,7 +28,7 @@ function useBandsListSearch({ bands }: useBandsListSearchProps) {
       }
       return 0;
     });
-    setfilteredBands(sorted.slice(0, 50));
+    setfilteredBands(sorted);
   }, [bands]);
 
   const searchBands = useCallback(() => {
@@ -39,7 +46,13 @@ function useBandsListSearch({ bands }: useBandsListSearchProps) {
   }, [bands, query]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setQuery(e.target.value);
+    if (e.target.value) {
+      setQuery(e.target.value);
+      router.push(`/?search=${e.target.value}`);
+    } else {
+      setQuery('');
+      router.push('/');
+    }
   }
 
   useEffect(() => {
@@ -52,7 +65,16 @@ function useBandsListSearch({ bands }: useBandsListSearchProps) {
     }
   }, [query, sortBandsAlphabetically, searchBands]);
 
-  return { filteredBands, query, handleChange, setQuery };
+  useEffect(() => {
+    if (!searchedParam) {
+      setQuery('');
+    }
+    if (searchedParam) {
+      setQuery(searchedParam);
+    }
+  }, [searchedParam]);
+
+  return { filteredBands, query, handleChange, infiniteScrollDiv };
 }
 
-export default useBandsListSearch;
+export default useBandsList;

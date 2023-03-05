@@ -19,7 +19,6 @@ const bands: Bands[] = [
     genre: [
       'black metal',
       'dark black metal',
-      'metal',
       'norwegian black metal',
       'norwegian metal',
       'technical black metal'
@@ -88,7 +87,7 @@ const bands: Bands[] = [
     id: 4,
     band: 'Alestorm',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb1f737960c4e070e773691376',
-    genre: ['pirate metal', 'metal', 'power metal', 'scottish metal'],
+    genre: ['pirate metal', 'power metal', 'scottish metal'],
     concerts: [
       {
         date: '01-12-2017',
@@ -123,7 +122,6 @@ const bands: Bands[] = [
       'brazilian power metal',
       'brazilian progressive metal',
       'christian power metal',
-      'neo classical metal',
       'power metal'
     ],
     concerts: [
@@ -159,8 +157,6 @@ const bands: Bands[] = [
       'alternative metal',
       'death metal',
       'melodic death metal',
-      'metal',
-      'power metal',
       'swedish death metal',
       'swedish melodeath',
       'swedish metal',
@@ -193,8 +189,6 @@ const bands: Bands[] = [
       'folk metal',
       'gothic metal',
       'melodic death metal',
-      'metal',
-      'power metal',
       'progressive doom'
     ],
     concerts: [
@@ -237,8 +231,6 @@ const bands: Bands[] = [
       'brazilian power metal',
       'brazilian progressive metal',
       'latin metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'progressive metal',
       'progressive power metal',
@@ -284,9 +276,6 @@ const bands: Bands[] = [
       'alternative metal',
       'death metal',
       'melodic death metal',
-      'metal',
-      'nu metal',
-      'power metal',
       'swedish death metal',
       'swedish melodeath',
       'swedish metal'
@@ -345,8 +334,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'opera metal',
       'power metal',
       'symphonic metal'
@@ -362,13 +349,7 @@ const bands: Bands[] = [
     id: 19,
     band: 'Axel Rudi Pell',
     picture: 'https://i.scdn.co/image/afdd5b3bc7afcd334c273ce74fdfd3b6764c86b0',
-    genre: [
-      'german metal',
-      'german power metal',
-      'hard rock',
-      'metal',
-      'power metal'
-    ],
+    genre: ['german metal', 'german power metal', 'hard rock', 'power metal'],
     concerts: [
       {
         date: '04-08-2012',
@@ -395,7 +376,7 @@ const bands: Bands[] = [
     genre: [
       'black metal',
       'death metal',
-      'metal',
+
       'pagan black metal',
       'polish black metal',
       'polish death metal',
@@ -462,7 +443,7 @@ const bands: Bands[] = [
     id: 25,
     band: 'Black Label Society',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebca9e1ddb61172c1b9672567a',
-    genre: ['alternative metal', 'groove metal', 'metal', 'nu metal'],
+    genre: ['alternative metal', 'groove metal', 'nu metal'],
     concerts: [
       {
         date: '16-08-2011',
@@ -478,7 +459,7 @@ const bands: Bands[] = [
       'album rock',
       'birmingham metal',
       'classic rock',
-      'metal',
+
       'rock',
       'stoner rock',
       'uk doom metal'
@@ -498,8 +479,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'speed metal',
       'symphonic metal'
@@ -535,7 +514,7 @@ const bands: Bands[] = [
       'black metal',
       'folk black metal',
       'folk metal',
-      'metal',
+
       'norwegian black metal',
       'norwegian metal',
       'progressive black metal',
@@ -590,9 +569,7 @@ const bands: Bands[] = [
       'finnish death metal',
       'finnish melodeath',
       'finnish metal',
-      'melodic death metal',
-      'metal',
-      'power metal'
+      'melodic death metal'
     ],
     concerts: [
       {
@@ -606,7 +583,6 @@ const bands: Bands[] = [
     band: 'Circle II Circle',
     picture: 'https://i.scdn.co/image/71fd0dab0dec125918aaaa1f29d17d2c48b50ed8',
     genre: [
-      'neo classical metal',
       'neo-trad metal',
       'power metal',
       'progressive metal',
@@ -623,12 +599,7 @@ const bands: Bands[] = [
     id: 34,
     band: 'Circus Maximus',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebd6989e2eac6349e58fd53a29',
-    genre: [
-      'neo classical metal',
-      'norwegian metal',
-      'progressive metal',
-      'progressive power metal'
-    ],
+    genre: ['norwegian metal', 'progressive metal', 'progressive power metal'],
     concerts: [
       {
         date: '17-09-2016',
@@ -728,7 +699,7 @@ const bands: Bands[] = [
       'death metal',
       'gothic black metal',
       'gothic metal',
-      'metal',
+
       'nu metal',
       'symphonic black metal'
     ],
@@ -771,7 +742,7 @@ const bands: Bands[] = [
       'death metal',
       'gothenburg metal',
       'melodic death metal',
-      'metal',
+
       'swedish death metal',
       'swedish melodeath',
       'swedish metal'
@@ -792,7 +763,6 @@ const bands: Bands[] = [
       'gothic metal',
       'gothic symphonic metal',
       'melodic metal',
-      'power metal',
       'slayer',
       'symphonic metal',
       'symphonic power metal'
@@ -862,7 +832,7 @@ const bands: Bands[] = [
     genre: [
       'black metal',
       'melodic death metal',
-      'metal',
+
       'norwegian black metal',
       'norwegian metal',
       'symphonic black metal',
@@ -944,8 +914,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'progressive metal',
       'symphonic metal'
@@ -983,7 +951,6 @@ const bands: Bands[] = [
       'folk metal',
       'hurdy-gurdy',
       'melodic death metal',
-      'power metal',
       'swiss metal'
     ],
     concerts: [
@@ -1011,8 +978,6 @@ const bands: Bands[] = [
       'italian metal',
       'italian power metal',
       'melodic metal',
-      'neo classical metal',
-      'power metal',
       'symphonic power metal',
       'tolkien metal'
     ],
@@ -1051,7 +1016,7 @@ const bands: Bands[] = [
     picture: 'https://i.scdn.co/image/ab6761610000e5eb43f059f576a7f1bea9b6785b',
     genre: [
       'black metal',
-      'metal',
+
       'norwegian black metal',
       'norwegian metal',
       'symphonic black metal',
@@ -1074,9 +1039,7 @@ const bands: Bands[] = [
       'finnish metal',
       'folk metal',
       'melodic death metal',
-      'metal',
       'nordic folk metal',
-      'power metal',
       'viking metal'
     ],
     concerts: [
@@ -1095,7 +1058,7 @@ const bands: Bands[] = [
       'death metal',
       'doom metal',
       'melodic death metal',
-      'metal',
+
       'norwegian black metal',
       'norwegian metal',
       'pagan black metal',
@@ -1123,9 +1086,7 @@ const bands: Bands[] = [
       'gothic metal',
       'gothic symphonic metal',
       'melodic metal',
-      'neo classical metal',
       'opera metal',
-      'power metal',
       'symphonic metal'
     ],
     concerts: [
@@ -1144,7 +1105,6 @@ const bands: Bands[] = [
       'german metal',
       'german pagan metal',
       'melodic death metal',
-      'power metal',
       'viking metal'
     ],
     concerts: [
@@ -1158,7 +1118,7 @@ const bands: Bands[] = [
     id: 62,
     band: 'Exciter',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb580c5e9fc59524732e67b869',
-    genre: ['canadian metal', 'metal', 'nwothm', 'speed metal', 'thrash metal'],
+    genre: ['canadian metal', 'nwothm', 'speed metal', 'thrash metal'],
     concerts: [
       {
         date: '06-09-2013',
@@ -1170,12 +1130,7 @@ const bands: Bands[] = [
     id: 63,
     band: 'Fates Warning',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb857b39cf580ac1faf6749772',
-    genre: [
-      'metal',
-      'neo classical metal',
-      'progressive metal',
-      'us power metal'
-    ],
+    genre: ['neo classical metal', 'progressive metal', 'us power metal'],
     concerts: [
       {
         date: '06-09-2014',
@@ -1203,9 +1158,7 @@ const bands: Bands[] = [
       'finnish metal',
       'folk metal',
       'melodic death metal',
-      'metal',
       'nordic folk metal',
-      'power metal',
       'viking metal'
     ],
     concerts: [
@@ -1235,8 +1188,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'speed metal'
     ],
@@ -1279,8 +1230,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'neo-trad metal',
       'power metal',
       'speed metal'
@@ -1332,13 +1281,7 @@ const bands: Bands[] = [
     id: 73,
     band: 'Haken',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebf7c081258a8e1d2bf3d049d6',
-    genre: [
-      'djent',
-      'jazz metal',
-      'neo classical metal',
-      'progressive metal',
-      'symphonic rock'
-    ],
+    genre: ['djent', 'jazz metal', 'progressive metal', 'symphonic rock'],
     concerts: [
       {
         date: '29-01-2019',
@@ -1357,8 +1300,6 @@ const bands: Bands[] = [
     genre: [
       'gothenburg metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'swedish power metal',
       'symphonic metal'
@@ -1413,8 +1354,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'old school thrash',
       'rock',
       'speed metal'
@@ -1446,7 +1385,7 @@ const bands: Bands[] = [
       'black metal',
       'death metal',
       'melodic death metal',
-      'metal',
+
       'swedish death metal',
       'swedish melodeath',
       'swedish metal'
@@ -1495,7 +1434,7 @@ const bands: Bands[] = [
       'alternative metal',
       'gothenburg metal',
       'melodic death metal',
-      'metal',
+
       'nu metal',
       'swedish death metal',
       'swedish melodeath',
@@ -1558,7 +1497,7 @@ const bands: Bands[] = [
     id: 86,
     band: 'Iron Maiden',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebdc52c8e309e46aa8430a0fa0',
-    genre: ['heavy metal', 'metal', 'nwobhm', 'rock'],
+    genre: ['heavy metal', 'nwobhm', 'rock'],
     concerts: [
       {
         date: '20-03-2009',
@@ -1614,7 +1553,7 @@ const bands: Bands[] = [
     id: 90,
     band: 'Judas Priest',
     picture: 'https://i.scdn.co/image/d6df710d0a8244dc02fae361d89b7d2ffb4dfba3',
-    genre: ['heavy metal', 'metal', 'birmingham metal', 'classic rock', 'rock'],
+    genre: ['heavy metal', 'birmingham metal', 'classic rock', 'rock'],
     concerts: [
       {
         date: '15-09-2011',
@@ -1650,8 +1589,6 @@ const bands: Bands[] = [
     genre: [
       'gothic symphonic metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'progressive metal',
       'symphonic metal'
@@ -1670,7 +1607,6 @@ const bands: Bands[] = [
     genre: [
       'doom metal',
       'gothic metal',
-      'metal',
       'progressive metal',
       'swedish doom metal',
       'swedish metal',
@@ -1687,14 +1623,7 @@ const bands: Bands[] = [
     id: 94,
     band: 'King Diamond',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb88335c2a97302c880d42a134',
-    genre: [
-      'danish metal',
-      'death metal',
-      'metal',
-      'power metal',
-      'rock',
-      'thrash metal'
-    ],
+    genre: ['heavy metal', 'danish metal', 'death metal', 'thrash metal'],
     concerts: [
       {
         date: '01-08-2014',
@@ -1723,13 +1652,7 @@ const bands: Bands[] = [
     id: 96,
     band: 'Korpiklaani',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb4007626284c331661dab6d2c',
-    genre: [
-      'finnish metal',
-      'folk metal',
-      'nordic folk metal',
-      'power metal',
-      'viking metal'
-    ],
+    genre: ['finnish metal', 'folk metal', 'nordic folk metal', 'viking metal'],
     concerts: [
       {
         date: '20-03-2010',
@@ -1750,9 +1673,7 @@ const bands: Bands[] = [
       'german metal',
       'german thrash metal',
       'melodic thrash',
-      'metal',
       'old school thrash',
-      'power metal',
       'speed metal',
       'thrash metal'
     ],
@@ -1903,8 +1824,6 @@ const bands: Bands[] = [
       'industrial metal',
       'melodic groove metal',
       'melodic metalcore',
-      'metal',
-      'nu metal',
       'progressive groove metal'
     ],
     concerts: [
@@ -1938,7 +1857,6 @@ const bands: Bands[] = [
       'black metal',
       'dark black metal',
       'death metal',
-      'metal',
       'swedish black metal',
       'swedish metal',
       'symphonic black metal'
@@ -1958,8 +1876,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'progressive metal',
       'symphonic metal'
@@ -1978,8 +1894,6 @@ const bands: Bands[] = [
     genre: [
       'alternative metal',
       'atlanta metal',
-      'metal',
-      'nu metal',
       'progressive groove metal',
       'progressive sludge',
       'sludge metal',
@@ -2011,7 +1925,7 @@ const bands: Bands[] = [
     genre: [
       'alternative metal',
       'melodic thrash',
-      'metal',
+
       'old school thrash',
       'rock',
       'speed metal',
@@ -2054,7 +1968,6 @@ const bands: Bands[] = [
     band: 'Metal Church',
     picture: 'https://i.scdn.co/image/ab6772690000c46c3ca4ece56e5fd4324ff7bd36',
     genre: [
-      'metal',
       'old school thrash',
       'melodic thrash',
       'speed metal',
@@ -2106,7 +2019,7 @@ const bands: Bands[] = [
       'gothic black metal',
       'gothic metal',
       'gothic symphonic metal',
-      'metal',
+
       'portuguese black metal',
       'portuguese metal',
       'portuguese rock'
@@ -2183,7 +2096,7 @@ const bands: Bands[] = [
     genre: [
       'brutal death metal',
       'death metal',
-      'metal',
+
       'oriental metal',
       'south carolina metal',
       'technical death metal'
@@ -2273,7 +2186,6 @@ const bands: Bands[] = [
     band: 'Opeth',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb3040441678d87d72616179d0',
     genre: [
-      'metal',
       'progressive death metal',
       'progressive metal',
       'swedish metal',
@@ -2339,8 +2251,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal'
     ],
     concerts: [
@@ -2375,7 +2285,7 @@ const bands: Bands[] = [
     genre: [
       'death metal',
       'groove metal',
-      'metal',
+
       'old school thrash',
       'speed metal',
       'thrash metal'
@@ -2428,13 +2338,7 @@ const bands: Bands[] = [
     id: 135,
     band: 'Paradise Lost',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebee02e036e8fc0d01f8b34da1',
-    genre: [
-      'death metal',
-      'doom metal',
-      'gothic metal',
-      'metal',
-      'uk doom metal'
-    ],
+    genre: ['death metal', 'doom metal', 'gothic metal', 'uk doom metal'],
     concerts: [
       {
         date: '11-04-2014',
@@ -2500,8 +2404,6 @@ const bands: Bands[] = [
       'german metal',
       'german power metal',
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'neo-trad metal',
       'power metal',
       'speed metal'
@@ -2611,7 +2513,7 @@ const bands: Bands[] = [
       'greek black metal',
       'greek metal',
       'melodic black metal',
-      'metal',
+
       'symphonic black metal',
       'symphonic deathcore'
     ],
@@ -2626,7 +2528,7 @@ const bands: Bands[] = [
     id: 146,
     band: 'Sabaton',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb97d68537c39dc8bcebbd9e6c',
-    genre: ['metal', 'power metal', 'swedish metal', 'swedish power metal'],
+    genre: ['power metal', 'swedish metal', 'swedish power metal'],
     concerts: [
       {
         date: '03-11-2016',
@@ -2660,7 +2562,7 @@ const bands: Bands[] = [
     id: 148,
     band: 'Saxon',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb70f2373fff07f1b5c9ab1607',
-    genre: ['metal', 'power metal', 'nwobhm', 'rock'],
+    genre: ['power metal', 'nwobhm', 'rock'],
     concerts: [
       {
         date: '02-08-2012',
@@ -2697,7 +2599,7 @@ const bands: Bands[] = [
       'german metal',
       'german rock',
       'hard rock',
-      'metal',
+
       'rock'
     ],
     concerts: [
@@ -2736,7 +2638,7 @@ const bands: Bands[] = [
       'deathrash',
       'groove metal',
       'latin metal',
-      'metal',
+
       'metal mineiro',
       'nu metal',
       'old school thrash',
@@ -2832,13 +2734,7 @@ const bands: Bands[] = [
     id: 157,
     band: 'Slayer',
     picture: 'https://i.scdn.co/image/8c81130db7b5f933412c4906c30327817f1e1b43',
-    genre: [
-      'death metal',
-      'metal',
-      'old school thrash',
-      'speed metal',
-      'thrash metal'
-    ],
+    genre: ['death metal', 'old school thrash', 'speed metal', 'thrash metal'],
     concerts: [
       {
         date: '24-09-2013',
@@ -2882,14 +2778,7 @@ const bands: Bands[] = [
     band: 'Steel Panther',
 
     picture: 'https://i.scdn.co/image/ab6761610000e5eb4c7c6dfd10e75627af62024a',
-    genre: [
-      'comic',
-      'comic metal',
-      'glam metal',
-      'hard rock',
-      'metal',
-      'sleaze rock'
-    ],
+    genre: ['comic', 'comic metal', 'glam metal', 'hard rock', 'sleaze rock'],
     concerts: [
       {
         date: '31-07-2014',
@@ -2911,7 +2800,7 @@ const bands: Bands[] = [
       'crossover thrash',
       'funk metal',
       'hardcore punk',
-      'metal',
+
       'nu metal',
       'old school thrash',
       'punk',
@@ -2970,8 +2859,6 @@ const bands: Bands[] = [
     picture: 'https://i.scdn.co/image/ab6761610000e5eb54935264e9cf5607a3e98686',
     genre: [
       'melodic metal',
-      'metal',
-      'neo classical metal',
       'power metal',
       'progressive metal',
       'progressive power metal'
@@ -3069,7 +2956,7 @@ const bands: Bands[] = [
       'alternative metal',
       'death metal',
       'groove metal',
-      'metal',
+
       'old school thrash',
       'rock',
       'thrash metal'
@@ -3197,10 +3084,7 @@ const bands: Bands[] = [
     genre: [
       'gothic metal',
       'gothic symphonic metal',
-      'metal',
-      'neo classical metal',
       'opera metal',
-      'power metal',
       'swedish metal',
       'symphonic black metal',
       'symphonic death metal',
@@ -3234,7 +3118,7 @@ const bands: Bands[] = [
       'groove metal',
       'melodic metalcore',
       'melodic thrash',
-      'metal',
+
       'metalcore',
       'nu metal'
     ],
@@ -3293,7 +3177,6 @@ const bands: Bands[] = [
       'folk metal',
       'melodic metal',
       'nordic folk metal',
-      'power metal',
       'slavic folk metal',
       'viking metal'
     ],
@@ -3324,13 +3207,7 @@ const bands: Bands[] = [
     id: 183,
     band: 'Týr',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebb88950a32a64db261d03b9fe',
-    genre: [
-      'faroese rock',
-      'folk metal',
-      'nordic folk metal',
-      'power metal',
-      'viking metal'
-    ],
+    genre: ['faroese rock', 'folk metal', 'nordic folk metal', 'viking metal'],
     concerts: [
       {
         date: '30-07-2011',
@@ -3346,13 +3223,7 @@ const bands: Bands[] = [
     id: 184,
     band: 'U.D.O.',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb5f9d16a26f208dd7a61d13f7',
-    genre: [
-      'german heavy metal',
-      'german metal',
-      'hard rock',
-      'metal',
-      'power metal'
-    ],
+    genre: ['german heavy metal', 'german metal', 'hard rock', 'power metal'],
     concerts: [
       {
         date: '02-08-2012',
@@ -3381,7 +3252,7 @@ const bands: Bands[] = [
       'brutal death metal',
       'death metal',
       'deathrash',
-      'metal',
+
       'polish death metal',
       'polish metal',
       'polish thrash metal'
@@ -3476,7 +3347,7 @@ const bands: Bands[] = [
     genre: [
       'black metal',
       'dark black metal',
-      'metal',
+
       'swedish black metal',
       'swedish metal'
     ],
@@ -3497,7 +3368,7 @@ const bands: Bands[] = [
       'classic rock',
       'glam metal',
       'hard rock',
-      'metal',
+
       'rock'
     ],
     concerts: [
@@ -3544,7 +3415,13 @@ const bands: Bands[] = [
     id: 197,
     band: 'Manowar',
     picture: 'https://i.scdn.co/image/ab6761610000e5eba4780fe15900fbd223cd4f48',
-    genre: ['comic metal', 'metal', 'power metal', 'rock', 'us power metal'],
+    genre: [
+      'heavy metal',
+      'true metal of steel',
+      'comic metal',
+      'rock',
+      'us power metal'
+    ],
     concerts: [
       {
         date: '25-02-2023',
@@ -3573,7 +3450,7 @@ const bands: Bands[] = [
       'melodic death metal',
       'melodic groove metal',
       'melodic metalcore',
-      'metal',
+
       'swedish death metal',
       'swedish melodeath',
       'swedish metal'
@@ -3595,7 +3472,7 @@ const bands: Bands[] = [
       'death metal',
       'groove metal',
       'melodic death metal',
-      'metal',
+
       'quebec death metal',
       'technical melodic death metal'
     ],
