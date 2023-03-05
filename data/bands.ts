@@ -104,7 +104,6 @@ const bands: Bands[] = [
       'alternative metal',
       'alternative rock',
       'grunge',
-      'hard rock',
       'nu metal',
       'rock'
     ],
@@ -169,6 +168,10 @@ const bands: Bands[] = [
       'viking metal'
     ],
     concerts: [
+      {
+        date: '04-08-2012',
+        location: 'Wacken'
+      },
       {
         date: '18-05-2014',
         location: 'Curitiba'
@@ -459,14 +462,7 @@ const bands: Bands[] = [
     id: 25,
     band: 'Black Label Society',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebca9e1ddb61172c1b9672567a',
-    genre: [
-      'alternative metal',
-      'groove metal',
-      'hard rock',
-      'metal',
-      'nu metal',
-      'rock'
-    ],
+    genre: ['alternative metal', 'groove metal', 'metal', 'nu metal'],
     concerts: [
       {
         date: '16-08-2011',
@@ -482,7 +478,6 @@ const bands: Bands[] = [
       'album rock',
       'birmingham metal',
       'classic rock',
-      'hard rock',
       'metal',
       'rock',
       'stoner rock',
@@ -1239,7 +1234,6 @@ const bands: Bands[] = [
     genre: [
       'german metal',
       'german power metal',
-      'hard rock',
       'melodic metal',
       'metal',
       'neo classical metal',
@@ -1257,7 +1251,7 @@ const bands: Bands[] = [
     id: 68,
     band: 'Ghost',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb64ab0252ac49ac5020ffccae',
-    genre: ['hard rock', 'metal'],
+    genre: ['metal'],
     concerts: [
       {
         date: '24-09-2013',
@@ -1284,7 +1278,6 @@ const bands: Bands[] = [
     genre: [
       'german metal',
       'german power metal',
-      'hard rock',
       'melodic metal',
       'metal',
       'neo classical metal',
@@ -1363,7 +1356,6 @@ const bands: Bands[] = [
     picture: 'https://i.scdn.co/image/ab6761610000e5eb5cc9dba7c275fcb81f80f62e',
     genre: [
       'gothenburg metal',
-      'hard rock',
       'melodic metal',
       'metal',
       'neo classical metal',
@@ -1420,7 +1412,6 @@ const bands: Bands[] = [
       'power metal',
       'german metal',
       'german power metal',
-      'hard rock',
       'melodic metal',
       'metal',
       'neo classical metal',
@@ -1567,7 +1558,7 @@ const bands: Bands[] = [
     id: 86,
     band: 'Iron Maiden',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebdc52c8e309e46aa8430a0fa0',
-    genre: ['heavy metal', 'hard rock', 'metal', 'nwobhm', 'rock'],
+    genre: ['heavy metal', 'metal', 'nwobhm', 'rock'],
     concerts: [
       {
         date: '20-03-2009',
@@ -1623,14 +1614,7 @@ const bands: Bands[] = [
     id: 90,
     band: 'Judas Priest',
     picture: 'https://i.scdn.co/image/d6df710d0a8244dc02fae361d89b7d2ffb4dfba3',
-    genre: [
-      'heavy metal',
-      'metal',
-      'hard rock',
-      'birmingham metal',
-      'classic rock',
-      'rock'
-    ],
+    genre: ['heavy metal', 'metal', 'birmingham metal', 'classic rock', 'rock'],
     concerts: [
       {
         date: '15-09-2011',
@@ -1706,7 +1690,6 @@ const bands: Bands[] = [
     genre: [
       'danish metal',
       'death metal',
-      'hard rock',
       'metal',
       'power metal',
       'rock',
@@ -1766,7 +1749,6 @@ const bands: Bands[] = [
       'death metal',
       'german metal',
       'german thrash metal',
-      'hard rock',
       'melodic thrash',
       'metal',
       'old school thrash',
@@ -1918,7 +1900,6 @@ const bands: Bands[] = [
     genre: [
       'alternative metal',
       'groove metal',
-      'hard rock',
       'industrial metal',
       'melodic groove metal',
       'melodic metalcore',
@@ -1997,7 +1978,6 @@ const bands: Bands[] = [
     genre: [
       'alternative metal',
       'atlanta metal',
-      'hard rock',
       'metal',
       'nu metal',
       'progressive groove metal',
@@ -2030,7 +2010,6 @@ const bands: Bands[] = [
     picture: 'https://i.scdn.co/image/ab6761610000e5eb79058c0b634631533ed40b22',
     genre: [
       'alternative metal',
-      'hard rock',
       'melodic thrash',
       'metal',
       'old school thrash',
@@ -2075,10 +2054,9 @@ const bands: Bands[] = [
     band: 'Metal Church',
     picture: 'https://i.scdn.co/image/ab6772690000c46c3ca4ece56e5fd4324ff7bd36',
     genre: [
-      'hard rock',
-      'melodic thrash',
-      'old school thrash',
       'metal',
+      'old school thrash',
+      'melodic thrash',
       'speed metal',
       'thrash metal',
       'us power metal'
@@ -2397,7 +2375,6 @@ const bands: Bands[] = [
     genre: [
       'death metal',
       'groove metal',
-      'hard rock',
       'metal',
       'old school thrash',
       'speed metal',
@@ -2522,7 +2499,6 @@ const bands: Bands[] = [
     genre: [
       'german metal',
       'german power metal',
-      'hard rock',
       'melodic metal',
       'metal',
       'neo classical metal',
@@ -2684,7 +2660,7 @@ const bands: Bands[] = [
     id: 148,
     band: 'Saxon',
     picture: 'https://i.scdn.co/image/ab6761610000e5eb70f2373fff07f1b5c9ab1607',
-    genre: ['metal', 'hard rock', 'power metal', 'nwobhm', 'rock'],
+    genre: ['metal', 'power metal', 'nwobhm', 'rock'],
     concerts: [
       {
         date: '02-08-2012',
@@ -2759,7 +2735,6 @@ const bands: Bands[] = [
       'death metal',
       'deathrash',
       'groove metal',
-      'hard rock',
       'latin metal',
       'metal',
       'metal mineiro',
@@ -3096,7 +3071,6 @@ const bands: Bands[] = [
       'alternative metal',
       'death metal',
       'groove metal',
-      'hard rock',
       'metal',
       'old school thrash',
       'rock',
@@ -3572,17 +3546,64 @@ const bands: Bands[] = [
     id: 197,
     band: 'Manowar',
     picture: 'https://i.scdn.co/image/ab6761610000e5eba4780fe15900fbd223cd4f48',
-    genre: [
-      'comic metal',
-      'hard rock',
-      'metal',
-      'power metal',
-      'rock',
-      'us power metal'
-    ],
+    genre: ['comic metal', 'metal', 'power metal', 'rock', 'us power metal'],
     concerts: [
       {
         date: '25-02-2023',
+        location: 'Berlin'
+      }
+    ]
+  },
+  {
+    id: 198,
+    band: 'Wilderun',
+    picture: 'https://i.scdn.co/image/ab6761610000e5eba97286d3fa186c73fc89dca8',
+    genre: ['boston metal', 'progressive metal', 'folk metal'],
+    concerts: [
+      {
+        date: '01-03-2023',
+        location: 'Berlin'
+      }
+    ]
+  },
+  {
+    id: 199,
+    band: 'Soilwork',
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb00d683871c6271df627797e0',
+    genre: [
+      'alternative metal',
+      'melodic death metal',
+      'melodic groove metal',
+      'melodic metalcore',
+      'metal',
+      'swedish death metal',
+      'swedish melodeath',
+      'swedish metal'
+    ],
+    concerts: [
+      {
+        date: '01-03-2023',
+        location: 'Berlin'
+      }
+    ]
+  },
+  {
+    id: 200,
+    band: 'Kataklysm',
+    picture: 'https://i.scdn.co/image/ab6761610000e5eb46d6caedb7a8c7e4421cf608',
+    genre: [
+      'brutal death metal',
+      'canadian metal',
+      'death metal',
+      'groove metal',
+      'melodic death metal',
+      'metal',
+      'quebec death metal',
+      'technical melodic death metal'
+    ],
+    concerts: [
+      {
+        date: '01-03-2023',
         location: 'Berlin'
       }
     ]
