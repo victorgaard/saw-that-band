@@ -12,11 +12,11 @@ export const metadata = {
   title: 'Setlist'
 };
 
-export async function generateStaticParams() {
+/* export async function generateStaticParams() {
   return bands.map(band => ({
     id: band.id.toString()
   }));
-}
+} */
 
 async function Concert({ params }: ConcertProps) {
   const data = await getSetlist(params.id);
