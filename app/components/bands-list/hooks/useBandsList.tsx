@@ -1,9 +1,8 @@
 'use client';
 
 import { Bands } from '@/data/bands';
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import useIsVisible from './useIsVisible';
 
 type useBandsListProps = {
   bands: Bands[];
@@ -12,11 +11,9 @@ type useBandsListProps = {
 function useBandsList({ bands }: useBandsListProps) {
   const [query, setQuery] = useState('');
   const [filteredBands, setfilteredBands] = useState<Bands[]>();
-  const infiniteScrollDiv = useRef(null);
   const searchParams = useSearchParams();
   const searchedParam = searchParams.get('search');
   const router = useRouter();
-  const loadMore = useIsVisible(infiniteScrollDiv);
 
   const sortBandsAlphabetically = useCallback(() => {
     const sorted = bands.sort((a, b) => {
@@ -71,7 +68,7 @@ function useBandsList({ bands }: useBandsListProps) {
     }
   }, [searchedParam]);
 
-  return { filteredBands, query, setQuery, handleChange, infiniteScrollDiv };
+  return { filteredBands, query, setQuery, handleChange };
 }
 
 export default useBandsList;

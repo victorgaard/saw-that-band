@@ -1,5 +1,4 @@
-import bands from '@/data/bands';
-import Link from 'next/link';
+import BackButton from '../components/BackButton';
 import getSetlist from '../helpers/getSetlist';
 
 type ConcertProps = {
@@ -12,18 +11,12 @@ export const metadata = {
   title: 'Setlist'
 };
 
-/* export async function generateStaticParams() {
-  return bands.map(band => ({
-    id: band.id.toString()
-  }));
-} */
-
 async function Concert({ params }: ConcertProps) {
   const data = await getSetlist(params.id);
 
   return (
     <>
-      <Link href="/">Back</Link>
+      <BackButton />
       <div className="m-8"> </div>
       <div className="font-semibold">{data?.concert.band}</div>
       <div className="m-8"> </div>

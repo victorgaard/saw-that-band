@@ -11,10 +11,9 @@ type BandsListProps = {
 };
 
 function BandsList({ bands }: BandsListProps) {
-  const { filteredBands, query, handleChange, infiniteScrollDiv } =
-    useBandsList({
-      bands
-    });
+  const { filteredBands, query, handleChange } = useBandsList({
+    bands
+  });
   const router = useRouter();
 
   return (
@@ -92,7 +91,6 @@ function BandsList({ bands }: BandsListProps) {
           </Link>
         ))}
       </div>
-      <div ref={infiniteScrollDiv}> </div>
     </div>
   );
 }
