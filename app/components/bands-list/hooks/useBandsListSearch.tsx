@@ -1,7 +1,7 @@
 'use client';
 
 import { Bands } from '@/data/bands';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 type useBandsListSearchProps = {
   bands: Bands[];
@@ -9,9 +9,10 @@ type useBandsListSearchProps = {
 
 function useBandsListSearch({ bands }: useBandsListSearchProps) {
   const [query, setQuery] = useState('');
+  const [filteredBands, setfilteredBands] = useState<Bands[]>();
 
-  function sortBands() {
-    bands.sort((a, b) => {
+  const sortBandsAlphabetically = useCallback(() => {
+    const sorted = bands.sort((a, b) => {
       if (a.band < b.band) {
         return -1;
       }
@@ -20,13 +21,38 @@ function useBandsListSearch({ bands }: useBandsListSearchProps) {
       }
       return 0;
     });
-  }
+    setfilteredBands(sorted.slice(0, 50));
+  }, [bands]);
+
+  const searchBands = useCallback(() => {
+    const searched = bands.filter(
+      band =>
+        band.band.toLowerCase().includes(query.toLowerCase()) ||
+        band.genre.some(genre =>
+          genre.toLowerCase().includes(query.toLowerCase())
+        ) ||
+        band.concerts.some(concert =>
+          concert.location.toLowerCase().includes(query.toLowerCase())
+        )
+    );
+    setfilteredBands(searched);
+  }, [bands, query]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value);
   }
 
-  return { query, handleChange };
+  useEffect(() => {
+    if (!query) {
+      sortBandsAlphabetically();
+    }
+
+    if (query) {
+      searchBands();
+    }
+  }, [query, sortBandsAlphabetically, searchBands]);
+
+  return { filteredBands, query, handleChange, setQuery };
 }
 
 export default useBandsListSearch;

@@ -2992,10 +2992,8 @@ const bands: Bands[] = [
     band: 'Sólstafir',
     picture: 'https://i.scdn.co/image/ab6761610000e5ebb90a1aede7a026fbaed20013',
     genre: [
-      'blackened screamo',
       'icelandic black metal',
       'icelandic metal',
-      'icelandic pop',
       'pagan black metal',
       'post-metal',
       'viking black metal'
