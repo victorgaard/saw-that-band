@@ -46,21 +46,19 @@ function useBandsList({ bands }: useBandsListProps) {
   }, [bands, query]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.value) {
-      setQuery(e.target.value);
-      router.push(`/?search=${e.target.value}`);
-    } else {
+    if (!e.target.value) {
       setQuery('');
       router.push('/');
+    } else {
+      setQuery(e.target.value);
+      router.push(`/?search=${e.target.value}`);
     }
   }
 
   useEffect(() => {
     if (!query) {
       sortBandsAlphabetically();
-    }
-
-    if (query) {
+    } else {
       searchBands();
     }
   }, [query, sortBandsAlphabetically, searchBands]);
@@ -68,13 +66,12 @@ function useBandsList({ bands }: useBandsListProps) {
   useEffect(() => {
     if (!searchedParam) {
       setQuery('');
-    }
-    if (searchedParam) {
+    } else {
       setQuery(searchedParam);
     }
   }, [searchedParam]);
 
-  return { filteredBands, query, handleChange, infiniteScrollDiv };
+  return { filteredBands, query, setQuery, handleChange, infiniteScrollDiv };
 }
 
 export default useBandsList;

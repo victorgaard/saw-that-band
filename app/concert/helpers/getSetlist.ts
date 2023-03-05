@@ -20,12 +20,14 @@ async function getSetlist(params: string) {
       }
     );
 
+    let concertInfo;
+
     if (!res.ok) {
-      throw new Error(`Failed to fetch data on: ${concert.id}`);
+      concertInfo = { concert };
+      return concertInfo;
     }
 
     const json = await res.json();
-    let concertInfo;
 
     if (
       json.code !== 404 &&

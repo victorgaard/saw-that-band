@@ -8,11 +8,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.scdn.co',
         pathname: '/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'scontent.ftxl3-1.fna.fbcdn.net',
-        pathname: '/**'
       }
     ]
   },

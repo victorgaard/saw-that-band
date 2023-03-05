@@ -21,7 +21,9 @@ function BandsList({ bands }: BandsListProps) {
     <div className="flex flex-col items-center">
       <div className="fixed w-[675px]">
         <input
-          onChange={e => handleChange(e)}
+          onChange={e => {
+            handleChange(e);
+          }}
           value={query}
           placeholder="Search for the band, genre or location"
           className="w-full rounded-full border bg-white/80 p-6 backdrop-blur-xl transition-all focus:shadow-2xl"
@@ -37,6 +39,11 @@ function BandsList({ bands }: BandsListProps) {
         )}
       </div>
       <div className="w-[675px] pt-24">
+        {query && (
+          <p className="mb-4 text-center text-gray-500">
+            {filteredBands?.length} results for: {query}
+          </p>
+        )}
         {filteredBands?.map(concert => (
           <Link
             href={`/concert/${concert.id}`}
