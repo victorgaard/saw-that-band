@@ -6,6 +6,7 @@ import Balancer from 'react-wrap-balancer';
 import user from '@/data/user';
 import bands, { Bands, Concerts } from '@/data/bands';
 import Link from 'next/link';
+import AnalyticsWrapper from './components/analytics/AnalyticsWrapper';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -277,6 +278,7 @@ export default async function RootLayout({
           </div>
           <div className="relative max-h-screen w-full overflow-y-auto bg-gray-50 py-8 px-24">
             {children}
+            <AnalyticsWrapper />
           </div>
         </div>
       </body>
