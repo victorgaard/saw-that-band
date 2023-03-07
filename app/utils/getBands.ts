@@ -1,4 +1,4 @@
-import { Bands } from '@/data/bands';
+import { Bands } from '@/app/types/bands';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.SUPABASE_URL!;

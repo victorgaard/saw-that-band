@@ -1,6 +1,6 @@
 'use client';
 
-import { Bands } from '@/data/bands';
+import { Bands } from '@/app/types/bands';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

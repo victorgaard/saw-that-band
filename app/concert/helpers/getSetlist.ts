@@ -1,4 +1,4 @@
-import getBands from '@/app/components/getBands';
+import getBands from '@/app/utils/getBands';
 
 async function getSetlist(params: string) {
   const bands = await getBands();

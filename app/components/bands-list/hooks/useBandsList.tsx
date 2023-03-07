@@ -1,8 +1,8 @@
 'use client';
 
-import { Bands } from '@/data/bands';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { Bands } from '@/app/types/bands';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 type useBandsListProps = {
   bands: Bands[];

@@ -1,13 +1,17 @@
-import './globals.css';
-import { ReactNode } from 'react';
+import { Concerts } from '@/app/types/bands';
 import { Work_Sans } from 'next/font/google';
 import Image from 'next/image';
-import Balancer from 'react-wrap-balancer';
-import user from '@/data/user';
 import Link from 'next/link';
-import { Bands, Concerts } from '@/data/bands';
+import { ReactNode } from 'react';
+import Balancer from 'react-wrap-balancer';
 import AnalyticsWrapper from './components/analytics/AnalyticsWrapper';
-import getBands from './components/getBands';
+import './globals.css';
+import formatDate from './utils/formatDate';
+import getBands from './utils/getBands';
+import getBandGenres from './utils/getBandsGenres';
+import getMostSeenBand from './utils/getMostSeenBand';
+import getUser from './utils/getUser';
+import getFirstAndLastConcert from './utils/getFirstAndLastConcert';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -40,97 +44,6 @@ export const metadata = {
   }
 };
 
-export async function getUser() {
-  const res = user;
-  return res;
-}
-
-function getFirstAndLastConcert(concerts: Concerts[]) {
-  // Convert the string date to a Date object
-  const dates = concerts.map(
-    concert => new Date(concert.date.split('-').reverse().join('-'))
-  );
-
-  // Sort the list to get the earliest date
-  dates.sort((a, b) => Number(a) - Number(b));
-
-  // Convert the Date object back to the string date
-  const firstConcertDate = dates[0]
-    .toLocaleDateString('pt-BR')
-    .replaceAll('/', '-');
-
-  const lastConcertDate = dates[dates.length - 1]
-    .toLocaleDateString('pt-BR')
-    .replaceAll('/', '-');
-
-  // Find the object inside concerts array that matches the earliest date found
-  const firstConcert = concerts.find(
-    concert => concert.date === firstConcertDate
-  );
-
-  // Find the object inside concerts array that matches the latest date found
-  const lastConcert = concerts.find(
-    concert => concert.date === lastConcertDate
-  );
-
-  // Return the first concert object
-  return { firstConcert, lastConcert };
-}
-
-function getMostSeenBand(allBands: Bands[]) {
-  const newBandsArray = [...allBands];
-  return newBandsArray
-    .sort((a, b) => b.concerts.length - a.concerts.length)
-    .slice(0, 5);
-}
-
-type TopGenres = {
-  genre: string;
-  count: number;
-};
-
-function getBandGenres(allBands: Bands[]) {
-  const newBandsArray = [...allBands];
-  const topGenres: Record<string, number> = newBandsArray.reduce(
-    (counts: Record<string, number>, band) => {
-      // Loop through each genre in the bands genres array using forEach()
-      band.genre.forEach(genre => {
-        // If the genre is already in the counts object, increment its count by 1
-        if (genre in counts) {
-          const newCounts = counts;
-          newCounts[genre] += 1;
-        }
-        // Otherwise, add the genre to the counts object with a count of 1
-        else {
-          const newCounts = counts;
-          newCounts[genre] = 1;
-        }
-      });
-      // Return the counts object after processing the genres of the current band
-      return counts;
-    },
-    {}
-  );
-  const sortTopGenres: TopGenres[] = Object.entries(topGenres)
-    .sort((a, b) => b[1] - a[1])
-    .map(([genre, count]) => ({ genre, count }));
-
-  return sortTopGenres.slice(0, 5);
-}
-
-function formatDate(date: number) {
-  const DAY_MILLISECONDS = 1000 * 60 * 60 * 24;
-
-  const rtf = new Intl.RelativeTimeFormat('en', {
-    numeric: 'auto'
-  });
-  const daysDifference = Math.round(
-    (date - new Date().getTime()) / DAY_MILLISECONDS
-  );
-
-  return rtf.format(daysDifference, 'day');
-}
-
 export default async function RootLayout({
   children
 }: {
@@ -138,7 +51,6 @@ export default async function RootLayout({
 }) {
   const profile = await getUser();
   const profileBands = await getBands();
-
   const concerts = profileBands.map(band => band.concerts);
   const concertsArray: Concerts[] = [];
   const unifiedConcertsDatesAndLocations = concertsArray.concat(...concerts);
@@ -157,7 +69,7 @@ export default async function RootLayout({
   const genres = getBandGenres(profileBands);
 
   const hasJoinedAt = formatDate(
-    new Date(user.createdAt.slice(0, 10)).getTime()
+    new Date(profile.createdAt.slice(0, 10)).getTime()
   );
 
   return (
@@ -183,8 +95,8 @@ export default async function RootLayout({
                   className="h-[88px] w-[88px] shrink-0 rounded-lg object-cover shadow-xl"
                 />
                 <div className="flex flex-col">
-                  <p className="font-semibold">{user.fullName}</p>
-                  <p className="text-sm">{user.handle}</p>
+                  <p className="font-semibold">{profile.fullName}</p>
+                  <p className="text-sm">{profile.handle}</p>
                   <p className="text-sm">joined {hasJoinedAt}</p>
                 </div>
               </div>

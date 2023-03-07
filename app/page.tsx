@@ -1,5 +1,5 @@
 import BandsList from './components/bands-list/BandsList';
-import getBands from './components/getBands';
+import getBands from './utils/getBands';
 
 export default async function Home() {
   const bands = await getBands();
