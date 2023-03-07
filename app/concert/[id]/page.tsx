@@ -1,5 +1,5 @@
 import BackButton from '../components/BackButton';
-import getSetlist from '../helpers/getSetlist';
+import getSetlist from '../utils/getSetlist';
 
 type ConcertProps = {
   params: {
