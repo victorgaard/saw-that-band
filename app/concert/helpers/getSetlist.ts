@@ -1,6 +1,7 @@
-import bands from '@/data/bands';
+import getBands from '@/app/components/getBands';
 
 async function getSetlist(params: string) {
+  const bands = await getBands();
   const concert = bands.find(c => c.id.toString() === params);
 
   if (concert) {

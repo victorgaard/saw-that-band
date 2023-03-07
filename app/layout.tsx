@@ -4,9 +4,10 @@ import { Work_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 import user from '@/data/user';
-import bands, { Bands, Concerts } from '@/data/bands';
 import Link from 'next/link';
+import { Bands, Concerts } from '@/data/bands';
 import AnalyticsWrapper from './components/analytics/AnalyticsWrapper';
+import getBands from './components/getBands';
 
 const font = Work_Sans({ subsets: ['latin'] });
 
@@ -41,11 +42,6 @@ export const metadata = {
 
 export async function getUser() {
   const res = user;
-  return res;
-}
-
-export async function getBands() {
-  const res = bands;
   return res;
 }
 
@@ -200,7 +196,7 @@ export default async function RootLayout({
               </div>
               <div>
                 <p className="font-semibold">Bands seen live</p>
-                <p>{profileBands.length}</p>
+                <p>{profileBands?.length}</p>
               </div>
               <div>
                 <p className="font-semibold">Total concerts</p>
