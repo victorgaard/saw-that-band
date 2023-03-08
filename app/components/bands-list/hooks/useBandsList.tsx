@@ -37,6 +37,9 @@ function useBandsList({ bands }: useBandsListProps) {
         ) ||
         band.concerts.some(concert =>
           concert.location.toLowerCase().includes(query.toLowerCase())
+        ) ||
+        band.concerts.some(concert =>
+          concert.date.toLowerCase().includes(query.toLowerCase())
         )
     );
     setfilteredBands(searched);

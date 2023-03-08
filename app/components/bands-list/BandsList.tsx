@@ -35,7 +35,7 @@ function BandsList({ bands }: BandsListProps) {
             <List
               width={width}
               height={height}
-              itemSize={144}
+              itemSize={160}
               itemCount={filteredBands.length}
             >
               {(props: ListChildComponentProps) => (
