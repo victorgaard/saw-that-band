@@ -42,7 +42,7 @@ function BandsList({ bands }: BandsListProps) {
                 <BandsListRenderItem
                   index={props.index}
                   style={props.style}
-                  data={bands}
+                  data={filteredBands}
                   setQuery={setQuery}
                   router={router}
                 />
