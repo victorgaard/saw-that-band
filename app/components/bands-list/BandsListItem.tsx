@@ -2,6 +2,7 @@ import { Bands } from '@/app/types/bands';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
 import Image from 'next/image';
 import Link from 'next/link';
+import BandsListItemCollapsedTags from './BandsListItemCollapsedTags';
 
 type BandsListItemProps = {
   band: Bands;
@@ -48,9 +49,11 @@ function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
               </button>
             ))}
             {band.genre.length > 3 && (
-              <p className="rounded-full bg-gray-200 p-2 text-xs">
-                +{band.genre.length - 3}
-              </p>
+              <BandsListItemCollapsedTags
+                bandGenre={band.genre}
+                setQuery={setQuery}
+                router={router}
+              />
             )}
           </div>
         </div>

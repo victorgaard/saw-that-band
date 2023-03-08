@@ -29,7 +29,7 @@ function BandsListSearch({
       {query && (
         <div className="flex items-center gap-4 pr-6">
           <p className="max-w-[20rem] truncate text-gray-500">
-            {bandsCount} results for: {query}
+            {bandsCount} {bandsCount === 1 ? 'result' : 'results'} for: {query}
           </p>
           <button
             onClick={() => {

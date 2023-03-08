@@ -11,7 +11,7 @@ function StatsSideBarGenres({ bands }: StatsSideBarGenresProps) {
 
   return (
     <div>
-      <p className="font-semibold">Genres</p>
+      <p className="font-semibold">Top genres</p>
       {genres.map(genre => (
         <Link
           href={`/?search=${genre.genre}`}
