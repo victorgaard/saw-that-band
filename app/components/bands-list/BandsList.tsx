@@ -11,10 +11,12 @@ type BandsListProps = {
 };
 
 function BandsList({ bands }: BandsListProps) {
-  const { filteredBands, query, handleChange } = useBandsList({
+  const { filteredBands, query, setQuery, handleChange } = useBandsList({
     bands
   });
   const router = useRouter();
+
+  if (!filteredBands) return <p>Loading...</p>;
 
   return (
     <div className="flex flex-col items-center">
@@ -29,7 +31,10 @@ function BandsList({ bands }: BandsListProps) {
         />
         {query && (
           <button
-            onClick={() => router.push('/')}
+            onClick={() => {
+              setQuery('');
+              router.push('/');
+            }}
             type="button"
             className="absolute right-4 top-2 h-14 w-14 rounded-full bg-gray-50 hover:bg-gray-100"
           >
@@ -74,6 +79,7 @@ function BandsList({ bands }: BandsListProps) {
                       className="whitespace-nowrap rounded-full bg-gray-200 p-2 text-xs hover:bg-gray-300"
                       onClick={e => {
                         e.preventDefault();
+                        setQuery(genre);
                         router.push(`/?search=${genre}`);
                       }}
                     >
