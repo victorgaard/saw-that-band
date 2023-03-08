@@ -29,7 +29,7 @@ function BandsList({ bands }: BandsListProps) {
         router={router}
         bandsCount={filteredBands.length}
       />
-      <div className="h-screen w-full">
+      <div className="h-[calc(100vh-73px)] w-full">
         <AutoSizer>
           {({ height, width }) => (
             <List

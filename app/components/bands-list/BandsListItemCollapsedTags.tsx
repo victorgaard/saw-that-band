@@ -2,6 +2,7 @@
 
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 type BandsListItemCollapsedTagsProps = {
   bandGenre: string[];
@@ -24,7 +25,10 @@ function BandsListItemCollapsedTags({
     <div className="relative">
       <button
         type="button"
-        className="rounded-full bg-gray-200 p-2 text-xs hover:bg-gray-300"
+        className={classNames(
+          'w-8 rounded-full bg-gray-200 p-2 text-xs hover:bg-gray-300',
+          { 'bg-gray-400 hover:bg-gray-400': isOpen }
+        )}
         onClick={e => {
           e.preventDefault();
           toggle();
@@ -34,21 +38,33 @@ function BandsListItemCollapsedTags({
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-10 z-10 overflow-hidden rounded-lg border">
-          {bandGenre.slice(3).map(genre => (
-            <button
-              type="button"
-              className="w-full whitespace-nowrap border-b bg-white px-4 py-2 text-right text-xs text-gray-600 last:border-none hover:bg-gray-50"
-              onClick={e => {
-                e.preventDefault();
-                setQuery(genre);
-                router.push(`/?search=${genre}`);
-              }}
-            >
-              {genre}
-            </button>
-          ))}
-        </div>
+        <>
+          <div
+            aria-hidden
+            className="fixed inset-0 z-10 bg-transparent"
+            onClick={e => {
+              e.preventDefault();
+              toggle();
+            }}
+          >
+            {' '}
+          </div>
+          <div className="absolute right-0 top-10 z-10 flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-sm">
+            {bandGenre.slice(3).map(genre => (
+              <button
+                type="button"
+                className="w-full whitespace-nowrap rounded-lg bg-white px-4 py-2 text-left text-xs text-gray-600 hover:bg-gray-50"
+                onClick={e => {
+                  e.preventDefault();
+                  setQuery(genre);
+                  router.push(`/?search=${genre}`);
+                }}
+              >
+                {genre}
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
