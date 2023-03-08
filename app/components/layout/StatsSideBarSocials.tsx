@@ -7,7 +7,7 @@ type StatsSideBarSocialsProps = {
 function StatsSideBarSocials({ profileLinks }: StatsSideBarSocialsProps) {
   return (
     <>
-      <p className="font-semibold">Links</p>
+      <p className="text-base font-semibold">Links</p>
       <div className="flex gap-2">
         {profileLinks.map(link => (
           <a

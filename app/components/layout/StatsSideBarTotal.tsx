@@ -9,11 +9,11 @@ function StatsSideBarTotal({
 }: StatsSideBarTotalProps) {
   return (
     <>
-      <div>
+      <div className="text-base">
         <p className="font-semibold">Bands seen live</p>
         <p>{bandsSeenLive}</p>
       </div>
-      <div>
+      <div className="text-base">
         <p className="font-semibold">Total concerts</p>
         <p>{allConcerts}</p>
       </div>

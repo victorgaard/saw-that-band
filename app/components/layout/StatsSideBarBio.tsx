@@ -7,7 +7,7 @@ type StatsSideBarBioProps = {
 function StatsSideBarBio({ bio }: StatsSideBarBioProps) {
   return (
     <div>
-      <p className="font-semibold">Bio</p>
+      <p className="text-base font-semibold">Bio</p>
       <p>
         <Balancer>{bio}</Balancer>
       </p>

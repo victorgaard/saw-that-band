@@ -22,9 +22,9 @@ function StatsSideBarProfile({ profile }: StatsSideBarProfileProps) {
         className="h-[88px] w-[88px] shrink-0 rounded-lg object-cover shadow-xl"
       />
       <div className="flex flex-col">
-        <p className="font-semibold">{profile.fullName}</p>
+        <p className="text-base font-semibold">{profile.fullName}</p>
         <p className="text-sm">{profile.handle}</p>
-        <p className="text-sm">joined {hasJoinedAt}</p>
+        <p className="text-sm text-gray-500">joined {hasJoinedAt}</p>
       </div>
     </div>
   );

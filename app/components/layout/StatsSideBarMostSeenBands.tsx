@@ -10,8 +10,8 @@ function StatsSideBarMostSeenBands({ bands }: StatsSideBarMostSeenBandsProps) {
   const mostSeenBands = getMostSeenBand(bands);
 
   return (
-    <div>
-      <p className="font-semibold">Most seen bands</p>
+    <div className="flex flex-col gap-1">
+      <p className="text-base font-semibold">Most seen bands</p>
       {mostSeenBands.map(band => (
         <Link
           href={`/?search=${band.band}`}
