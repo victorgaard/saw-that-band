@@ -15,7 +15,7 @@ async function Concert({ params }: ConcertProps) {
   const data = await getSetlist(params.id);
 
   return (
-    <>
+    <div className="p-8">
       <BackButton />
       <div className="m-8"> </div>
       <div className="font-semibold">{data?.concert.band}</div>
@@ -28,7 +28,7 @@ async function Concert({ params }: ConcertProps) {
             </p>
           ))
         : `We could not find the setlist for this concert`}
-    </>
+    </div>
   );
 }
 

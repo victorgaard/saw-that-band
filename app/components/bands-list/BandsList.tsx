@@ -2,9 +2,11 @@
 
 import { Bands } from '@/app/types/bands';
 import { useRouter } from 'next/navigation';
-import BandsListItem from './BandsListItem';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import BandsListSearch from './BandsListSearch';
 import useBandsList from './hooks/useBandsList';
+import BandsListRenderItem from './BandsListRender';
 
 type BandsListProps = {
   bands: Bands[];
@@ -16,7 +18,7 @@ function BandsList({ bands }: BandsListProps) {
   });
   const router = useRouter();
 
-  if (!filteredBands) return <p>Loading...</p>;
+  if (!filteredBands) return <div className="p-8">Loading...</div>;
 
   return (
     <div className="flex flex-col items-center">
@@ -25,16 +27,29 @@ function BandsList({ bands }: BandsListProps) {
         setQuery={setQuery}
         handleChange={handleChange}
         router={router}
+        bandsCount={filteredBands.length}
       />
-      <div className="w-[675px] pt-24">
-        {query && (
-          <p className="mb-4 text-center text-gray-500">
-            {filteredBands?.length} results for: {query}
-          </p>
-        )}
-        {filteredBands?.map(band => (
-          <BandsListItem band={band} setQuery={setQuery} router={router} />
-        ))}
+      <div className="h-screen w-full">
+        <AutoSizer>
+          {({ height, width }) => (
+            <List
+              width={width}
+              height={height}
+              itemSize={144}
+              itemCount={filteredBands.length}
+            >
+              {(props: ListChildComponentProps) => (
+                <BandsListRenderItem
+                  index={props.index}
+                  style={props.style}
+                  data={bands}
+                  setQuery={setQuery}
+                  router={router}
+                />
+              )}
+            </List>
+          )}
+        </AutoSizer>
       </div>
     </div>
   );

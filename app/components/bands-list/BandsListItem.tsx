@@ -12,8 +12,7 @@ type BandsListItemProps = {
 function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
   return (
     <Link
-      href={`/band/${band.id}`}
-      key={band.id}
+      href={`/concert/${band.id}`}
       className="flex items-center justify-between rounded-lg p-6 hover:bg-gray-100"
     >
       <div className="flex items-center gap-8">
