@@ -6,7 +6,6 @@ import StatsSideBarGenres from './StatsSideBarGenres';
 import StatsSideBarMostSeenBands from './StatsSideBarMostSeenBands';
 import StatsSideBarProfile from './StatsSideBarProfile';
 import StatsSideBarSocials from './StatsSideBarSocials';
-import StatsSideBarTotal from './StatsSideBarTotal';
 
 type StatsSideBarProps = {
   profile: User;
@@ -19,14 +18,14 @@ function StatsSideBar({ profile, bands }: StatsSideBarProps) {
   const allConcerts = newArray.concat(...concerts);
 
   return (
-    <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-8 text-sm">
+    <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-6 text-sm">
       <div className="flex flex-col gap-8">
-        <StatsSideBarProfile profile={profile} />
-        <StatsSideBarBio bio={profile.bio} />
-        <StatsSideBarTotal
-          bandsSeenLive={bands.length}
-          allConcerts={allConcerts.length}
+        <StatsSideBarProfile
+          profile={profile}
+          bandsCount={bands.length}
+          allConcertsCount={allConcerts.length}
         />
+        <StatsSideBarBio bio={profile.bio} />
         <StatsSideBarFirstAndLastConcert
           bands={bands}
           allConcerts={allConcerts}
