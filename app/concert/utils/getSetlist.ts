@@ -1,9 +1,9 @@
 import { Bands } from '@/app/types/bands';
 
-async function getSetlist(fromThisBand: Bands[]) {
-  const { band } = fromThisBand[0];
-  const { location } = fromThisBand[0].concerts[0];
-  const { date } = fromThisBand[0].concerts[0];
+async function getSetlist(fromThisBand: Bands) {
+  const { band } = fromThisBand;
+  const { location } = fromThisBand.concerts[0];
+  const { date } = fromThisBand.concerts[0];
 
   const headers = new Headers();
   headers.append('Accept', 'application/json');

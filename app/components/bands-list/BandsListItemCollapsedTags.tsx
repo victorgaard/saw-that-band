@@ -26,8 +26,8 @@ function BandsListItemCollapsedTags({
       <button
         type="button"
         className={classNames(
-          'w-8 rounded-full bg-gray-200 p-2 text-xs hover:bg-gray-300',
-          { 'bg-gray-400 hover:bg-gray-400': isOpen }
+          'w-8 rounded-full bg-stone-700/30 p-2 text-xs hover:bg-stone-700',
+          { 'bg-stone-500': isOpen }
         )}
         onClick={e => {
           e.preventDefault();
@@ -49,11 +49,11 @@ function BandsListItemCollapsedTags({
           >
             {' '}
           </div>
-          <div className="absolute right-0 top-10 z-10 flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-sm">
+          <div className="absolute right-0 top-10 z-10 flex flex-col overflow-hidden rounded-lg bg-stone-700 p-2 shadow-sm">
             {bandGenre.slice(3).map(genre => (
               <button
                 type="button"
-                className="w-full whitespace-nowrap rounded-lg bg-white px-4 py-2 text-left text-xs text-gray-600 hover:bg-gray-50"
+                className="w-full whitespace-nowrap rounded-lg bg-stone-700 px-4 py-2 text-left text-xs text-white hover:bg-stone-800"
                 onClick={e => {
                   e.preventDefault();
                   setQuery(genre);

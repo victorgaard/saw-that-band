@@ -14,10 +14,10 @@ function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
   return (
     <Link
       href={`/concert/${band.id}`}
-      className="flex items-center justify-between p-6 hover:bg-gray-100"
+      className="flex items-center justify-between p-6 hover:bg-stone-900/40"
     >
       <div className="flex items-center gap-8">
-        <div className="h-[112px] w-[112px] shrink-0 overflow-hidden rounded-lg bg-gray-300">
+        <div className="h-[112px] w-[112px] shrink-0 overflow-hidden rounded-lg bg-stone-900">
           <Image
             width={112}
             height={112}
@@ -34,7 +34,7 @@ function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
             <div className="flex items-center gap-1">
               {band.concerts.slice(0, 1).map((concert, idx) => (
                 <p
-                  className="whitespace-nowrap text-sm text-gray-600"
+                  className="whitespace-nowrap text-sm text-stone-400"
                   key={idx}
                 >
                   <span>
@@ -43,7 +43,7 @@ function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
                 </p>
               ))}
               {band.concerts.length > 1 && (
-                <p className="whitespace-nowrap text-sm text-gray-600">
+                <p className="whitespace-nowrap text-sm text-stone-400">
                   & {band.concerts.length - 1} other{' '}
                   {band.concerts.length === 2 ? 'time' : 'times'}
                 </p>
@@ -55,7 +55,7 @@ function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
               <button
                 type="button"
                 key={genre}
-                className="whitespace-nowrap rounded-full bg-gray-200 p-2 px-3 text-xs hover:bg-gray-300"
+                className="whitespace-nowrap rounded-full bg-stone-700/30 p-2 px-3 text-xs hover:bg-stone-700"
                 onClick={e => {
                   e.preventDefault();
                   setQuery(genre);

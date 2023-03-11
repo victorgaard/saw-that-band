@@ -18,7 +18,7 @@ function StatsSideBar({ profile, bands }: StatsSideBarProps) {
   const allConcerts = newArray.concat(...concerts);
 
   return (
-    <div className="flex w-80 shrink-0 flex-col justify-between border-r bg-gray-100 p-6 text-sm">
+    <div className="flex w-80 shrink-0 flex-col justify-between border-r border-stone-700/70 bg-stone-900 p-6 text-sm text-stone-300">
       <div className="flex flex-col gap-8">
         <StatsSideBarProfile
           profile={profile}

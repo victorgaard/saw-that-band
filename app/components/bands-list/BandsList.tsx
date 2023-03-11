@@ -4,6 +4,7 @@ import { Bands } from '@/app/types/bands';
 import { useRouter } from 'next/navigation';
 import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import Loading from '@/app/concert/[id]/loading';
 import BandsListSearch from './BandsListSearch';
 import useBandsList from './hooks/useBandsList';
 import BandsListRenderItem from './BandsListRender';
@@ -18,10 +19,10 @@ function BandsList({ bands }: BandsListProps) {
   });
   const router = useRouter();
 
-  if (!filteredBands) return <div className="p-8">Loading...</div>;
+  if (!filteredBands) return <Loading />;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-stone-800 text-white">
       <BandsListSearch
         query={query}
         setQuery={setQuery}

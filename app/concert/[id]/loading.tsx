@@ -1,5 +1,7 @@
+import LoadingComponent from '@/app/components/loading/Loading';
+
 function Loading() {
-  return <div className="p-8">Loading...</div>;
+  return <LoadingComponent />;
 }
 
 export default Loading;

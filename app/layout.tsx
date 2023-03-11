@@ -53,7 +53,7 @@ export default async function RootLayout({
         <div className="flex min-h-screen">
           <SlimSideBar profileName={profile.name} />
           <StatsSideBar profile={profile} bands={bands} />
-          <div className="relative max-h-screen w-full bg-gray-50">
+          <div className="relative max-h-screen w-full">
             {children}
             <AnalyticsWrapper />
           </div>
