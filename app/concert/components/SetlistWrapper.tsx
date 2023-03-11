@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactElement } from 'react';
-import { Palette } from 'react-palette';
 
 type SetlistWrapperProps = {
   url: string;
@@ -9,20 +8,14 @@ type SetlistWrapperProps = {
 };
 
 function SetlistWrapper({ url, children }: SetlistWrapperProps) {
+  const gradient = `linear-gradient(200deg, #424242, #181818)`;
   return (
-    <Palette src={url}>
-      {({ data }) => {
-        const gradient = `linear-gradient(200deg, ${data.darkMuted}, #181818)`;
-        return (
-          <div
-            className="h-screen overflow-auto bg-[#181818] p-8 text-white"
-            style={{ background: gradient }}
-          >
-            {children}
-          </div>
-        );
-      }}
-    </Palette>
+    <div
+      className="h-screen overflow-auto bg-[#181818] p-8 text-white"
+      style={{ background: gradient }}
+    >
+      {children}
+    </div>
   );
 }
 
