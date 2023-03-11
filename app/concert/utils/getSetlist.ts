@@ -1,10 +1,4 @@
-import { Bands } from '@/app/types/bands';
-
-async function getSetlist(fromThisBand: Bands) {
-  const { band } = fromThisBand;
-  const { location } = fromThisBand.concerts[0];
-  const { date } = fromThisBand.concerts[0];
-
+async function getSetlist(band: string, location: string, date: string) {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
   headers.append('x-api-key', process.env.SETLIST_API_KEY!);
@@ -29,11 +23,22 @@ async function getSetlist(fromThisBand: Bands) {
     !json.message &&
     json.setlist[0].sets.set.length > 0
   ) {
-    const coordinates = json.setlist[0].venue.city.coords;
-    const setlist = json.setlist[0].sets.set.map(
+    const response = json.setlist[0];
+    const venue = response.venue?.name;
+    const tour = response.tour?.name;
+    const city = [
+      response.venue.city?.name,
+      response.venue.city?.state,
+      response.venue.city?.country.name
+    ];
+    const coordinates = response.venue.city.coords;
+    const setlist = response.sets.set.map(
       (c: { encore?: number; song: { name: string }[] }) => c.song
     );
     data = {
+      city,
+      venue,
+      tour,
       coordinates,
       setlist:
         setlist.length > 1 ? [...setlist[0], ...setlist[1]] : [...setlist[0]]
