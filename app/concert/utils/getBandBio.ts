@@ -1,3 +1,18 @@
+type SimilarBands = {
+  name: string;
+  url: string;
+  image: {
+    '#text': string;
+    size: string;
+  }[];
+};
+
+type Data = {
+  bio: string;
+  url: string;
+  similarBands: SimilarBands[];
+};
+
 async function getBandBio(band: string) {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
@@ -16,7 +31,13 @@ async function getBandBio(band: string) {
   if (!res.ok) return undefined;
 
   const json = await res.json();
-  const data = json.artist.bio.summary;
+
+  if (json.error) return undefined;
+
+  const bio = json.artist.bio.summary;
+  const similarBands = json.artist.similar.artist;
+  const url = json.artist.bio.links.link.href;
+  const data: Data = { bio, url, similarBands };
 
   return data;
 }
