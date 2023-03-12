@@ -34,7 +34,12 @@ async function getBandBio(band: string) {
 
   if (json.error) return undefined;
 
-  const bio = json.artist.bio.summary;
+  const bioCleanedUp = json.artist.bio.summary.replace(
+    /<a\b[^>]*>(.*?)<\/a>/i,
+    ''
+  );
+
+  const bio = bioCleanedUp;
   const similarBands = json.artist.similar.artist;
   const url = json.artist.bio.links.link.href;
   const data: Data = { bio, url, similarBands };

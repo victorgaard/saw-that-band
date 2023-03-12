@@ -25,7 +25,7 @@ async function Concert({ params }: ConcertProps) {
       <div className="relative -m-8 bg-stone-800 p-8">
         <BackButton />
         <div className="m-8"> </div>
-        <div className="flex items-center gap-8">
+        <div className="flex flex-col gap-8">
           <Image
             src={band.picture}
             width={200}
@@ -33,23 +33,25 @@ async function Concert({ params }: ConcertProps) {
             alt={band.band}
             className="absolute top-20 h-[200px] w-[200px] rounded-lg bg-stone-600 object-cover shadow-2xl"
           />
-          <div className="ml-[224px] flex flex-col gap-3">
+          <div className="ml-[224px] flex h-[140px] flex-col justify-end gap-3">
             <p className="text-4xl font-bold">{band.band}</p>
             {bandBio && (
               <>
-                <div className="relative flex h-[60px] text-sm text-stone-400">
+                <div className="relative flex text-sm text-stone-400">
                   <p className="line-clamp-3">{bandBio.bio}</p>
-                  <div className="absolute bottom-0 right-0 flex items-center gap-1 bg-stone-800 pl-[0.15rem] text-sm">
-                    <p>...</p>
-                    <a
-                      href={bandBio.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="cursor-pointer text-yellow-600 hover:text-yellow-500"
-                    >
-                      Read full bio
-                    </a>
-                  </div>
+                  {bandBio.bio.length > 80 && (
+                    <div className="absolute bottom-0 right-0 flex items-center gap-1 bg-stone-800 pl-[0.15rem] text-sm">
+                      <p>...</p>
+                      <a
+                        href={bandBio.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="cursor-pointer text-yellow-600 hover:text-yellow-500"
+                      >
+                        Read full bio
+                      </a>
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center gap-2 text-sm text-stone-200">
                   <p>Similar bands</p>

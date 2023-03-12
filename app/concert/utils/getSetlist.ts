@@ -1,12 +1,13 @@
 export type SetlistData = {
+  date: Date;
   city: string[];
-  venue: string;
-  tour: string;
-  coordinates: {
+  venue?: string;
+  tour?: string;
+  coordinates?: {
     lat: number;
     long: number;
   };
-  setlist: {
+  setlist?: {
     name: string;
     tape?: boolean;
   }[];
@@ -30,7 +31,10 @@ async function getSetlist(band: string, location: string, date: string) {
   if (!res.ok) return undefined;
 
   const json = await res.json();
+
   let data: SetlistData | undefined;
+  const [day, month, year] = date.split('-');
+  const formatDate = new Date(Number(year), Number(month) - 1, Number(day));
 
   if (
     json.code !== 404 &&
@@ -53,12 +57,20 @@ async function getSetlist(band: string, location: string, date: string) {
       (c: { encore?: number; song: { name: string }[] }) => c.song
     );
     data = {
+      date: formatDate,
       city,
       venue,
       tour,
       coordinates,
       setlist:
         setlist.length > 1 ? [...setlist[0], ...setlist[1]] : [...setlist[0]]
+    };
+  }
+
+  if (json.code === 404 || json.setlist[0].sets.set.length === 0) {
+    data = {
+      city: [location],
+      date: formatDate
     };
   }
 
