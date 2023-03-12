@@ -24,7 +24,9 @@ function StatsSideBarFirstAndLastConcert({
       <div className="group">
         <p className="text-base font-semibold">First concert</p>
         <Link
-          href={`/concert/${firstConcert?.id}`}
+          href={`/${firstConcert?.band.replaceAll(' ', '+')}-${
+            firstConcert?.id
+          }`}
           className="group-hover:text-gray-500"
         >
           <p>{firstConcert?.band}</p>
@@ -37,7 +39,7 @@ function StatsSideBarFirstAndLastConcert({
       <div className="group">
         <p className="text-base font-semibold">Last concert</p>
         <Link
-          href={`/concert/${lastConcert?.id}`}
+          href={`/${lastConcert?.band.replaceAll(' ', '+')}-${lastConcert?.id}`}
           className="group-hover:text-gray-500"
         >
           <p>{lastConcert?.band}</p>
