@@ -1,4 +1,5 @@
 import getBandById from '@/app/utils/getBandById';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import BackButton from './components/BackButton';
 import SetlistLayout from './components/SetlistLayout';
@@ -11,9 +12,12 @@ type ConcertProps = {
   };
 };
 
-export const metadata = {
-  title: 'Setlist'
-};
+export async function generateMetadata({
+  params
+}: ConcertProps): Promise<Metadata> {
+  const bandName = params.id.split('-')[0].replaceAll('%2B', ' ');
+  return { title: bandName };
+}
 
 async function Concert({ params }: ConcertProps) {
   const bandId = params.id.split('-')[1];
@@ -56,7 +60,7 @@ async function Concert({ params }: ConcertProps) {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-stone-200">
                   <p>Similar bands</p>
-                  {bandBio.similarBands?.slice(0, 4).map(similarBand => (
+                  {bandBio.similarBands?.slice(0, 3).map(similarBand => (
                     <a
                       href={similarBand.url}
                       target="_blank"
