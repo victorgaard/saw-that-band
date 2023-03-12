@@ -1,10 +1,8 @@
-'use client';
-
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 type SetlistLayoutProps = {
   url: string;
-  children: ReactElement;
+  children: ReactNode;
 };
 
 function SetlistLayout({ url, children }: SetlistLayoutProps) {

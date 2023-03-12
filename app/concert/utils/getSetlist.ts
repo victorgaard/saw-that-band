@@ -40,9 +40,12 @@ async function getSetlist(band: string, location: string, date: string) {
     const response = json.setlist[0];
     const venue = response.venue?.name;
     const tour = response.tour?.name;
+    const stateCodeIsNumber = /\d/.test(response.venue.city?.stateCode);
     const city = [
       response.venue.city?.name,
-      response.venue.city?.state,
+      stateCodeIsNumber
+        ? response.venue.city?.state
+        : response.venue.city?.stateCode,
       response.venue.city?.country.name
     ];
     const coordinates = response.venue.city.coords;
