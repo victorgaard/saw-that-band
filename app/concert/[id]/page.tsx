@@ -1,7 +1,7 @@
 import getBandById from '@/app/utils/getBandById';
 import Image from 'next/image';
 import BackButton from '../components/BackButton';
-import SetlistWrapper from '../components/SetlistWrapper';
+import SetlistLayout from '../components/SetlistLayout';
 import getBandBio from '../utils/getBandBio';
 import getSetlist from '../utils/getSetlist';
 
@@ -26,7 +26,7 @@ async function Concert({ params }: ConcertProps) {
   const bandBio = await getBandBio(band.band);
 
   return (
-    <SetlistWrapper url={band.picture}>
+    <SetlistLayout url={band.picture}>
       <>
         <div className="relative -m-8 bg-stone-800 p-8">
           <BackButton />
@@ -77,7 +77,25 @@ async function Concert({ params }: ConcertProps) {
           </div>
         </div>
         <div className="m-16"> </div>
-        <div className="-mx-8 p-8">
+        <div className="flex flex-col gap-2">
+          <p className="text-xl font-medium text-stone-300">
+            Victor saw {band.band} live {band.concerts.length}{' '}
+            {band.concerts.length === 1 ? 'time:' : 'times:'}
+          </p>
+          <div className="flex items-center gap-2 self-start rounded-lg bg-stone-800 p-2">
+            {band.concerts.map(concert => (
+              <button
+                type="button"
+                key={concert.date}
+                className="whitespace-nowrap rounded bg-stone-700 px-2 py-1 text-left text-sm text-white first:bg-yellow-700 hover:bg-stone-600"
+              >
+                {concert.location} {concert.date.slice(6)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="mt-6"> </div>
+        <div className="-mx-8 px-8">
           {data && (
             <>
               {data.tour && <p>Tour: {data.tour}</p>}
@@ -89,8 +107,8 @@ async function Concert({ params }: ConcertProps) {
           )}
           <div className="m-8"> </div>
           {data
-            ? data.setlist?.map((music: { name: string }, idx: number) => (
-                <p key={music.name} className="mb-4 flex gap-2">
+            ? data.setlist?.map((music, idx: number) => (
+                <p key={music.name} className="mb-2 flex gap-2">
                   <span className="font-semibold">{idx + 1}.</span>{' '}
                   <span>{music.name}</span>
                 </p>
@@ -98,7 +116,7 @@ async function Concert({ params }: ConcertProps) {
             : `We could not find the setlist for this concert`}
         </div>
       </>
-    </SetlistWrapper>
+    </SetlistLayout>
   );
 }
 

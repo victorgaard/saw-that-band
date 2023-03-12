@@ -1,3 +1,17 @@
+export type SetlistData = {
+  city: string[];
+  venue: string;
+  tour: string;
+  coordinates: {
+    lat: number;
+    long: number;
+  };
+  setlist: {
+    name: string;
+    tape?: boolean;
+  }[];
+};
+
 async function getSetlist(band: string, location: string, date: string) {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
@@ -16,7 +30,7 @@ async function getSetlist(band: string, location: string, date: string) {
   if (!res.ok) return undefined;
 
   const json = await res.json();
-  let data;
+  let data: SetlistData | undefined;
 
   if (
     json.code !== 404 &&
