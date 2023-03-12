@@ -1,3 +1,5 @@
+import 'server-only';
+
 export type SetlistData = {
   date: Date;
   city: string[];

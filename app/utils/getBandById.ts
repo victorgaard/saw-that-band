@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { Bands } from '@/app/types/bands';
 import { createClient } from '@supabase/supabase-js';
 

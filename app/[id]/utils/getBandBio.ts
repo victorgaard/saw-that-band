@@ -1,3 +1,5 @@
+import 'server-only';
+
 type SimilarBands = {
   name: string;
   url: string;
