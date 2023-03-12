@@ -46,10 +46,16 @@ function Setlist({ band, data }: SetlistProps) {
         {data?.venue && <p>Venue: {data.venue}</p>}
         {data?.tour && <p>Tour: {data.tour}</p>}
         <div className="m-8"> </div>
-        {data?.setlist?.map((music, idx: number) => (
-          <p key={music.name} className="mb-2 flex gap-2">
+        {data?.setlist?.map((song, idx: number) => (
+          <p key={song.name} className="mb-2 flex gap-2">
             <span className="font-semibold">{idx + 1}.</span>{' '}
-            <span>{music.tape ? 'Intro from tape' : music.name}</span>
+            <span>
+              {song.tape
+                ? `Played from tape${song.name ? `: ${song.name}` : ''} ${
+                    song.info ? `(${song.info})` : '(Intro)'
+                  }`
+                : song.name}
+            </span>
           </p>
         ))}
       </div>

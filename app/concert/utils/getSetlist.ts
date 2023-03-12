@@ -10,6 +10,7 @@ export type SetlistData = {
   setlist?: {
     name: string;
     tape?: boolean;
+    info?: string;
   }[];
 };
 
