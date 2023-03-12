@@ -1,9 +1,9 @@
 import getBandById from '@/app/utils/getBandById';
 import Image from 'next/image';
-import BackButton from '../components/BackButton';
-import SetlistLayout from '../components/SetlistLayout';
-import SetlistWrapper from '../components/SetlistWrapper';
-import getBandBio from '../utils/getBandBio';
+import BackButton from './components/BackButton';
+import SetlistLayout from './components/SetlistLayout';
+import SetlistWrapper from './components/SetlistWrapper';
+import getBandBio from './utils/getBandBio';
 
 type ConcertProps = {
   params: {
@@ -16,7 +16,8 @@ export const metadata = {
 };
 
 async function Concert({ params }: ConcertProps) {
-  const bandArray = await getBandById(params.id);
+  const bandId = params.id.split('-')[1];
+  const bandArray = await getBandById(bandId);
   const band = bandArray[0];
   const bandBio = await getBandBio(band.band);
 

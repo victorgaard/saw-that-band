@@ -11,9 +11,10 @@ type BandsListItemProps = {
 };
 
 function BandsListItem({ band, setQuery, router }: BandsListItemProps) {
+  const url = `/${band.band.replaceAll(' ', '+')}-${band.id}`;
   return (
     <Link
-      href={`/concert/${band.id}`}
+      href={url}
       className="flex items-center justify-between p-6 hover:bg-stone-900/40"
     >
       <div className="flex items-center gap-8">

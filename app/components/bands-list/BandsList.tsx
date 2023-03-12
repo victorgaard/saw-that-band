@@ -1,13 +1,13 @@
 'use client';
 
 import { Bands } from '@/app/types/bands';
+import Loading from '@/app/[id]/loading';
 import { useRouter } from 'next/navigation';
-import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import Loading from '@/app/concert/[id]/loading';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+import BandsListRenderItem from './BandsListRender';
 import BandsListSearch from './BandsListSearch';
 import useBandsList from './hooks/useBandsList';
-import BandsListRenderItem from './BandsListRender';
 
 type BandsListProps = {
   bands: Bands[];
