@@ -1,4 +1,5 @@
 import getBandById from '@/app/[band]/[id]/utils/getBandById';
+import getUser from '@/app/utils/getUser';
 import { Bands } from '@/types/bands';
 import ProfilePodium from './ProfilePodium';
 
@@ -23,9 +24,11 @@ async function ProfilePodiumWrapper() {
       reason: 'Last André Matos tour.'
     }
   ];
-  const first: Bands[] = await getBandById(bandsId[0]);
-  const second: Bands[] = await getBandById(bandsId[1]);
-  const third: Bands[] = await getBandById(bandsId[2]);
+  const res = await getUser();
+  const profile = res[0];
+  const first: Bands[] = await getBandById(bandsId[0], profile.id);
+  const second: Bands[] = await getBandById(bandsId[1], profile.id);
+  const third: Bands[] = await getBandById(bandsId[2], profile.id);
 
   return (
     <ProfilePodium first={first} second={second} third={third} bands={bands} />

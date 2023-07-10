@@ -84,7 +84,8 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const profile = await getUser();
+  const res = await getUser();
+  const profile = res[0];
   const bands = await getBands();
 
   return (

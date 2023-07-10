@@ -1,10 +1,13 @@
 import supabase from '@/app/utils/supabase';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export const revalidate = 0;
+export const revalidate =
+  process.env.NODE_ENV === 'development' ? 6666666666 : 0;
 
-export async function GET() {
-  const id = process.env.LOCAL_ID;
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get('id');
+
   const { data } = await supabase
     .from('Bands')
     .select()

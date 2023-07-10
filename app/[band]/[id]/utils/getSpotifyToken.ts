@@ -4,7 +4,7 @@ import { API_URL } from '@/environments/environments';
 export const revalidate = 0;
 
 async function getSpotifyToken() {
-  const res = await fetch(`${API_URL}/api/spotify`);
+  const res = await fetch(`/api/spotify`);
 
   if (!res.ok) return undefined;
 

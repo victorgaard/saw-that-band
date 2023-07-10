@@ -13,15 +13,6 @@ type ConcertProps = {
   };
 };
 
-/* export async function generateStaticParams() {
-  const bands = await getBands();
-
-  return bands.map(band => ({
-    band: band.band.replaceAll(' ', '-'),
-    id: band.id
-  }));
-} */
-
 export async function generateMetadata({
   params
 }: ConcertProps): Promise<Metadata> {
@@ -29,8 +20,9 @@ export async function generateMetadata({
 
   const bandNameURL = params.band;
   const bandId = params.id;
-  const bandArray = await getBandById(bandId);
-  const user = await getUser();
+  const res = await getUser();
+  const user = res[0];
+  const bandArray = await getBandById(bandId, user.id);
 
   if (!bandArray || !user) return { title: null };
 
@@ -46,10 +38,10 @@ export async function generateMetadata({
       title: band.band,
       description: `${user.name} saw that band ${band.band}`,
       siteName: `${user.name} saw that band ${band.band}`,
-      url: `https://victor.sawthat.band/${bandNameURL}/${bandId}`,
+      url: `https://server.sawthat.band/${bandNameURL}/${bandId}`,
       images: [
         {
-          url: `https://victor.sawthat.band/api/og?band=${band.band}&picture=${band.picture}&bands=${bands.length}&concerts=${allConcerts.length}`,
+          url: `https://server.sawthat.band/api/og?band=${band.band}&picture=${band.picture}&bands=${bands.length}&concerts=${allConcerts.length}`,
           width: 1200,
           height: 630
         }
@@ -62,10 +54,11 @@ export async function generateMetadata({
 
 async function Concert({ params }: ConcertProps) {
   const bandId = params.id;
-  const bandArray = await getBandById(bandId);
+  const res = await getUser();
+  const user = res[0];
+  const bandArray = await getBandById(bandId, user.id);
   const band = bandArray[0];
   const bandBio = await getBandBio(band.band);
-  const user = await getUser();
 
   return <BandPageWrapper band={band} bandBio={bandBio} user={user} />;
 }

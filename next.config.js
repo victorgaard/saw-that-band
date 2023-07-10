@@ -13,6 +13,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.countryflagicons.com',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'guerfzlhzjrpooirzvlf.supabase.co',
+        pathname: '/**'
       }
     ]
   },

@@ -18,7 +18,7 @@ export type SetlistData = {
 
 async function getSetlist(band: string, location: string, date: string) {
   const res = await fetch(
-    `${API_URL}/api/setlist?band=${band}&location=${location}&date=${date}`
+    `/api/setlist?band=${band}&location=${location}&date=${date}`
   );
 
   if (!res.ok) return undefined;

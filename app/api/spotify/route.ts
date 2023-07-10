@@ -7,7 +7,8 @@ export type Token = {
   isAnonymous: boolean;
 };
 
-export const revalidate = 0;
+export const revalidate =
+  process.env.NODE_ENV === 'development' ? 6666666666 : 0;
 
 export async function GET() {
   const res = await fetch(`${process.env.SPOTIFY_REQUEST_TOKEN_URL}/`, {
