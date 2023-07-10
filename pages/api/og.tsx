@@ -1,5 +1,4 @@
 import Logo from '@/app/components/logo/Logo';
-import user from '@/types/user';
 import { ImageResponse } from '@vercel/og';
 import classNames from 'classnames';
 import { NextRequest } from 'next/server';
@@ -23,6 +22,39 @@ export default async function handler(req: NextRequest) {
   const bands = searchParams.get('bands');
   const concerts = searchParams.get('concerts');
   const [medium, bold] = await Promise.all([PoppinsMedium, PoppinsBold]);
+
+  const user = {
+    id: 1,
+    handle: '@victor',
+    createdAt: '23-02-2023',
+    name: 'Victor',
+    lastName: 'F. Santos',
+    fullName: 'Victor F. Santos',
+    picture: '/assets/img/avatar/avatar.jpeg',
+    bio: `I'm an optimistic nihilist and lifelong learner who also happens to design and code. Made in Goiânia 🇧🇷 and based in Berlin 🇩🇪`,
+    links: [
+      {
+        type: 'lastfm',
+        url: 'https://www.last.fm/user/elvengaard'
+      },
+      {
+        type: 'setlist',
+        url: 'https://www.setlist.fm/user/victorgaard'
+      },
+      {
+        type: 'spotify',
+        url: 'https://open.spotify.com/user/elvengaard?si=47de00f680484ec1&nd=1'
+      },
+      {
+        type: 'instagram',
+        url: 'https://www.instagram.com/hunter.graphy/'
+      },
+      {
+        type: 'other',
+        url: 'https://victorsantos.work'
+      }
+    ]
+  };
 
   const shouldRenderFallback = !band || !picture || !bands || !concerts;
 
