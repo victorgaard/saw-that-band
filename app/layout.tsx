@@ -85,6 +85,17 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   const res = await getUser();
+
+  if ((res && res.length === 0) || !res)
+    return (
+      <html lang="en" className={font.className}>
+        <head />
+        <body className="relative min-h-screen touch-none overflow-hidden bg-zinc-900 antialiased">
+          <div className="flex">There is no account with this username</div>
+        </body>
+      </html>
+    );
+
   const profile = res[0];
   const bands = await getBands();
 
