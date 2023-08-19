@@ -1,7 +1,7 @@
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
-import { Metadata } from 'next';
+import { User } from '@/types/user';
 import MusicPlayerWrapper from './components/music-player/MusicPlayerWrapper';
 import SlimSideBar from './components/sidebar/SlimSideBar';
 import StatsSideBar from './components/sidebar/StatsSideBar';
@@ -10,56 +10,6 @@ import getUser from './utils/getUser';
 import getBands from './utils/getBands';
 import SlimSideBarMobile from './components/sidebar/SlimSideBarMobile';
 import GoogleAnalyticsWrapper from './components/analytics/GoogleAnalyticsWrapper';
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://victor.sawthat.band'),
-  referrer: 'origin-when-cross-origin',
-  keywords: ['victor saw that band', 'saw that band', 'band catalogue'],
-  authors: [{ name: 'Victor F. Santos', url: 'https://victorsantos.work' }],
-  colorScheme: 'dark',
-  creator: 'Victor F. Santos',
-  publisher: 'Victor F. Santos',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false
-  },
-  title: {
-    default: 'Victor saw that band',
-    template: '%s | Victor saw that band'
-  },
-  description: 'Check all the bands Victor has seen live',
-  openGraph: {
-    title: 'Victor saw that band',
-    description: 'Check all the bands Victor has seen live',
-    url: '/',
-    siteName: 'Victor saw that band',
-    images: '/api/og',
-    locale: 'en-DE',
-    type: 'website'
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1
-    }
-  },
-  twitter: {
-    title: 'Victor saw that band',
-    card: 'summary_large_image'
-  },
-  icons: {
-    shortcut: '/favicon.ico'
-  },
-  verification: {
-    google: 'ofTvVJZzZHEMRIXg6cCRslqaEnRO3cqrum3zjSZTDu0'
-  }
-};
 
 const font = Poppins({
   subsets: ['latin'],
@@ -78,6 +28,67 @@ const routes = [
     icon: <UserCircleIcon className="h-6 w-6" />
   }
 ];
+
+export async function generateMetadata() {
+  const res = await getUser();
+  const profile: User = res[0];
+
+  if ((res && res.length === 0) || !res)
+    return {
+      title: {
+        default:
+          'Create a bands catalogue from all the bands you have seen live'
+      }
+    };
+
+  return {
+    metadataBase: new URL(`https://${profile.name}.sawthat.band`),
+    referrer: 'origin-when-cross-origin',
+    keywords: [`${profile.name}`, 'saw that band', 'band catalogue'],
+    authors: [{ name: profile.fullName, url: 'https://victorsantos.work' }],
+    colorScheme: 'dark',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false
+    },
+    title: {
+      default: `${profile.name} saw that band`,
+      template: `%s | ${profile.name} saw that band`
+    },
+    description: `Check all the bands ${profile.name} has seen live`,
+    openGraph: {
+      title: `${profile.name} saw that band`,
+      description: `Check all the bands ${profile.name} has seen live`,
+      url: '/',
+      siteName: `${profile.name} saw that band`,
+      images: '/api/og',
+      locale: 'en-DE',
+      type: 'website'
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1
+      }
+    },
+    twitter: {
+      title: `${profile.name} saw that band`,
+      card: 'summary_large_image'
+    },
+    icons: {
+      shortcut: '/favicon.ico'
+    },
+    verification: {
+      google: 'ofTvVJZzZHEMRIXg6cCRslqaEnRO3cqrum3zjSZTDu0'
+    }
+  };
+}
 
 export default async function RootLayout({
   children
