@@ -1,6 +1,6 @@
-function getTimeAgo(dateString: string): string {
+function getTimeAgo(dateString: string) {
   const currentDate = new Date();
-  const dateParts = dateString.split('-');
+  const dateParts = dateString.slice(0, 10).split('-');
   const date = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
   const timeDifference = currentDate.getTime() - date.getTime();
   const millisecondsInOneSecond = 1000;

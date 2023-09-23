@@ -14,11 +14,9 @@ export type UserLink = {
 
 export type User = {
   id: number;
-  handle: string;
+  username: string;
   created_at: string;
   name: string;
-  lastName: string;
-  fullName: string;
   picture: string;
   bio: string;
   links: UserLink[];

@@ -19,7 +19,7 @@ function ProfileHeader({ user, joinedAt }: ProfileHeaderProps) {
       />
       <div className="flex flex-col gap-1 sm:gap-1.5">
         <p className="text-base font-bold text-white sm:text-lg">
-          {user.handle}
+          @{user.username}
         </p>
         <p className="text-sm text-zinc-200">
           <Balancer>{user.bio}</Balancer>
