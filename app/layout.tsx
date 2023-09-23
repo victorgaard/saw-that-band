@@ -45,7 +45,6 @@ export async function generateMetadata() {
     metadataBase: new URL(`https://${profile.name}.sawthat.band`),
     referrer: 'origin-when-cross-origin',
     keywords: [`${profile.name}`, 'saw that band', 'band catalogue'],
-    authors: [{ name: profile.fullName, url: 'https://victorsantos.work' }],
     colorScheme: 'dark',
     formatDetection: {
       email: false,

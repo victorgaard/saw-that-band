@@ -1,7 +1,9 @@
 function getTimeAgo(dateString: string) {
   const currentDate = new Date();
   const dateParts = dateString.slice(0, 10).split('-');
+  console.log(dateParts);
   const date = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
+  console.log(date);
   const timeDifference = currentDate.getTime() - date.getTime();
   const millisecondsInOneSecond = 1000;
   const secondsInOneMinute = 60;
