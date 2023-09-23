@@ -107,6 +107,13 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       country_code: 'FI',
       lat: 61.4980214,
       lon: 23.7603118
+    },
+    {
+      location: 'Tilburg',
+      country: 'Netherlands',
+      country_code: 'NL',
+      lat: 51.5606,
+      lon: 5.0919
     }
   ];
   const locationsGroupedByCountry = groupLocationsByCountry(locations);
