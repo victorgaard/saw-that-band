@@ -8,7 +8,6 @@ type ProfileHeaderWrapperProps = {
 
 function ProfileHeaderWrapper({ user }: ProfileHeaderWrapperProps) {
   const joinedAt = getTimeAgo(user.created_at);
-
   return <ProfileHeader user={user} joinedAt={joinedAt} />;
 }
 

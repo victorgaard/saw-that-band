@@ -32,7 +32,7 @@ function ProfileWrapper({ bands, user, allConcerts }: ProfileWrapperProps) {
     <div className="flex h-screen flex-col gap-8 overflow-auto overflow-x-hidden bg-zinc-870 py-8 pb-24 sm:px-12 sm:pb-8">
       <ProfileHeaderWrapper user={user} />
       <div className="grid gap-8 3xl:grid-cols-2">
-        <ProfileMapWrapper bands={bands} />
+        {user.username === 'victor' && <ProfileMapWrapper bands={bands} />}
         <ProfileMostSeenBandsChartWrapper
           bands={bands}
           oldestConcertYear={oldestConcertYear}
@@ -40,7 +40,7 @@ function ProfileWrapper({ bands, user, allConcerts }: ProfileWrapperProps) {
       </div>
       <div className="grid gap-8 3xl:grid-cols-2">
         {/* @ts-expect-error Server component */}
-        <ProfilePodiumWrapper />
+        {user.username === 'victor' && <ProfilePodiumWrapper />}
         <ProfileBarChartWrapper
           bands={bands}
           oldestConcertYear={oldestConcertYear}
