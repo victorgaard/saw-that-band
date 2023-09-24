@@ -78,22 +78,22 @@ function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
         src={profile.picture}
         width={48}
         height={48}
-        alt={(profile.name, 'photo')}
+        alt={(profile.username, 'photo')}
         className="h-[48px] w-[48px] shrink-0 rounded object-cover"
       />
       <div className="flex flex-col gap-1.5">
         <p className="text-xs font-semibold">
-          FOLLOW {profile.name.toLocaleUpperCase()}
+          FOLLOW {profile.username.toLocaleUpperCase()}
         </p>
         <div className="flex items-center gap-3">
-          {profile.links.map(link => (
+          {profile.links?.map(link => (
             <a
               key={link.url}
               href={link.url}
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"
-              aria-label={`Follow ${profile.name} on ${link.type}`}
+              aria-label={`Follow ${profile.username} on ${link.type}`}
             >
               {icons[link.type]}
             </a>

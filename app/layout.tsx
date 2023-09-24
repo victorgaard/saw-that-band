@@ -119,7 +119,7 @@ export default async function RootLayout({
           </div>
           <div className="flex max-h-screen min-h-screen">
             <div className="hidden sm:flex">
-              <SlimSideBar profileName={profile.name} routes={routes} />
+              <SlimSideBar profileName={profile.username} routes={routes} />
             </div>
             <div className="hidden lg:flex">
               <StatsSideBar profile={profile} bands={bands} />

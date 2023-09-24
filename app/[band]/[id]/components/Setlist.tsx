@@ -36,7 +36,7 @@ function Setlist({
   return (
     <div className="flex flex-col text-zinc-100">
       <p className="pb-4 text-xs font-semibold text-zinc-400">
-        {user.name.toLocaleUpperCase()} SAW{' '}
+        {user.username.toLocaleUpperCase()} SAW{' '}
         <span className="font-semibold">{band.band.toLocaleUpperCase()}</span>{' '}
         {band.concerts.length === 1 ? 'ONCE' : `${band.concerts.length} TIMES`}
       </p>

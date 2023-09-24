@@ -33,11 +33,11 @@ export async function generateMetadata({
 
   return {
     title: band.band,
-    description: `${user.name} saw that band ${band.band}`,
+    description: `${user.username} saw that band ${band.band}`,
     openGraph: {
       title: band.band,
-      description: `${user.name} saw that band ${band.band}`,
-      siteName: `${user.name} saw that band ${band.band}`,
+      description: `${user.username} saw that band ${band.band}`,
+      siteName: `${user.username} saw that band ${band.band}`,
       url: `https://server.sawthat.band/${bandNameURL}/${bandId}`,
       images: [
         {

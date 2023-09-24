@@ -81,7 +81,7 @@ export default async function handler(req: NextRequest) {
                 victor.sawthat.band
               </span>
               <span tw="text-[110px] font-bold leading-[90px]">
-                {user.name} saw that band
+                {user.username} saw that band
               </span>
             </p>
           </div>
@@ -126,7 +126,7 @@ export default async function handler(req: NextRequest) {
           </picture>
           <p tw="flex flex-col flex-wrap">
             <span tw="text-[32px] opacity-60 mb-[12px]">
-              {user.name} saw that band
+              {user.username} saw that band
             </span>
             {band && (
               <span
@@ -155,7 +155,8 @@ export default async function handler(req: NextRequest) {
             </picture>
             <div tw="flex flex-col text-white">
               <span tw="text-[24px]">
-                {user.name} saw {bands} {bands?.length === 1 ? 'band' : 'bands'}
+                {user.username} saw {bands}{' '}
+                {bands?.length === 1 ? 'band' : 'bands'}
               </span>
               <span tw="text-[24px] opacity-60">
                 from {concerts}{' '}
