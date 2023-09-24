@@ -14,13 +14,21 @@ function Picture({ user, size = 116 }: PictureProps) {
         width={size}
         height={size}
         alt="Avatar"
-        className={`h-[${size}px] w-[${size}px] rounded-lg bg-zinc-900 object-cover`}
+        className="rounded-lg bg-zinc-900 object-cover"
+        style={{
+          width: size,
+          height: size
+        }}
       />
     );
 
   return (
     <div
-      className={`flex h-[${size}px] w-[${size}px] items-center justify-center rounded-lg bg-zinc-900 object-cover text-4xl uppercase text-zinc-700`}
+      className="flex items-center justify-center rounded-lg bg-zinc-900 object-cover text-4xl uppercase text-zinc-700"
+      style={{
+        width: size,
+        height: size
+      }}
     >
       {user.username[0]}
     </div>

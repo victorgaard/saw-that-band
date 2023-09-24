@@ -42,9 +42,9 @@ export async function generateMetadata() {
     };
 
   return {
-    metadataBase: new URL(`https://${profile.name}.sawthat.band`),
+    metadataBase: new URL(`https://${profile.username}.sawthat.band`),
     referrer: 'origin-when-cross-origin',
-    keywords: [`${profile.name}`, 'saw that band', 'band catalogue'],
+    keywords: [`${profile.username}`, 'saw that band', 'band catalogue'],
     colorScheme: 'dark',
     formatDetection: {
       email: false,
@@ -52,15 +52,15 @@ export async function generateMetadata() {
       telephone: false
     },
     title: {
-      default: `${profile.name} saw that band`,
-      template: `%s | ${profile.name} saw that band`
+      default: `${profile.username} saw that band`,
+      template: `%s | ${profile.username} saw that band`
     },
-    description: `Check all the bands ${profile.name} has seen live`,
+    description: `Check all the bands ${profile.username} has seen live`,
     openGraph: {
-      title: `${profile.name} saw that band`,
-      description: `Check all the bands ${profile.name} has seen live`,
+      title: `${profile.username} saw that band`,
+      description: `Check all the bands ${profile.username} has seen live`,
       url: '/',
-      siteName: `${profile.name} saw that band`,
+      siteName: `${profile.username} saw that band`,
       images: '/api/og',
       locale: 'en-DE',
       type: 'website'
@@ -77,7 +77,7 @@ export async function generateMetadata() {
       }
     },
     twitter: {
-      title: `${profile.name} saw that band`,
+      title: `${profile.username} saw that band`,
       card: 'summary_large_image'
     },
     icons: {
