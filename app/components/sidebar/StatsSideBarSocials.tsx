@@ -89,7 +89,7 @@ function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
               className="hover:text-white"
               aria-label={`Follow ${profile.username} on ${link.type}`}
             >
-              {icons[link.type]}
+              {icons[link.type] || icons.other}
             </a>
           ))}
           {!profile.links && (
