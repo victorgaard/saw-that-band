@@ -15,7 +15,7 @@ function StatsSideBarProfile({
     <div className="flex items-center gap-4">
       <div className="flex flex-col">
         <p className="text-lg font-semibold">
-          {profile.username} saw {bandsCount}{' '}
+          {profile.name || profile.username} saw {bandsCount}{' '}
           {bandsCount === 1 ? 'band' : 'bands'}
         </p>
         <p className="text-sm text-zinc-400">

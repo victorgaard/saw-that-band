@@ -72,12 +72,13 @@ const icons: Icons = {
 };
 
 function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
+  const name = profile.name || profile.username;
   return (
     <div className="flex items-center gap-4 text-zinc-400">
       <Picture user={profile} size={48} />
       <div className="flex flex-col gap-1.5">
         <p className="text-xs font-semibold">
-          FOLLOW {profile.username.toLocaleUpperCase()}
+          FOLLOW {name.toLocaleUpperCase()}
         </p>
         <div className="flex items-center gap-3">
           {profile.links?.map(link => (
@@ -87,7 +88,7 @@ function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"
-              aria-label={`Follow ${profile.username} on ${link.type}`}
+              aria-label={`Follow ${name} on ${link.type}`}
             >
               {icons[link.type] || icons.other}
             </a>
