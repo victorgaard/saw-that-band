@@ -2,6 +2,7 @@ import { User, UserLink } from '@/types/user';
 import { LinkIcon, MusicalNoteIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import Picture from '../picture/Picture';
 
 type StatsSideBarSocialsProps = {
   profile: User;
@@ -73,14 +74,7 @@ const icons: Icons = {
 function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
   return (
     <div className="flex items-center gap-4 text-zinc-400">
-      <Image
-        priority
-        src={profile.picture}
-        width={48}
-        height={48}
-        alt={(profile.username, 'photo')}
-        className="h-[48px] w-[48px] shrink-0 rounded object-cover"
-      />
+      <Picture user={profile} size={48} />
       <div className="flex flex-col gap-1.5">
         <p className="text-xs font-semibold">
           FOLLOW {profile.username.toLocaleUpperCase()}
@@ -98,6 +92,9 @@ function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
               {icons[link.type]}
             </a>
           ))}
+          {!profile.links && (
+            <span className="text-xs text-zinc-500">No social links added</span>
+          )}
         </div>
       </div>
     </div>

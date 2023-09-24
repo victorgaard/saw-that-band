@@ -1,5 +1,5 @@
+import Picture from '@/app/components/picture/Picture';
 import { User } from '@/types/user';
-import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 
 type ProfileHeaderProps = {
@@ -10,13 +10,7 @@ type ProfileHeaderProps = {
 function ProfileHeader({ user, joinedAt }: ProfileHeaderProps) {
   return (
     <div className="flex items-center gap-4 rounded-lg sm:gap-6">
-      <Image
-        src={user.picture}
-        width={116}
-        height={116}
-        alt="Avatar"
-        className="h-[116px] w-[116px] rounded-lg bg-zinc-900 object-cover"
-      />
+      <Picture user={user} />
       <div className="flex flex-col gap-1 sm:gap-1.5">
         <p className="text-base font-bold text-white sm:text-lg">
           @{user.username}
