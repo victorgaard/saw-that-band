@@ -33,6 +33,8 @@ export async function generateMetadata() {
   const res = await getUser();
   const profile: User = res[0];
 
+  const name = profile.name || profile.username;
+
   if ((res && res.length === 0) || !res)
     return {
       title: {
@@ -44,7 +46,7 @@ export async function generateMetadata() {
   return {
     metadataBase: new URL(`https://${profile.username}.sawthat.band`),
     referrer: 'origin-when-cross-origin',
-    keywords: [`${profile.username}`, 'saw that band', 'band catalogue'],
+    keywords: [`${name}`, 'saw that band', 'band catalogue'],
     colorScheme: 'dark',
     formatDetection: {
       email: false,
@@ -52,15 +54,15 @@ export async function generateMetadata() {
       telephone: false
     },
     title: {
-      default: `${profile.username} saw that band`,
-      template: `%s | ${profile.username} saw that band`
+      default: `${name} saw that band`,
+      template: `%s | ${name} saw that band`
     },
-    description: `Check all the bands ${profile.username} has seen live`,
+    description: `Check all the bands ${name} has seen live`,
     openGraph: {
-      title: `${profile.username} saw that band`,
-      description: `Check all the bands ${profile.username} has seen live`,
+      title: `${name} saw that band`,
+      description: `Check all the bands ${name} has seen live`,
       url: '/',
-      siteName: `${profile.username} saw that band`,
+      siteName: `${name} saw that band`,
       images: '/api/og',
       locale: 'en-DE',
       type: 'website'
@@ -107,6 +109,7 @@ export default async function RootLayout({
     );
 
   const profile = res[0];
+  const name = profile.name || profile.username;
   const bands = await getBands();
 
   return (
@@ -119,10 +122,7 @@ export default async function RootLayout({
           </div>
           <div className="flex max-h-screen min-h-screen">
             <div className="hidden sm:flex">
-              <SlimSideBar
-                profileName={profile.name || profile.username}
-                routes={routes}
-              />
+              <SlimSideBar profileName={name} routes={routes} />
             </div>
             <div className="hidden lg:flex">
               <StatsSideBar profile={profile} bands={bands} />
