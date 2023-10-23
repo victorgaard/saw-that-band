@@ -25,7 +25,7 @@ function Tooltip({ serie }: { serie: BumpComputedSerie<BandData, BandInfo> }) {
   const shouldRenderTrendingDown = !validate && !isTie;
 
   return (
-    <div className="relative flex items-center gap-4 rounded border border-zinc-700/40 bg-zinc-800/80 px-4 py-2 text-xs backdrop-blur-lg">
+    <div className="relative flex animate-fade-in-with-delay items-center gap-4 rounded border border-zinc-700/40 bg-zinc-800/80 px-4 py-2 text-xs opacity-0 backdrop-blur-lg">
       {shouldRenderTrendingUp && (
         <ArrowTrendingUpIcon className="h-6 w-6 text-green-600" />
       )}

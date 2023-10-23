@@ -18,7 +18,7 @@ function ProfileMapTooltip({ tooltip }: ProfileMapTooltipProps) {
     <>
       {tooltip && (
         <div
-          className="absolute z-40 flex animate-fade-in flex-col gap-2 rounded border border-zinc-700/40 bg-zinc-800/80 px-4 py-2 text-xs opacity-0 backdrop-blur-lg"
+          className="absolute z-40 flex animate-fade-in-up-short flex-col gap-2 rounded border border-zinc-700/40 bg-zinc-800/80 px-4 py-2 text-xs opacity-0 backdrop-blur-lg"
           style={{
             top: `${tooltip.y + 10}px`,
             left: `${tooltip.x - 390}px`
