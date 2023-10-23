@@ -141,7 +141,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
             <div key={location.country}>
               <div className="flex items-center gap-2 pb-3 text-[13px] font-semibold text-zinc-400">
                 <Image
-                  src={`https://www.countryflagicons.com/FLAT/32/${location.country_code}.png`}
+                  src={`https://flagcdn.com/32x24/${location.country_code.toLowerCase()}.png`}
                   width={12}
                   height={12}
                   alt="Flag"

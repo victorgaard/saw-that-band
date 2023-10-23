@@ -32,7 +32,7 @@ function ProfileMapTooltip({ tooltip }: ProfileMapTooltipProps) {
           </div>
           <div className="flex items-center gap-2">
             <Image
-              src={`https://www.countryflagicons.com/FLAT/32/${tooltip.country_code}.png`}
+              src={`https://flagcdn.com/32x24/${tooltip.country_code.toLowerCase()}.png`}
               width={12}
               height={12}
               alt="Flag"
