@@ -2,6 +2,7 @@ import getBandById from '@/app/[band]/[id]/utils/getBandById';
 import getBands from '@/app/utils/getBands';
 import { User } from '@/types/user';
 import { Metadata } from 'next';
+import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
 import { Concerts } from '../../../types/bands';
 import getUser from '../../utils/getUser';
 import BandPageWrapper from './components/BandPageWrapper';
@@ -60,6 +61,7 @@ async function Concert({ params }: ConcertProps) {
   const user = res[0];
   const bandArray = await getBandById(bandId, user.id);
   const band = bandArray[0];
+  band.concerts = sortConcertsByDate(band.concerts);
   const bandBio = await getBandBio(band.band);
 
   return <BandPageWrapper band={band} bandBio={bandBio} user={user} />;

@@ -1,4 +1,5 @@
 import { Bands } from '@/types/bands';
+import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
 import { CSSProperties } from 'react';
 import BandsListItem from './BandsListItem';
 
@@ -18,6 +19,8 @@ function BandsListRenderItem({
   resetScroll
 }: BandsListRenderItemProps) {
   const band = data[index];
+  band.concerts = sortConcertsByDate(band.concerts);
+
   return (
     <div style={style} className="mt-20">
       <BandsListItem
