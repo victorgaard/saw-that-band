@@ -32,7 +32,7 @@ function SlimSideBar({ profileName, routes }: SlimSideBarProps) {
             <Logo width={48} height={48} />
           </a>
           <div className="absolute left-[4.5rem] top-5 z-20 hidden min-w-fit whitespace-nowrap rounded bg-zinc-700 px-6 py-4 text-sm font-medium text-white shadow-lg peer-hover:block">
-            Join the waitlist to create yours 🤘
+            Want one for you? Create your profile now 🤘
           </div>
         </div>
         <div className="flex flex-col gap-4">
