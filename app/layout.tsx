@@ -33,8 +33,6 @@ export async function generateMetadata() {
   const res = await getUser();
   const profile: User = res[0];
 
-  const name = profile.name.split(' ')[0] || profile.username;
-
   if ((res && res.length === 0) || !res)
     return {
       title: {
@@ -42,6 +40,7 @@ export async function generateMetadata() {
           'Create a bands catalogue from all the bands you have seen live'
       }
     };
+  const name = profile.name.split(' ')[0] || profile.username;
 
   return {
     metadataBase: new URL(`https://${profile.username}.sawthat.band`),
@@ -102,8 +101,19 @@ export default async function RootLayout({
     return (
       <html lang="en" className={font.className}>
         <head />
-        <body className="relative min-h-screen touch-none overflow-hidden bg-zinc-900 antialiased">
-          <div className="flex">There is no account with this username</div>
+        <body className="relative min-h-screen touch-none overflow-hidden bg-gradient-to-tl from-zinc-850 to-zinc-900 antialiased">
+          <div className="flex h-screen flex-col items-center justify-center gap-2 text-sm">
+            There is no account with this username, would you like to register
+            it?
+            <a
+              href="https://app.sawthat.band/signup?utm_source=nonExistingProfile"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-emerald-400 to-green-400 px-6 py-2 text-sm font-semibold text-zinc-900 transition-colors hover:from-green-400 hover:to-green-400 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:from-emerald-400 disabled:hover:to-green-400"
+            >
+              Register
+            </a>
+          </div>
         </body>
       </html>
     );
