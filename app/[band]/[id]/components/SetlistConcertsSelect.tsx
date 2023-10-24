@@ -47,7 +47,7 @@ function SetlistConcertsSelect({
           }
         )}
       >
-        {title}
+        <span className="truncate pr-2">{title}</span>
         <ChevronDownIcon className="h-4 w-4" />
       </button>
 
@@ -93,8 +93,12 @@ function SetlistConcertsSelect({
                     }
                   )}
                 >
-                  {currentConcert.location} {currentConcert.date.slice(6)}
-                  {optionIsActive && <CheckIcon className="h-3 w-3" />}
+                  <span className="truncate pr-2">
+                    {currentConcert.location} {currentConcert.date.slice(6)}
+                  </span>
+                  {optionIsActive && (
+                    <CheckIcon className="h-3 w-3 flex-shrink-0" />
+                  )}
                 </button>
               );
             })}
