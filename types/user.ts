@@ -13,7 +13,7 @@ export type UserLink = {
 };
 
 export type User = {
-  id: number;
+  id: string;
   username: string;
   created_at: string;
   name: string;

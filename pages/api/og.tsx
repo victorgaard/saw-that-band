@@ -1,4 +1,5 @@
 import Logo from '@/app/components/logo/Logo';
+import getUser from '@/app/utils/getUser';
 import { ImageResponse } from '@vercel/og';
 import classNames from 'classnames';
 import { NextRequest } from 'next/server';
@@ -21,40 +22,12 @@ export default async function handler(req: NextRequest) {
   const picture = searchParams.get('picture');
   const bands = searchParams.get('bands');
   const concerts = searchParams.get('concerts');
-  const [medium, bold] = await Promise.all([PoppinsMedium, PoppinsBold]);
 
-  const user = {
-    id: 1,
-    handle: '@victor',
-    createdAt: '23-02-2023',
-    name: 'Victor',
-    lastName: 'F. Santos',
-    fullName: 'Victor F. Santos',
-    picture: '/assets/img/avatar/avatar.jpeg',
-    bio: `I'm an optimistic nihilist and lifelong learner who also happens to design and code. Made in Goiânia 🇧🇷 and based in Berlin 🇩🇪`,
-    links: [
-      {
-        type: 'lastfm',
-        url: 'https://www.last.fm/user/elvengaard'
-      },
-      {
-        type: 'setlist',
-        url: 'https://www.setlist.fm/user/victorgaard'
-      },
-      {
-        type: 'spotify',
-        url: 'https://open.spotify.com/user/elvengaard?si=47de00f680484ec1&nd=1'
-      },
-      {
-        type: 'instagram',
-        url: 'https://www.instagram.com/hunter.graphy/'
-      },
-      {
-        type: 'other',
-        url: 'https://victorsantos.work'
-      }
-    ]
-  };
+  const username = searchParams.get('username');
+  const userPicture = searchParams.get('userPicture');
+  const userFirstName = searchParams.get('userFirstName');
+
+  const [medium, bold] = await Promise.all([PoppinsMedium, PoppinsBold]);
 
   const shouldRenderFallback = !band || !picture || !bands || !concerts;
 
@@ -68,7 +41,7 @@ export default async function handler(req: NextRequest) {
           <div tw="flex items-center text-white pr-[300px]">
             <picture>
               <img
-                src={`https://victor.sawthat.band/${user.picture}`}
+                src={userPicture || ''}
                 width={300}
                 height={300}
                 alt="Avatar"
@@ -78,10 +51,10 @@ export default async function handler(req: NextRequest) {
             </picture>
             <p tw="flex flex-col flex-wrap">
               <span tw="text-[32px] opacity-60 mb-[24px]">
-                victor.sawthat.band
+                {username}.sawthat.band
               </span>
               <span tw="text-[110px] font-bold leading-[90px]">
-                {user.name} saw that band
+                {userFirstName || username} saw that band
               </span>
             </p>
           </div>
@@ -126,7 +99,7 @@ export default async function handler(req: NextRequest) {
           </picture>
           <p tw="flex flex-col flex-wrap">
             <span tw="text-[32px] opacity-60 mb-[12px]">
-              {user.name} saw that band
+              {userFirstName || username} saw that band
             </span>
             {band && (
               <span
@@ -146,7 +119,7 @@ export default async function handler(req: NextRequest) {
           <div tw="flex">
             <picture>
               <img
-                src={`${origin}/${user.picture}`}
+                src={userPicture || ''}
                 width={64}
                 height={64}
                 alt="Avatar"
@@ -155,7 +128,8 @@ export default async function handler(req: NextRequest) {
             </picture>
             <div tw="flex flex-col text-white">
               <span tw="text-[24px]">
-                {user.name} saw {bands} {bands?.length === 1 ? 'band' : 'bands'}
+                {userFirstName || username} saw {bands}{' '}
+                {bands?.length === 1 ? 'band' : 'bands'}
               </span>
               <span tw="text-[24px] opacity-60">
                 from {concerts}{' '}

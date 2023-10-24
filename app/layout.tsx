@@ -33,7 +33,7 @@ export async function generateMetadata() {
   const res = await getUser();
   const profile: User = res[0];
 
-  const name = profile.name || profile.username;
+  const name = profile.name.split(' ')[0] || profile.username;
 
   if ((res && res.length === 0) || !res)
     return {
@@ -63,7 +63,7 @@ export async function generateMetadata() {
       description: `Check all the bands ${name} has seen live`,
       url: '/',
       siteName: `${name} saw that band`,
-      images: '/api/og',
+      images: `/api/og?username=${profile.username}&userPicture=${profile.picture}&userFirstName=${name}`,
       locale: 'en-DE',
       type: 'website'
     },
@@ -79,7 +79,7 @@ export async function generateMetadata() {
       }
     },
     twitter: {
-      title: `${profile.username} saw that band`,
+      title: `${name} saw that band`,
       card: 'summary_large_image'
     },
     icons: {

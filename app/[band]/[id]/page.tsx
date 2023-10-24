@@ -1,5 +1,6 @@
 import getBandById from '@/app/[band]/[id]/utils/getBandById';
 import getBands from '@/app/utils/getBands';
+import { User } from '@/types/user';
 import { Metadata } from 'next';
 import { Concerts } from '../../../types/bands';
 import getUser from '../../utils/getUser';
@@ -21,7 +22,8 @@ export async function generateMetadata({
   const bandNameURL = params.band;
   const bandId = params.id;
   const res = await getUser();
-  const user = res[0];
+  const user: User = res[0];
+  const name = user.name.split(' ')[0] || user.username;
   const bandArray = await getBandById(bandId, user.id);
 
   if (!bandArray || !user) return { title: null };
@@ -33,15 +35,15 @@ export async function generateMetadata({
 
   return {
     title: band.band,
-    description: `${user.username} saw that band ${band.band}`,
+    description: `${name} saw that band ${band.band}`,
     openGraph: {
       title: band.band,
-      description: `${user.username} saw that band ${band.band}`,
-      siteName: `${user.username} saw that band ${band.band}`,
-      url: `https://server.sawthat.band/${bandNameURL}/${bandId}`,
+      description: `${name} saw that band ${band.band}`,
+      siteName: `${name} saw that band ${band.band}`,
+      url: `https://${user.username}.sawthat.band/${bandNameURL}/${bandId}`,
       images: [
         {
-          url: `https://server.sawthat.band/api/og?band=${band.band}&picture=${band.picture}&bands=${bands.length}&concerts=${allConcerts.length}`,
+          url: `/api/og?band=${band.band}&picture=${band.picture}&bands=${bands.length}&concerts=${allConcerts.length}&username=${user.username}&userPicture=${user.picture}&userFirstName=${name}`,
           width: 1200,
           height: 630
         }
