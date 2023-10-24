@@ -109,7 +109,7 @@ export default async function RootLayout({
     );
 
   const profile = res[0];
-  const name = profile.name || profile.username;
+  const name = profile.name.split(' ')[0] || profile.username;
   const bands = await getBands();
 
   return (

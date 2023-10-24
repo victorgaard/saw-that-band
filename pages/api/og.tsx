@@ -1,5 +1,4 @@
 import Logo from '@/app/components/logo/Logo';
-import getUser from '@/app/utils/getUser';
 import { ImageResponse } from '@vercel/og';
 import classNames from 'classnames';
 import { NextRequest } from 'next/server';

@@ -11,12 +11,12 @@ function StatsSideBarProfile({
   bandsCount,
   allConcertsCount
 }: StatsSideBarProfileProps) {
+  const name = profile.name.split(' ')[0] || profile.username;
   return (
     <div className="flex items-center gap-4">
       <div className="flex flex-col">
         <p className="text-lg font-semibold">
-          {profile.name || profile.username} saw {bandsCount}{' '}
-          {bandsCount === 1 ? 'band' : 'bands'}
+          {name} saw {bandsCount} {bandsCount === 1 ? 'band' : 'bands'}
         </p>
         <p className="text-sm text-zinc-400">
           from {allConcertsCount}{' '}
