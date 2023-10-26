@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Logo from '../logo/Logo';
+import Tooltip from '../tooltip/Tooltip';
 
 type SlimSideBarProps = {
   profileName: string;
@@ -13,9 +14,10 @@ type SlimSideBarProps = {
     href: string;
     icon: ReactElement;
   }[];
+  username: string;
 };
 
-function SlimSideBar({ profileName, routes }: SlimSideBarProps) {
+function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
   const path = usePathname();
 
   return (
@@ -23,7 +25,7 @@ function SlimSideBar({ profileName, routes }: SlimSideBarProps) {
       <div className="flex flex-col items-center gap-6">
         <div>
           <a
-            href="https://www.sawthat.band"
+            href={`https://www.sawthat.band/?utm_source=${username}`}
             target="_blank"
             rel="noreferrer"
             className="peer cursor-pointer text-zinc-600 transition-colors hover:text-zinc-500"
@@ -31,8 +33,8 @@ function SlimSideBar({ profileName, routes }: SlimSideBarProps) {
           >
             <Logo width={48} height={48} />
           </a>
-          <div className="absolute left-[4.5rem] top-5 z-20 hidden min-w-fit whitespace-nowrap rounded bg-zinc-700 px-6 py-4 text-sm font-medium text-white shadow-lg peer-hover:block">
-            Want one for you? Create your profile now 🤘
+          <div className="absolute left-[4.5rem] top-5 z-20 hidden min-w-fit animate-fade-in whitespace-nowrap rounded bg-zinc-700 px-6 py-4 text-sm font-medium text-white shadow-lg peer-hover:block">
+            Create your profile now 🤘
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -68,6 +70,7 @@ function SlimSideBar({ profileName, routes }: SlimSideBarProps) {
                 >
                   {route.icon}
                 </div>
+                <Tooltip>{route.label}</Tooltip>
               </Link>
             );
           })}

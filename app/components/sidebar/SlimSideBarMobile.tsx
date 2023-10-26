@@ -12,9 +12,10 @@ type SlimSideBarMobileProps = {
     href: string;
     icon: ReactElement;
   }[];
+  username: string;
 };
 
-function SlimSideBarMobile({ routes }: SlimSideBarMobileProps) {
+function SlimSideBarMobile({ routes, username }: SlimSideBarMobileProps) {
   const path = usePathname();
 
   return (
@@ -54,7 +55,7 @@ function SlimSideBarMobile({ routes }: SlimSideBarMobileProps) {
         })}
       </div>
       <a
-        href="https://www.sawthat.band"
+        href={`https://www.sawthat.band/?utm_source=${username}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Create yours"
