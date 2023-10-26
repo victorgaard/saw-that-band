@@ -72,7 +72,7 @@ const icons: Icons = {
 };
 
 function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
-  const name = profile.name.split(' ')[0] || profile.username;
+  const name = profile.name?.split(' ')[0] || profile.username;
   return (
     <div className="flex items-center gap-4 text-zinc-400">
       <Picture user={profile} size={48} />

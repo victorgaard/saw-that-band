@@ -31,6 +31,13 @@ function BandsList({
 }: BandsListProps) {
   if (!filteredBands) return <LoadingComponent />;
 
+  if (filteredBands.length === 0)
+    return (
+      <div className="flex h-screen flex-col gap-8 overflow-auto overflow-x-hidden bg-zinc-870 py-6 pb-24 sm:px-12 sm:pb-8">
+        This user has added no bands yet.
+      </div>
+    );
+
   return (
     <div className="relative flex flex-col items-center bg-zinc-870 text-white">
       <BandsListSearch

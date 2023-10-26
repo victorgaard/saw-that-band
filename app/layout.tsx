@@ -40,7 +40,7 @@ export async function generateMetadata() {
           'Create a bands catalogue from all the bands you have seen live'
       }
     };
-  const name = profile.name.split(' ')[0] || profile.username;
+  const name = profile.name?.split(' ')[0] || profile.username;
 
   return {
     metadataBase: new URL(`https://${profile.username}.sawthat.band`),
@@ -119,7 +119,7 @@ export default async function RootLayout({
     );
 
   const profile = res[0];
-  const name = profile.name.split(' ')[0] || profile.username;
+  const name = profile.name?.split(' ')[0] || profile.username;
   const bands = await getBands();
 
   return (

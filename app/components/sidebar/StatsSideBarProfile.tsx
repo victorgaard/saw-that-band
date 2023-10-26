@@ -11,7 +11,7 @@ function StatsSideBarProfile({
   bandsCount,
   allConcertsCount
 }: StatsSideBarProfileProps) {
-  const name = profile.name.split(' ')[0] || profile.username;
+  const name = profile.name?.split(' ')[0] || profile.username;
   return (
     <div className="flex items-center gap-4">
       <div className="flex flex-col">
