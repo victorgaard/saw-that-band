@@ -38,16 +38,18 @@ export default async function handler(req: NextRequest) {
           style={{ letterSpacing: '-0.05em' }}
         >
           <div tw="flex items-center text-white pr-[300px]">
-            <picture>
-              <img
-                src={userPicture || ''}
-                width={300}
-                height={300}
-                alt="Avatar"
-                tw="rounded-[24px] mr-[52px]"
-                style={{ objectFit: 'cover' }}
-              />
-            </picture>
+            {userPicture && (
+              <picture>
+                <img
+                  src={userPicture}
+                  width={300}
+                  height={300}
+                  alt="Avatar"
+                  tw="rounded-[24px] mr-[52px]"
+                  style={{ objectFit: 'cover' }}
+                />
+              </picture>
+            )}
             <p tw="flex flex-col flex-wrap">
               <span tw="text-[32px] opacity-60 mb-[24px]">
                 {username}.sawthat.band

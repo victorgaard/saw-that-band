@@ -62,7 +62,9 @@ export async function generateMetadata() {
       description: `Check all the bands ${name} has seen live`,
       url: '/',
       siteName: `${name} saw that band`,
-      images: `/api/og?username=${profile.username}&userPicture=${profile.picture}&userFirstName=${name}`,
+      images: `/api/og?username=${profile.username}&userPicture=${
+        profile.picture || ''
+      }&userFirstName=${name}`,
       locale: 'en-DE',
       type: 'website'
     },

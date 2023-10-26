@@ -44,7 +44,11 @@ export async function generateMetadata({
       url: `https://${user.username}.sawthat.band/${bandNameURL}/${bandId}`,
       images: [
         {
-          url: `/api/og?band=${band.band}&picture=${band.picture}&bands=${bands.length}&concerts=${allConcerts.length}&username=${user.username}&userPicture=${user.picture}&userFirstName=${name}`,
+          url: `/api/og?band=${band.band}&picture=${band.picture || ''}&bands=${
+            bands.length
+          }&concerts=${allConcerts.length}&username=${
+            user.username
+          }&userPicture=${user.picture || ''}&userFirstName=${name}`,
           width: 1200,
           height: 630
         }
