@@ -24,7 +24,7 @@ export async function generateMetadata({
   const bandId = params.id;
   const res = await getUser();
   const user: User = res[0];
-  const name = user.name.split(' ')[0] || user.username;
+  const name = user.name?.split(' ')[0] || user.username;
   const bandArray = await getBandById(bandId, user.id);
 
   if (!bandArray || !user) return { title: null };
