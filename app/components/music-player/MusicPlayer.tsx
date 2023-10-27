@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { ChangeEvent, RefObject } from 'react';
 import { CurrentSong } from './MusicPlayerContext';
 import SpotifyIcon from '../icons/SpotifyIcon';
+import Tooltip from '../tooltip/Tooltip';
 
 type MusicPlayerProps = {
   isOpen: boolean;
@@ -81,7 +82,8 @@ function MusicPlayer({
                     Please try a different one
                   </p>
                   <p className="hidden text-sm text-zinc-400 sm:block">
-                    The band or song name did not not match any results
+                    The band or song name did not not match any results on
+                    Spotify
                   </p>
                 </div>
               </div>
@@ -114,13 +116,21 @@ function MusicPlayer({
           {!error && currentSong && (
             <div className="flex animate-fade-in items-center justify-between gap-8 opacity-0">
               <div className="flex items-center gap-4 sm:w-auto">
-                <Image
-                  src={currentSong.cover}
-                  width={80}
-                  height={80}
-                  alt={currentSong.band + currentSong.song}
-                  className="h-20 w-20 rounded-lg object-fill"
-                />
+                <div className="group relative flex-shrink-0">
+                  <Image
+                    src={currentSong.cover}
+                    width={80}
+                    height={80}
+                    alt={currentSong.band + currentSong.song}
+                    className="h-20 w-20 rounded-lg object-fill"
+                  />
+                  <div className="group absolute bottom-1 left-1 rounded-full bg-zinc-900">
+                    <SpotifyIcon className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="absolute -top-11 left-0 z-50 hidden animate-fade-in whitespace-nowrap rounded-lg bg-zinc-950 px-6 py-2 text-sm font-medium text-white shadow-lg group-hover:block">
+                    Song sample powered by Spotify
+                  </div>
+                </div>
                 <div className="flex w-[180px] flex-col gap-0.5 overflow-hidden sm:w-full">
                   <p className="truncate text-base font-semibold">
                     {currentSong.song}
@@ -133,7 +143,7 @@ function MusicPlayer({
                   </p>
                 </div>
               </div>
-              <div className="flex shrink-0 items-center gap-4">
+              <div className="flex shrink-0 items-center gap-4 overflow-hidden">
                 <div className="group hidden sm:block">
                   <div className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border-zinc-600/50 p-4 text-zinc-400 transition-all hover:border hover:bg-white/5 group-hover:w-32">
                     <SpeakerWaveIcon className="h-8 w-8 group-hover:hidden" />
