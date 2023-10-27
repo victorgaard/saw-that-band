@@ -8,10 +8,12 @@ import {
 import Image from 'next/image';
 import { ChangeEvent, RefObject } from 'react';
 import { CurrentSong } from './MusicPlayerContext';
+import SpotifyIcon from '../icons/SpotifyIcon';
 
 type MusicPlayerProps = {
   isOpen: boolean;
   notFound: boolean;
+  error: boolean;
   currentSong: CurrentSong | undefined;
   playPause: () => void;
   isPlaying: boolean;
@@ -25,6 +27,7 @@ type MusicPlayerProps = {
 function MusicPlayer({
   isOpen,
   notFound,
+  error,
   currentSong,
   isPlaying,
   audioRef,
@@ -38,7 +41,35 @@ function MusicPlayer({
     <>
       {isOpen && (
         <div className="fixed bottom-[76px] z-20 w-full animate-fade-in-up-short rounded-lg rounded-b-none border border-zinc-600/50 bg-zinc-700/50 p-4 pb-6 opacity-0 backdrop-blur-lg sm:-bottom-2 sm:right-4 sm:w-[calc(100vw-32px)] md:right-8 md:w-[calc(100vw-128px)] lg:right-10 lg:w-[calc(100vw-464px)]">
-          {notFound && (
+          {error && (
+            <div className="flex items-center justify-center gap-8 sm:justify-between">
+              <div className="flex w-full items-center gap-4 sm:w-auto">
+                <div className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-500">
+                  <SpotifyIcon className="h-10 w-10" />
+                  <div className="absolute bottom-4 right-4 rounded-full bg-red-300">
+                    <ExclamationCircleIcon className="h-5 w-5 text-zinc-950" />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <p className="text-base font-semibold">
+                    Spotify server instability
+                  </p>
+                  <p className="text-sm font-medium text-zinc-300">
+                    There was an issue on our end connecting to Spotify servers.
+                    Please try again later.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={closePlayer}
+                type="button"
+                className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+              >
+                <XMarkIcon className="h-8 w-8" />
+              </button>
+            </div>
+          )}
+          {!error && notFound && (
             <div className="flex items-center justify-center gap-8 sm:justify-between">
               <div className="flex w-full items-center gap-4 sm:w-auto">
                 <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-500">
@@ -63,7 +94,7 @@ function MusicPlayer({
               </button>
             </div>
           )}
-          {!currentSong && !notFound && (
+          {!error && !currentSong && !notFound && (
             <div className="flex animate-pulse items-center justify-center gap-8 sm:justify-between">
               <div className="flex w-full items-center gap-4 sm:w-auto">
                 <div className="h-20 w-20 rounded-lg bg-zinc-700" />
@@ -80,7 +111,7 @@ function MusicPlayer({
               </div>
             </div>
           )}
-          {currentSong && (
+          {!error && currentSong && (
             <div className="flex animate-fade-in items-center justify-between gap-8 opacity-0">
               <div className="flex items-center gap-4 sm:w-auto">
                 <Image

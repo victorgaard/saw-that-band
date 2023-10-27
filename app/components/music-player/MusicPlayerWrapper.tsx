@@ -19,6 +19,7 @@ function MusicPlayerWrapper({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.15);
   const [notFound, setNotFound] = useState(false);
+  const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   function resetStates() {
@@ -26,6 +27,7 @@ function MusicPlayerWrapper({ children }: { children: ReactNode }) {
     setIsPlaying(false);
     setCurrentSong(undefined);
     setNotFound(false);
+    setError(false);
   }
 
   function playPause() {
@@ -50,23 +52,25 @@ function MusicPlayerWrapper({ children }: { children: ReactNode }) {
       resetStates();
 
       if (token) {
-        getSong(token, band, song).then(res => {
-          const hasSong = res.tracks.items.length > 0;
+        getSong(token, band, song)
+          .then(res => {
+            const hasSong = res.tracks.items.length > 0;
 
-          if (hasSong) {
-            const newSong: CurrentSong = {
-              band: res.tracks.items[0].album.artists[0].name,
-              song: res.tracks.items[0].name,
-              src: res.tracks.items[0].preview_url,
-              album: res.tracks.items[0].album.name,
-              cover: res.tracks.items[0].album.images[1].url
-            };
-            setIsPlaying(true);
-            setCurrentSong(newSong);
-          } else {
-            setNotFound(true);
-          }
-        });
+            if (hasSong) {
+              const newSong: CurrentSong = {
+                band: res.tracks.items[0].album.artists[0].name,
+                song: res.tracks.items[0].name,
+                src: res.tracks.items[0].preview_url,
+                album: res.tracks.items[0].album.name,
+                cover: res.tracks.items[0].album.images[1].url
+              };
+              setIsPlaying(true);
+              setCurrentSong(newSong);
+            } else {
+              setNotFound(true);
+            }
+          })
+          .catch(() => setError(true));
       }
     },
     []
@@ -98,6 +102,7 @@ function MusicPlayerWrapper({ children }: { children: ReactNode }) {
         <MusicPlayer
           isOpen={isOpen}
           notFound={notFound}
+          error={error}
           currentSong={currentSong}
           isPlaying={isPlaying}
           audioRef={audioRef}
