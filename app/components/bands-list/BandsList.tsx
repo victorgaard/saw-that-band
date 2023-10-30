@@ -2,10 +2,10 @@
 
 import { Bands } from '@/types/bands';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
 import { ChangeEvent, RefObject } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import LoadingComponent from '../loading/Loading';
 import BandsListRenderItem from './BandsListRender';
 import BandsListSearch from './BandsListSearch';
