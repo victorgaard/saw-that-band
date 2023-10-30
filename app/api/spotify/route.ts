@@ -17,7 +17,7 @@ export async function GET() {
     }
   });
 
-  if (!res.ok) return null;
+  if (!res.ok) return Promise.reject();
 
   const data: Token = await res.json();
   return NextResponse.json(data);
