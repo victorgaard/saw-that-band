@@ -89,7 +89,7 @@ function ProfileBarChartWrapper({
           </button>
         </div>
       </div>
-      <div className="relative max-h-[200px] min-h-[200px] max-w-[calc(100vw-40px)] sm:max-w-[calc(100vw-230px)] lg:max-w-[calc(100vw-550px)]">
+      <div className="relative max-h-[200px] min-h-[200px] min-w-[0px] max-w-[calc(100vw-40px)] sm:max-w-[calc(100vw-230px)] lg:max-w-[calc(100vw-550px)]">
         <ProfileBarChart
           concerts={concerts}
           value={value}
