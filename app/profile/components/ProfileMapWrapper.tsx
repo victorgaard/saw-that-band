@@ -109,8 +109,15 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       lon: 23.7603118
     },
     {
+      location: 'Hoofddorp',
+      country: 'The Netherlands',
+      country_code: 'NL',
+      lat: 52.3061,
+      lon: 4.6907
+    },
+    {
       location: 'Tilburg',
-      country: 'Netherlands',
+      country: 'The Netherlands',
       country_code: 'NL',
       lat: 51.5606,
       lon: 5.0919
