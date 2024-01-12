@@ -17,10 +17,11 @@ function ProfileBarChartWrapper({
   bands,
   oldestConcertYear
 }: ProfileBarChartWrapperProps) {
-  const [value, setValue] = useState(new Date().getFullYear());
+  const currentYear = new Date().getFullYear() - 1;
+
+  const [value, setValue] = useState(currentYear);
   const [concerts, setConcerts] = useState(getConcertsByYear(bands, value));
 
-  const currentYear = new Date().getFullYear();
   const minYear = oldestConcertYear;
 
   const values = Array.from(
