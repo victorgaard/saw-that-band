@@ -19,7 +19,7 @@ function ProfileGenreTrendsChartWrapper({
   bands,
   oldestConcertYear
 }: ProfileGenreTrendsChartWrapperProps) {
-  const currentYear = new Date().getFullYear() - 1;
+  const currentYear = new Date().getFullYear();
 
   const [value, setValue] = useState(currentYear);
   const [genres, setGenres] = useState(getTopGenresByYear(bands, value));
