@@ -54,62 +54,69 @@ function ProfileMostSeenBandsChart({
   const isLargeWidth = width > 1900;
 
   return (
-    <ResponsiveBump
-      data={data}
-      interpolation="smooth"
-      enableGridX={false}
-      enableGridY={false}
-      axisTop={{
-        renderTick: () => <></>
-      }}
-      axisLeft={{
-        renderTick: () => <></>
-      }}
-      axisBottom={{
-        tickSize: 0,
-        tickPadding: 24
-      }}
-      endLabel={d => `#${d.data[d.data.length - 1].y}. ${d.id}`}
-      theme={{
-        fontFamily: 'inherit',
-        textColor: 'white',
-        labels: {
+    <>
+      {/* @ts-ignore: requiring all unused chart props */}
+      <ResponsiveBump
+        data={data}
+        interpolation="smooth"
+        enableGridX={false}
+        enableGridY={false}
+        axisTop={{
+          renderTick: () => <></>
+        }}
+        axisLeft={{
+          renderTick: () => <></>
+        }}
+        axisBottom={{
+          tickSize: 0,
+          tickPadding: 24
+        }}
+        endLabel={d => `#${d.data[d.data.length - 1].y}. ${d.id}`}
+        theme={{
           text: {
-            fill: 'transparent'
-          }
-        },
-        tooltip: {
-          container: {
-            background: 'black'
-          }
-        },
-        axis: {
-          ticks: {
+            fontFamily: 'inherit',
+            color: 'white'
+          },
+          labels: {
             text: {
-              fill: '#71717a'
+              fill: 'transparent'
+            }
+          },
+          tooltip: {
+            container: {
+              background: 'black'
+            }
+          },
+          axis: {
+            ticks: {
+              text: {
+                fill: '#71717a'
+              }
             }
           }
+        }}
+        yOuterPadding={isLargeWidth ? 0 : 0.5}
+        colors={{ scheme: 'set2' }}
+        lineWidth={3}
+        activeLineWidth={6}
+        inactiveLineWidth={3}
+        inactiveOpacity={0.15}
+        pointSize={10}
+        activePointSize={16}
+        inactivePointSize={0}
+        pointBorderWidth={0}
+        activePointBorderWidth={3}
+        margin={
+          isMobile
+            ? { top: 0, right: 150, bottom: 60, left: 0 }
+            : { top: 10, right: 180, bottom: 60, left: 20 }
         }
-      }}
-      yOuterPadding={isLargeWidth ? 0 : 0.5}
-      colors={{ scheme: 'set2' }}
-      lineWidth={3}
-      activeLineWidth={6}
-      inactiveLineWidth={3}
-      inactiveOpacity={0.15}
-      pointSize={10}
-      activePointSize={16}
-      inactivePointSize={0}
-      pointBorderWidth={0}
-      activePointBorderWidth={3}
-      margin={
-        isMobile
-          ? { top: 0, right: 150, bottom: 60, left: 0 }
-          : { top: 10, right: 180, bottom: 60, left: 20 }
-      }
-      tooltip={Tooltip}
-      onClick={props => router.push(`/?search=${props.id}`)}
-    />
+        lineTooltip={Tooltip}
+        onClick={(props: any) => {
+          router.push(`/?search=${props.id}`);
+        }}
+      />
+    </>
   );
 }
 

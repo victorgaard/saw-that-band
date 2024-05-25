@@ -107,8 +107,10 @@ function ProfileBarChart({ concerts, value, isMobile }: ProfileBarChartProps) {
         }
       ]}
       theme={{
-        fontFamily: 'inherit',
-        textColor: 'white',
+        text: {
+          fontFamily: 'inherit',
+          color: 'white'
+        },
         labels: {
           text: {
             fill: 'transparent'

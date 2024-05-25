@@ -39,7 +39,6 @@ function ProfileWrapper({ bands, user, allConcerts }: ProfileWrapperProps) {
         />
       </div>
       <div className="grid gap-8 3xl:grid-cols-2">
-        {/* @ts-expect-error Server component */}
         {user.username === 'victor' && <ProfilePodiumWrapper />}
         <ProfileBarChartWrapper
           bands={bands}
