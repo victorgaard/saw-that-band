@@ -64,7 +64,7 @@ async function Concert({ params }: ConcertProps) {
   const res = await getUser();
   const user = res[0];
   const bandArray = await getBandById(bandId, user.id);
-  const band = bandArray[0];
+  const band = { ...bandArray[0] };
   band.concerts = sortConcertsByDate(band.concerts);
   const bandBio = await getBandBio(band.band);
 

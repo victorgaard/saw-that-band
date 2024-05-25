@@ -1,6 +1,6 @@
 import SetlistSkeleton from './components/SetlistSkeleton';
 
-function Loading() {
+export default function Loading() {
   return (
     <div className="flex h-screen flex-col gap-10 overflow-x-hidden bg-zinc-870 px-4 py-8 sm:px-12 sm:py-8">
       <div className="-mx-12 -my-8 flex flex-col gap-8 bg-gradient-to-br from-zinc-100/10 to-zinc-870 to-40% px-12 py-8">
@@ -30,5 +30,3 @@ function Loading() {
     </div>
   );
 }
-
-export default Loading;

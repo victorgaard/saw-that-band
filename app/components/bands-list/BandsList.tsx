@@ -1,5 +1,3 @@
-'use client';
-
 import { Bands } from '@/types/bands';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChangeEvent, RefObject } from 'react';

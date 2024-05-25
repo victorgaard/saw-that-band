@@ -46,7 +46,7 @@ function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
                 href={route.href}
                 aria-label={`Navigate to ${route.label}`}
                 className={classNames('group relative flex items-center', {
-                  'rounded outline outline-2 outline-zinc-500/80': isActive
+                  'rounded outline outline-2 outline-zinc-700': isActive
                 })}
               >
                 <div
@@ -62,8 +62,8 @@ function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
                   className={classNames(
                     'flex h-10 w-10 items-center justify-center rounded transition-colors',
                     {
-                      'bg-zinc-600 text-white': isActive,
-                      'bg-zinc-800 text-zinc-400 hover:bg-zinc-700 active:bg-zinc-800':
+                      'bg-zinc-500 text-white': isActive,
+                      'bg-zinc-700 text-zinc-400 hover:bg-zinc-600 active:bg-zinc-700':
                         !isActive
                     }
                   )}
