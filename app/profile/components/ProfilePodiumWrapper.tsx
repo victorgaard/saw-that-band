@@ -1,6 +1,5 @@
 import getBandById from '@/app/[band]/[id]/utils/getBandById';
 import getUser from '@/app/utils/getUser';
-import { Bands } from '@/types/bands';
 import ProfilePodium from './ProfilePodium';
 
 async function ProfilePodiumWrapper() {
@@ -27,9 +26,11 @@ async function ProfilePodiumWrapper() {
   ];
   const res = await getUser();
   const profile = res[0];
-  const first: Bands[] = await getBandById(bandsId[0], profile.id);
-  const second: Bands[] = await getBandById(bandsId[1], profile.id);
-  const third: Bands[] = await getBandById(bandsId[2], profile.id);
+  const [first, second, third] = await Promise.all([
+    getBandById(bandsId[0], profile.id),
+    getBandById(bandsId[1], profile.id),
+    getBandById(bandsId[2], profile.id)
+  ]);
 
   return (
     <ProfilePodium first={first} second={second} third={third} bands={bands} />

@@ -1,5 +1,3 @@
-'use client';
-
 import { Bands } from '@/types/bands';
 import { User } from '@/types/user';
 import { BandBio } from '../utils/getBandBio';
