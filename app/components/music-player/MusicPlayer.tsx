@@ -65,6 +65,7 @@ function MusicPlayer({
                 onClick={closePlayer}
                 type="button"
                 className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+                aria-label="Close player"
               >
                 <XMarkIcon className="h-8 w-8" />
               </button>
@@ -91,6 +92,7 @@ function MusicPlayer({
                 onClick={closePlayer}
                 type="button"
                 className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+                aria-label="Close player"
               >
                 <XMarkIcon className="h-8 w-8" />
               </button>
@@ -163,6 +165,7 @@ function MusicPlayer({
                   onClick={playPause}
                   type="button"
                   className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+                  aria-label="Play and pause the song"
                 >
                   {isPlaying ? (
                     <PauseIcon className="h-8 w-8" />
@@ -174,6 +177,7 @@ function MusicPlayer({
                   onClick={closePlayer}
                   type="button"
                   className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border-zinc-600/50 p-4 text-zinc-400 transition-colors hover:border hover:bg-white/5 hover:text-white"
+                  aria-label="Close player"
                 >
                   <XMarkIcon className="h-8 w-8" />
                 </button>

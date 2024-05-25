@@ -1,12 +1,9 @@
 import {
   ClockIcon,
-  GlobeAmericasIcon,
   InformationCircleIcon,
-  MapIcon,
   SunIcon,
   TvIcon
 } from '@heroicons/react/24/outline';
-import Balancer from 'react-wrap-balancer';
 
 type ProfileCuriositiesProps = {
   isOpen: boolean;
@@ -156,11 +153,9 @@ function ProfileCuriosities({
           <div className="flex flex-col items-center gap-1.5">
             <span className="text-4xl font-semibold text-white">One Piece</span>
             <div className="relative">
-              <span className="peer flex items-center gap-1 px-12 text-center">
-                <Balancer>
-                  not really, still missing {missingForOnePiece} hours. Gomu
-                  gomu no...
-                </Balancer>
+              <span className="peer flex items-center gap-1 text-balance px-12 text-center">
+                not really, still missing {missingForOnePiece} hours. Gomu gomu
+                no...
                 <InformationCircleIcon className="h-4 w-4 shrink-0" />
               </span>
               <div className="absolute top-12 hidden min-w-[200px] animate-fade-in-up-short rounded-lg bg-zinc-900 px-4 py-2 text-xs peer-hover:block">
