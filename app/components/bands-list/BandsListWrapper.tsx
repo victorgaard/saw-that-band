@@ -39,7 +39,7 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
     resetScroll();
     if (!e.target.value) {
       setQuery('');
-      router.push('/');
+      router.push('/list');
     } else {
       setQuery(e.target.value);
     }
@@ -59,7 +59,7 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
 
     if (query) {
       queryToParamsTimeout = setTimeout(() => {
-        router.push(`/?search=${query}`);
+        router.push(`/list?search=${query}`);
       }, 700);
     }
     return () => clearTimeout(queryToParamsTimeout);

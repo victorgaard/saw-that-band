@@ -16,7 +16,7 @@ function StatsSideBarLocations({ bands }: StatsSideBarLocationsProps) {
       <p className="text-xs font-semibold text-zinc-400">TOP LOCATIONS</p>
       {locations.map(location => (
         <Link
-          href={`/?search=${location.location}`}
+          href={`/list?search=${location.location}`}
           key={location.location}
           className="group relative text-[13px]"
         >

@@ -20,7 +20,7 @@ function StatsSideBarGenres({ bands }: StatsSideBarGenresProps) {
       <p className="text-xs font-semibold text-zinc-400">TOP GENRES</p>
       {genres.map(genre => (
         <Link
-          href={`/?search=${genre.genre}`}
+          href={`/list?search=${genre.genre}`}
           key={genre.genre}
           className="group relative text-[13px]"
         >

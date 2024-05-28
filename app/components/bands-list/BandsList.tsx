@@ -57,7 +57,7 @@ function BandsList({
           <button
             onClick={() => {
               setQuery('');
-              router.push('/');
+              router.push('/list');
             }}
             type="button"
             className="flex items-center gap-4 rounded bg-zinc-900 p-4 text-zinc-400 hover:bg-zinc-700/50 hover:text-white sm:hidden"
