@@ -3,13 +3,14 @@ import { ReactNode } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { User } from '@/types/user';
+import { Viewport } from 'next';
 import MusicPlayerWrapper from './components/music-player/MusicPlayerWrapper';
 import SlimSideBar from './components/sidebar/SlimSideBar';
 import StatsSideBar from './components/sidebar/StatsSideBar';
-import './globals.css';
 import getUser from './utils/getUser';
 import getBands from './utils/getBands';
 import SlimSideBarMobile from './components/sidebar/SlimSideBarMobile';
+import './globals.css';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -29,6 +30,10 @@ const routes = [
   }
 ];
 
+export const viewport: Viewport = {
+  colorScheme: 'dark'
+};
+
 export async function generateMetadata() {
   const res = await getUser();
   const profile: User = res[0];
@@ -46,7 +51,6 @@ export async function generateMetadata() {
     metadataBase: new URL(`https://${profile.username}.sawthat.band`),
     referrer: 'origin-when-cross-origin',
     keywords: [`${name}`, 'saw that band', 'band catalogue'],
-    colorScheme: 'dark',
     formatDetection: {
       email: false,
       address: false,
