@@ -8,6 +8,7 @@ import {
   MinusCircleIcon
 } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { changeCursor } from '@/app/utils/changeCursor';
 import { BandData, BandInfo } from '../utils/structureDataForBumpChart';
 
 type ProfileMostSeenBandsChartProps = {
@@ -114,6 +115,13 @@ function ProfileMostSeenBandsChart({
         lineTooltip={Tooltip}
         onClick={(props: any) => {
           router.push(`/list?search=${props.id}`);
+          changeCursor({ type: 'default' });
+        }}
+        onMouseEnter={() => {
+          changeCursor({ type: 'pointer' });
+        }}
+        onMouseLeave={() => {
+          changeCursor({ type: 'default' });
         }}
       />
     </>
