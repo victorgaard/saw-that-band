@@ -6,18 +6,10 @@ import ProfileHeaderWrapper from './ProfileHeaderWrapper';
 import ProfileLatestConcertsWrapper from './ProfileLatestConcertsWrapper';
 import ProfileMostSeenBandsChartWrapper from './ProfileMostSeenBandsChartWrapper';
 import ProfilePodiumWrapper from './ProfilePodiumWrapper';
-
-const ProfileMapWrapper = dynamic(() => import('./ProfileMapWrapper'));
-
-const ProfileBarChartWrapper = dynamic(
-  () => import('./ProfileBarChartWrapper')
-);
-const ProfileGenreTrendsChartWrapper = dynamic(
-  () => import('./ProfileGenreTrendsChartWrapper')
-);
-const ProfileCuriositiesWrapper = dynamic(
-  () => import('./ProfileCuriositiesWrapper')
-);
+import ProfileMapWrapper from './ProfileMapWrapper';
+import ProfileBarChartWrapper from './ProfileBarChartWrapper';
+import ProfileGenreTrendsChartWrapper from './ProfileGenreTrendsChartWrapper';
+import ProfileCuriositiesWrapper from './ProfileCuriositiesWrapper';
 
 type ProfileWrapperProps = {
   bands: Bands[];

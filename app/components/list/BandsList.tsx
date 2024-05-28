@@ -4,9 +4,9 @@ import { ChangeEvent, RefObject } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import LoadingComponent from '../loading/Loading';
 import BandsListRenderItem from './BandsListRender';
 import BandsListSearch from './BandsListSearch';
+import LoadingSpinner from '../icons/LoadingSpinner';
 
 type BandsListProps = {
   filteredBands: Bands[] | undefined;
@@ -27,7 +27,7 @@ function BandsList({
   listRef,
   resetScroll
 }: BandsListProps) {
-  if (!filteredBands) return <LoadingComponent />;
+  if (!filteredBands) return <LoadingSpinner />;
 
   if (filteredBands.length === 0 && !query)
     return (

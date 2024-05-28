@@ -59,7 +59,7 @@ export async function generateMetadata({
   };
 }
 
-async function Concert({ params }: ConcertProps) {
+async function BandPage({ params }: ConcertProps) {
   const bandId = params.id;
   const res = await getUser();
   const user = res[0];
@@ -71,4 +71,4 @@ async function Concert({ params }: ConcertProps) {
   return <BandPageWrapper band={band} bandBio={bandBio} user={user} />;
 }
 
-export default Concert;
+export default BandPage;

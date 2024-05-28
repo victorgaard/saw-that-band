@@ -3,7 +3,7 @@ import getBands from './utils/getBands';
 import getUser from './utils/getUser';
 import ProfileWrapper from './components/profile/components/ProfileWrapper';
 
-async function Profile() {
+async function ProfilePage() {
   const [bands, res] = await Promise.all([getBands(), getUser()]);
   const user = res[0];
   const concerts = bands.map(band => band.concerts);
@@ -20,4 +20,4 @@ async function Profile() {
   return <ProfileWrapper bands={bands} user={user} allConcerts={allConcerts} />;
 }
 
-export default Profile;
+export default ProfilePage;
