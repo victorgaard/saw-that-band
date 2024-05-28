@@ -152,6 +152,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
                   width={12}
                   height={12}
                   alt="Flag"
+                  className="h-3 w-3"
                 />
                 <span>{location.country.toLocaleUpperCase()}</span>
               </div>
