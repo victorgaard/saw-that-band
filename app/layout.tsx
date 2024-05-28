@@ -19,14 +19,14 @@ const font = Poppins({
 
 const routes = [
   {
-    label: 'Bands',
+    label: 'Profile',
     href: '/',
-    icon: <TicketIcon className="h-6 w-6" />
+    icon: <UserCircleIcon className="h-6 w-6" />
   },
   {
-    label: 'Profile',
-    href: '/profile',
-    icon: <UserCircleIcon className="h-6 w-6" />
+    label: 'Bands',
+    href: '/list',
+    icon: <TicketIcon className="h-6 w-6" />
   }
 ];
 
