@@ -22,6 +22,7 @@ function BandsListSearch({
     <div className="absolute inset-0 right-0 z-10 flex h-[80px] items-center justify-between bg-zinc-870/70 pr-4 text-sm backdrop-blur-lg sm:right-4">
       <MagnifyingGlassIcon className="absolute left-6 h-4 w-4 text-zinc-500 sm:left-12" />
       <input
+        id="search"
         onChange={e => {
           handleChange(e);
         }}
