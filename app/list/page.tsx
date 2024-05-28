@@ -1,4 +1,4 @@
-import BandsListWrapper from '../components/bands-list/BandsListWrapper';
+import BandsListWrapper from '../components/list/BandsListWrapper';
 import getBands from '../utils/getBands';
 
 export default async function Home() {

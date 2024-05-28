@@ -1,22 +1,20 @@
 import Logo from '@/app/components/logo/Logo';
-import { ImageResponse } from '@vercel/og';
+import { ImageResponse } from 'next/og';
 import classNames from 'classnames';
 import { NextRequest } from 'next/server';
 
-export const config = {
-  runtime: 'edge'
-};
+export const runtime = 'edge';
 
-const PoppinsMedium = fetch(
-  new URL('../../public/assets/fonts/Poppins-Medium.ttf', import.meta.url)
-).then(res => res.arrayBuffer());
+export async function GET(req: NextRequest) {
+  const PoppinsMedium = fetch(
+    new URL('./Poppins-Medium.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer());
 
-const PoppinsBold = fetch(
-  new URL('../../public/assets/fonts/Poppins-Bold.ttf', import.meta.url)
-).then(res => res.arrayBuffer());
+  const PoppinsBold = fetch(
+    new URL('./Poppins-Bold.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer());
 
-export default async function handler(req: NextRequest) {
-  const { searchParams, origin } = req.nextUrl;
+  const { searchParams } = req.nextUrl;
   const band = searchParams.get('band');
   const picture = searchParams.get('picture');
   const bands = searchParams.get('bands');

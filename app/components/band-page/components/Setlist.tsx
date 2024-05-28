@@ -10,9 +10,9 @@ import {
 } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import { useContext } from 'react';
-import MusicPlayerContext from '../../../components/music-player/MusicPlayerContext';
 import { SetlistData } from '../utils/getSetlist';
 import SetlistConcertsSelect from './SetlistConcertsSelect';
+import MusicPlayerContext from '../../music-player/MusicPlayerContext';
 
 type SetlistProps = {
   user: User;

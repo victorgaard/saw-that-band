@@ -1,4 +1,4 @@
-import structureDataForBumpChart from '@/app/profile/utils/structureDataForBumpChart';
+import structureDataForBumpChart from '@/app/components/profile/utils/structureDataForBumpChart';
 import supabase from '@/app/utils/supabase';
 import { Bands } from '@/types/bands';
 import { NextResponse } from 'next/server';

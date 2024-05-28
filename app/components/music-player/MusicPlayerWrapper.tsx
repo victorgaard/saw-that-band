@@ -9,9 +9,9 @@ import {
   useRef,
   useState
 } from 'react';
-import getSong from '../../[band]/[id]/utils/getSong';
 import MusicPlayer from './MusicPlayer';
 import MusicPlayerContext, { CurrentSong } from './MusicPlayerContext';
+import getSong from '../band-page/utils/getSong';
 
 function MusicPlayerWrapper({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);

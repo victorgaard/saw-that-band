@@ -1,7 +1,7 @@
 import { Concerts } from '@/types/bands';
 import getBands from './utils/getBands';
 import getUser from './utils/getUser';
-import ProfileWrapper from './profile/components/ProfileWrapper';
+import ProfileWrapper from './components/profile/components/ProfileWrapper';
 
 async function Profile() {
   const [bands, res] = await Promise.all([getBands(), getUser()]);

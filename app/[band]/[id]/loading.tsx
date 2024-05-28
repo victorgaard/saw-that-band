@@ -1,4 +1,4 @@
-import SetlistSkeleton from './components/SetlistSkeleton';
+import SetlistSkeleton from '@/app/components/band-page/components/SetlistSkeleton';
 
 export default function Loading() {
   return (

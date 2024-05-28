@@ -1,6 +1,6 @@
-import getBandById from '@/app/[band]/[id]/utils/getBandById';
 import getUser from '@/app/utils/getUser';
 import ProfilePodium from './ProfilePodium';
+import getBandById from '../../band-page/utils/getBandById';
 
 async function ProfilePodiumWrapper() {
   const bandsId = [

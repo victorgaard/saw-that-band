@@ -1,4 +1,4 @@
-import { SetlistData } from '@/app/[band]/[id]/utils/getSetlist';
+import { SetlistData } from '@/app/components/band-page/utils/getSetlist';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {

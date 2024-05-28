@@ -1,12 +1,12 @@
-import getBandById from '@/app/[band]/[id]/utils/getBandById';
 import getBands from '@/app/utils/getBands';
 import { User } from '@/types/user';
 import { Metadata } from 'next';
+import getBandById from '@/app/components/band-page/utils/getBandById';
 import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
+import getBandBio from '@/app/components/band-page/utils/getBandBio';
+import BandPageWrapper from '@/app/components/band-page/components/BandPageWrapper';
 import { Concerts } from '../../../types/bands';
 import getUser from '../../utils/getUser';
-import BandPageWrapper from './components/BandPageWrapper';
-import getBandBio from './utils/getBandBio';
 
 type ConcertProps = {
   params: {

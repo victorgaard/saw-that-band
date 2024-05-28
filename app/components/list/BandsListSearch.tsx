@@ -41,7 +41,7 @@ function BandsListSearch({
           <button
             onClick={() => {
               setQuery('');
-              router.push('/');
+              router.push('/list');
             }}
             type="button"
             className="flex items-center gap-2 whitespace-nowrap rounded border border-zinc-700/60 bg-zinc-900/30 px-4 py-3 text-sm font-medium text-zinc-300 transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white"

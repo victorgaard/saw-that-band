@@ -2,8 +2,8 @@ import { Bands } from '@/types/bands';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Image from 'next/image';
-import BackButton from '../../../components/back/BackButton';
 import { BandBio } from '../utils/getBandBio';
+import BackButton from '../../back/BackButton';
 
 type BandPageHeaderProps = {
   band: Bands;
