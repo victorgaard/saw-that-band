@@ -1,5 +1,6 @@
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { User } from '@/types/user';
 import MusicPlayerWrapper from './components/music-player/MusicPlayerWrapper';
@@ -9,7 +10,6 @@ import './globals.css';
 import getUser from './utils/getUser';
 import getBands from './utils/getBands';
 import SlimSideBarMobile from './components/sidebar/SlimSideBarMobile';
-import GoogleAnalyticsWrapper from './components/analytics/GoogleAnalyticsWrapper';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -147,7 +147,7 @@ export default async function RootLayout({
           <MusicPlayerWrapper>{children}</MusicPlayerWrapper>
         </div>
       </body>
-      <GoogleAnalyticsWrapper />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
     </html>
   );
 }
