@@ -49,7 +49,7 @@ function ProfileCuriosities({
           <ClockIcon className="h-6 w-6 opacity-50" />
           <div className="flex flex-col items-center gap-1.5">
             <span className="text-4xl font-semibold text-white">
-              {hoursSpentOnConcerts} hours
+              {hoursSpentOnConcerts.toFixed(0)} hours
             </span>{' '}
             <div className="relative">
               <span className="peer flex items-center gap-2">
@@ -71,7 +71,7 @@ function ProfileCuriosities({
           <SunIcon className="h-6 w-6 opacity-50" />
           <div className="flex flex-col items-center gap-1.5">
             <span className="text-4xl font-semibold text-white">
-              {daysSpentOnConcerts} days
+              {daysSpentOnConcerts.toFixed(0)} days
             </span>{' '}
             of concerts non-stop
           </div>
@@ -134,7 +134,7 @@ function ProfileCuriosities({
             </span>
             <div className="relative">
               <span className="peer flex items-center gap-2">
-                entire series {theOfficeTimes.toFixed(0)}x.
+                entire series {theOfficeTimes.toFixed(1)}x
                 <InformationCircleIcon className="h-4 w-4" />
               </span>
               <div className="absolute top-7 hidden min-w-[200px] animate-fade-in-up-short rounded-lg bg-zinc-900 px-4 py-2 text-xs peer-hover:block">
@@ -154,8 +154,8 @@ function ProfileCuriosities({
             <span className="text-4xl font-semibold text-white">One Piece</span>
             <div className="relative">
               <span className="peer flex items-center gap-1 text-balance px-12 text-center">
-                not really, still missing {missingForOnePiece} hours. Gomu gomu
-                no...
+                not really, still missing {missingForOnePiece.toFixed(1)} hours.
+                Gomu gomu no...
                 <InformationCircleIcon className="h-4 w-4 shrink-0" />
               </span>
               <div className="absolute top-12 hidden min-w-[200px] animate-fade-in-up-short rounded-lg bg-zinc-900 px-4 py-2 text-xs peer-hover:block">
