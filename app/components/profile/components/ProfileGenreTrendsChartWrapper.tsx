@@ -118,7 +118,7 @@ function ProfileGenreTrendsChartWrapper({
             <div key={genre.year} className="flex flex-wrap items-center gap-2">
               {genre.genres.map(currentGenre => (
                 <Link
-                  href={`/?search=${currentGenre.genre}`}
+                  href={`/list?search=${currentGenre.genre}`}
                   key={currentGenre.genre}
                   className="whitespace-nowrap rounded border border-zinc-700/60 p-2 px-3 text-xs font-medium text-zinc-300 shadow-sm transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white"
                 >

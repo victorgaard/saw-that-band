@@ -113,7 +113,7 @@ function ProfileMostSeenBandsChart({
         }
         lineTooltip={Tooltip}
         onClick={(props: any) => {
-          router.push(`/?search=${props.id}`);
+          router.push(`/list?search=${props.id}`);
         }}
       />
     </>

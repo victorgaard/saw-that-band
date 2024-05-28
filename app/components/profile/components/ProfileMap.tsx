@@ -77,7 +77,7 @@ function ProfileMap({ locations, setTooltip }: ProfileMapProps) {
             stroke="#2c2c31"
             strokeWidth={1.5}
             className="cursor-pointer fill-emerald-300 transition-colors hover:fill-emerald-200"
-            onClick={() => router.push(`/?search=${location.location}`)}
+            onClick={() => router.push(`/list?search=${location.location}`)}
           />
         </Marker>
       ))}

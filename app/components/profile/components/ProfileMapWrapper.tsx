@@ -162,7 +162,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
                   return (
                     <Link
                       key={currentLocation}
-                      href={`/?search=${currentLocation}`}
+                      href={`/list?search=${currentLocation}`}
                       className={classNames(
                         'whitespace-nowrap rounded border p-2 px-3 text-xs font-medium text-zinc-300 shadow-sm transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white',
                         {

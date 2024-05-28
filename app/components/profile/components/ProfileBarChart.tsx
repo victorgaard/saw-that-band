@@ -57,7 +57,7 @@ function Overlay({ props, value, isMobile }: OverlayProps) {
             className="peer cursor-pointer fill-emerald-600 opacity-0 transition-[opacity] hover:opacity-50"
             onClick={() =>
               router.push(
-                `/?search=${convertMonth(bar.data.data.month)}-${value}`
+                `/list?search=${convertMonth(bar.data.data.month)}-${value}`
               )
             }
           />
