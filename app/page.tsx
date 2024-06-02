@@ -1,11 +1,12 @@
-import { Concerts } from '@/types/bands';
-import getBands from './utils/getBands';
-import getUser from './utils/getUser';
-import ProfileWrapper from './components/profile/components/ProfileWrapper';
+'use client';
 
-async function ProfilePage() {
-  const [bands, res] = await Promise.all([getBands(), getUser()]);
-  const user = res[0];
+import { Concerts } from '@/types/bands';
+import { use } from 'react';
+import ProfileWrapper from './components/profile/components/ProfileWrapper';
+import { AppContext } from './ContextWrapper';
+
+function ProfilePage() {
+  const { bands, user } = use(AppContext);
   const concerts = bands.map(band => band.concerts);
   const newArray: Concerts[] = [];
   const allConcerts = newArray.concat(...concerts);

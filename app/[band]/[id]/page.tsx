@@ -18,13 +18,14 @@ type ConcertProps = {
 export async function generateMetadata({
   params
 }: ConcertProps): Promise<Metadata> {
-  const bands = await getBands();
-
-  const bandNameURL = params.band;
-  const bandId = params.id;
   const res = await getUser();
   const user: User = res[0];
   const name = user.name?.split(' ')[0] || user.username;
+
+  const bands = await getBands({ userId: user.id });
+
+  const bandNameURL = params.band;
+  const bandId = params.id;
   const bandArray = await getBandById(bandId, user.id);
 
   if (!bandArray || !user) return { title: null };

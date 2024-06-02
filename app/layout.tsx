@@ -1,5 +1,5 @@
 import { Poppins } from 'next/font/google';
-import { ReactNode } from 'react';
+import { ReactNode, createContext } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { User } from '@/types/user';
@@ -11,6 +11,7 @@ import getUser from './utils/getUser';
 import getBands from './utils/getBands';
 import SlimSideBarMobile from './components/sidebar/SlimSideBarMobile';
 import './globals.css';
+import ContextWrapper from './ContextWrapper';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -124,34 +125,38 @@ export default async function RootLayout({
       </html>
     );
 
-  const profile = res[0];
-  const name = profile.name?.split(' ')[0] || profile.username;
-  const bands = await getBands();
+  const user = res[0];
+  const name = user.name?.split(' ')[0] || user.username;
+  const bands = await getBands({ userId: user.id });
 
   return (
-    <html lang="en" className={font.className}>
-      <head />
-      <body className="relative min-h-screen touch-none overflow-hidden bg-zinc-900 antialiased">
-        <div className="flex">
-          <div className="fixed bottom-0 z-40 w-full sm:hidden">
-            <SlimSideBarMobile routes={routes} username={profile.username} />
-          </div>
-          <div className="flex max-h-screen min-h-screen">
-            <div className="hidden sm:flex">
-              <SlimSideBar
-                profileName={name}
-                routes={routes}
-                username={profile.username}
-              />
+    <ContextWrapper user={user} bands={bands}>
+      <html lang="en" className={font.className}>
+        <head />
+        <body className="relative min-h-screen touch-none overflow-hidden bg-zinc-900 antialiased">
+          <div className="flex">
+            <div className="fixed bottom-0 z-40 w-full sm:hidden">
+              <SlimSideBarMobile routes={routes} username={user.username} />
             </div>
-            <div className="hidden lg:flex">
-              <StatsSideBar profile={profile} bands={bands} />
+            <div className="flex max-h-screen min-h-screen">
+              <div className="hidden sm:flex">
+                <SlimSideBar
+                  profileName={name}
+                  routes={routes}
+                  username={user.username}
+                />
+              </div>
+              <div className="hidden lg:flex">
+                <StatsSideBar profile={user} bands={bands} />
+              </div>
             </div>
+            <MusicPlayerWrapper>{children}</MusicPlayerWrapper>
           </div>
-          <MusicPlayerWrapper>{children}</MusicPlayerWrapper>
-        </div>
-      </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
-    </html>
+        </body>
+        <GoogleAnalytics
+          gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''}
+        />
+      </html>
+    </ContextWrapper>
   );
 }

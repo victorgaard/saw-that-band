@@ -1,5 +1,3 @@
-'use client';
-
 import { Bands } from '@/types/bands';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
