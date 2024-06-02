@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { Bands, Concerts } from '@/types/bands';
 import { User } from '@/types/user';
 import getOldestConcertYear from '../utils/getOldestConcertYear';
@@ -31,7 +30,7 @@ function ProfileWrapper({ bands, user, allConcerts }: ProfileWrapperProps) {
         />
       </div>
       <div className="grid gap-8 3xl:grid-cols-2">
-        {/* {user.username === 'victor' && <ProfilePodiumWrapper />} */}
+        {user.username === 'victor' && <ProfilePodiumWrapper />}
         <ProfileBarChartWrapper
           bands={bands}
           oldestConcertYear={oldestConcertYear}
