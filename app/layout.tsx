@@ -35,8 +35,7 @@ export const viewport: Viewport = {
   colorScheme: 'dark'
 };
 
-/* export async function generateMetadata() {
-  console.log('Re-rendering...')
+export async function generateMetadata() {
   const res = await getUser();
   const profile: User = res[0];
 
@@ -97,7 +96,7 @@ export const viewport: Viewport = {
       google: 'ofTvVJZzZHEMRIXg6cCRslqaEnRO3cqrum3zjSZTDu0'
     }
   };
-} */
+}
 
 export default async function RootLayout({
   children
