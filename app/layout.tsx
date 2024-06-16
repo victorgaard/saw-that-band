@@ -35,7 +35,8 @@ export const viewport: Viewport = {
   colorScheme: 'dark'
 };
 
-export async function generateMetadata() {
+/* export async function generateMetadata() {
+  console.log('Re-rendering...')
   const res = await getUser();
   const profile: User = res[0];
 
@@ -46,6 +47,7 @@ export async function generateMetadata() {
           'Create a bands catalogue from all the bands you have seen live'
       }
     };
+
   const name = profile.name?.split(' ')[0] || profile.username;
 
   return {
@@ -95,7 +97,7 @@ export async function generateMetadata() {
       google: 'ofTvVJZzZHEMRIXg6cCRslqaEnRO3cqrum3zjSZTDu0'
     }
   };
-}
+} */
 
 export default async function RootLayout({
   children
