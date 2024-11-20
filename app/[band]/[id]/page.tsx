@@ -5,7 +5,7 @@ import getBandById from '@/app/components/band-page/utils/getBandById';
 import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
 import getBandBio from '@/app/components/band-page/utils/getBandBio';
 import BandPageWrapper from '@/app/components/band-page/components/BandPageWrapper';
-import { Concerts } from '../../../types/bands';
+import { Concert } from '../../../types/bands';
 import getUser from '../../utils/getUser';
 
 type ConcertProps = {
@@ -31,7 +31,7 @@ export async function generateMetadata({
 
   const band = bandArray[0];
   const concerts = bands.map(currentBand => currentBand.concerts);
-  const newArray: Concerts[] = [];
+  const newArray: Concert[] = [];
   const allConcerts = newArray.concat(...concerts);
 
   return {

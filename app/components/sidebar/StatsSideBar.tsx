@@ -1,4 +1,4 @@
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 import { User } from '@/types/user';
 import StatsSideBarGenres from './StatsSideBarGenres';
 import StatsSideBarLocations from './StatsSideBarLocations';
@@ -8,12 +8,12 @@ import StatsSideBarSocials from './StatsSideBarSocials';
 
 type StatsSideBarProps = {
   profile: User;
-  bands: Bands[];
+  bands: Band[];
 };
 
 function StatsSideBar({ profile, bands }: StatsSideBarProps) {
   const concerts = bands.map(band => band.concerts);
-  const newArray: Concerts[] = [];
+  const newArray: Concert[] = [];
   const allConcerts = newArray.concat(...concerts);
 
   return (

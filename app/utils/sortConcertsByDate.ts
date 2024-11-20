@@ -1,4 +1,4 @@
-import { Concerts } from '@/types/bands';
+import { Concert } from '@/types/bands';
 
 function parseDate(dateStr: string): Date {
   const parts = dateStr.split('-');
@@ -8,7 +8,7 @@ function parseDate(dateStr: string): Date {
   return new Date(year, month, day);
 }
 
-function sortConcertsByDate(concertsArray: Concerts[]) {
+function sortConcertsByDate(concertsArray: Concert[]) {
   const newConcerts = [...concertsArray];
   return newConcerts.sort(
     (a, b) => parseDate(a.date).getTime() - parseDate(b.date).getTime()

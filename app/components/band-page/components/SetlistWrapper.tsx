@@ -1,6 +1,6 @@
 'use client';
 
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 import { User } from '@/types/user';
 import { useEffect, useState } from 'react';
 import getSetlist, { SetlistData } from '../utils/getSetlist';
@@ -9,13 +9,13 @@ import Setlist from './Setlist';
 import SetlistSkeleton from './SetlistSkeleton';
 
 type SetlistWrapperProps = {
-  band: Bands;
+  band: Band;
   user: User;
 };
 
 function SetlistWrapper({ band, user }: SetlistWrapperProps) {
   const [loading, setLoading] = useState(true);
-  const [concert, setConcert] = useState<Concerts>(band.concerts[0]);
+  const [concert, setConcert] = useState<Concert>(band.concerts[0]);
   const [data, setData] = useState<SetlistData>();
   const [token, setToken] = useState<string>();
   const bandName = band.band;

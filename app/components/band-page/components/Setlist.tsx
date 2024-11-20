@@ -1,5 +1,5 @@
 import Logo from '@/app/components/logo/Logo';
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 import { User } from '@/types/user';
 import {
   CalendarIcon,
@@ -13,14 +13,15 @@ import { SetlistData } from '../utils/getSetlist';
 import SetlistConcertsSelect from './SetlistConcertsSelect';
 import MusicPlayerContext from '../../music-player/MusicPlayerContext';
 import { cn } from '@/app/utils/cn';
+import ConcertNotes from './ConcertNotes';
 
 type SetlistProps = {
   user: User;
-  band: Bands;
+  band: Band;
   data: SetlistData | undefined;
-  concert: Concerts;
+  concert: Concert;
   token: string | undefined;
-  setConcert: (concert: Concerts) => void;
+  setConcert: (concert: Concert) => void;
 };
 
 function Setlist({
@@ -159,6 +160,7 @@ function Setlist({
             </div>
           )}
         </div>
+        <ConcertNotes user={user.name || user.username} />
         {data && data.setlist && (
           <div className="-mx-10 mt-12 flex flex-col rounded-lg px-6 text-sm">
             <p className="m-0 mb-6 flex w-full flex-nowrap items-center text-xs text-zinc-300 before:relative before:mr-5 before:h-[1px] before:w-full before:bg-zinc-600 before:opacity-30 before:content-[''] after:relative after:ml-5 after:h-[1px] after:w-full after:bg-zinc-600 after:opacity-30 after:content-['']">
@@ -173,7 +175,7 @@ function Setlist({
                   getSongToPlay(token!, band.band, song.name);
                 }}
                 key={`${idx}${song.name}`}
-                className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-8 py-4 last:border-none hover:bg-zinc-900/20"
+                className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-7 py-4 last:border-none hover:bg-zinc-900/20"
               >
                 <div
                   className={cn(
@@ -184,7 +186,7 @@ function Setlist({
                     }
                   )}
                 >
-                  <p className="w-5 shrink-0">
+                  <p className="w-5 shrink-0 pl-1">
                     <span className="font-semibold group-hover:hidden">
                       {idx + 1}.
                     </span>

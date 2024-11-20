@@ -1,6 +1,6 @@
-import { Concerts } from '@/types/bands';
+import { Concert } from '@/types/bands';
 
-function getFirstAndLastConcert(concerts: Concerts[]) {
+function getFirstAndLastConcert(concerts: Concert[]) {
   // Convert the string date to a Date object
   const dates = concerts.map(
     concert => new Date(concert.date.split('-').reverse().join('-'))

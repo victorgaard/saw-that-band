@@ -1,6 +1,6 @@
-import { Concerts } from '@/types/bands';
+import { Concert } from '@/types/bands';
 
-function getOldestConcertYear(concerts: Concerts[]) {
+function getOldestConcertYear(concerts: Concert[]) {
   const dates = concerts.map(
     concert => new Date(concert.date.split('-').reverse().join('-'))
   );

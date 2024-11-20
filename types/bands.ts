@@ -1,12 +1,18 @@
-export type Concerts = {
-  date: string;
-  location: string;
+export type Note = {
+  icon: '';
+  message: '';
 };
 
-export type Bands = {
+export type Concert = {
+  date: string;
+  location: string;
+  notes?: Note[];
+};
+
+export type Band = {
   id: string;
   band: string;
   picture: string;
   genre: string[];
-  concerts: Concerts[];
+  concerts: Concert[];
 };

@@ -1,4 +1,4 @@
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 import { User } from '@/types/user';
 import getOldestConcertYear from '../utils/getOldestConcertYear';
 import ProfileHeaderWrapper from './ProfileHeaderWrapper';
@@ -11,9 +11,9 @@ import ProfileGenreTrendsChartWrapper from './ProfileGenreTrendsChartWrapper';
 import ProfileCuriositiesWrapper from './ProfileCuriositiesWrapper';
 
 type ProfileWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
   user: User;
-  allConcerts: Concerts[];
+  allConcerts: Concert[];
 };
 
 function ProfileWrapper({ bands, user, allConcerts }: ProfileWrapperProps) {

@@ -1,6 +1,6 @@
 'use client';
 
-import { Concerts } from '@/types/bands';
+import { Concert } from '@/types/bands';
 import { use } from 'react';
 import ProfileWrapper from './components/profile/components/ProfileWrapper';
 import { AppContext } from './ContextWrapper';
@@ -8,7 +8,7 @@ import { AppContext } from './ContextWrapper';
 function ProfilePage() {
   const { bands, user } = use(AppContext);
   const concerts = bands.map(band => band.concerts);
-  const newArray: Concerts[] = [];
+  const newArray: Concert[] = [];
   const allConcerts = newArray.concat(...concerts);
 
   if (allConcerts.length === 0)

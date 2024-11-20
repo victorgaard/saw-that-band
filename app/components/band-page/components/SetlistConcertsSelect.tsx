@@ -1,14 +1,14 @@
 'use client';
 
 import { cn } from '@/app/utils/cn';
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 type SetlistConcertsSelectProps = {
-  band: Bands;
-  concert: Concerts;
-  setConcert: (concert: Concerts) => void;
+  band: Band;
+  concert: Concert;
+  setConcert: (concert: Concert) => void;
   isMobile?: boolean;
 };
 

@@ -1,7 +1,7 @@
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 
-function getConcertsByYear(bands: Bands[], requestYear: number) {
-  const filteredConcerts: Concerts[] = [];
+function getConcertsByYear(bands: Band[], requestYear: number) {
+  const filteredConcerts: Concert[] = [];
   bands.forEach(band => {
     const concerts = band.concerts.filter(concert => {
       const dateParts = concert.date.split('-');
@@ -11,7 +11,7 @@ function getConcertsByYear(bands: Bands[], requestYear: number) {
     filteredConcerts.push(...concerts);
   });
 
-  const groupedConcertsByMonth: { [key: number]: Concerts[] } = {};
+  const groupedConcertsByMonth: { [key: number]: Concert[] } = {};
   filteredConcerts.forEach(concert => {
     const dateParts = concert.date.split('-');
     const month = parseInt(dateParts[1], 10);

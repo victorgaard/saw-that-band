@@ -1,12 +1,12 @@
-import { Bands, Concerts } from '@/types/bands';
+import { Band, Concert } from '@/types/bands';
 
-function compareConcertDates(a: Concerts, b: Concerts): number {
+function compareConcertDates(a: Concert, b: Concert): number {
   const dateA = new Date(a.date.split('-').reverse().join('-'));
   const dateB = new Date(b.date.split('-').reverse().join('-'));
   return dateB.getTime() - dateA.getTime();
 }
 
-function sortBandsByConcertDate(bands: Bands[]): Bands[] {
+function sortBandsByConcertDate(bands: Band[]): Band[] {
   const currentBands = Array.from(bands);
   currentBands.forEach(band => {
     band.concerts.sort(compareConcertDates);
