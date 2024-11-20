@@ -33,6 +33,8 @@ function Setlist({
 }: SetlistProps) {
   const { isOpen, getSongToPlay } = useContext(MusicPlayerContext);
 
+  console.log(data);
+
   return (
     <div className="flex flex-col text-zinc-100">
       <p className="pb-4 text-xs font-semibold text-zinc-400">
@@ -180,24 +182,29 @@ function Setlist({
                     'flex items-center gap-3 font-medium sm:gap-6',
                     {
                       'text-zinc-500': song.tape,
-                      'text-zinc-300 group-hover:text-white': !song.tape
+                      'text-zinc-200 group-hover:text-white': !song.tape
                     }
                   )}
                 >
-                  <p className="w-5">
+                  <p className="w-5 shrink-0">
                     <span className="font-semibold group-hover:hidden">
                       {idx + 1}.
                     </span>
                     {'  '}
                     <PlayIcon className="-ml-0.5 hidden h-4 w-4 fill-white group-hover:block" />
                   </p>
-                  <span>
+                  <p className="flex flex-col gap-[2px]">
                     {song.tape
-                      ? `Played from tape${song.name ? `: ${song.name}` : ''} ${
-                          song.info ? `(${song.info})` : ''
-                        }`
+                      ? `Played from tape${song.name ? `: ${song.name}` : ''}`
                       : song.name}
-                  </span>
+                    <span
+                      className={cn('text-xs font-normal', {
+                        'text-zinc-400': !song.tape
+                      })}
+                    >
+                      {song.info}
+                    </span>
+                  </p>
                 </div>
                 <p className="hidden group-hover:sm:block">Play</p>
                 <PlayIcon className="h-4 w-4 shrink-0 fill-white sm:hidden" />
