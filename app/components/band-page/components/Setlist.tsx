@@ -160,7 +160,7 @@ function Setlist({
             </div>
           )}
         </div>
-        <ConcertNotes user={user.name || user.username} />
+        <ConcertNotes user={user.name || user.username} notes={concert.notes} />
         {data && data.setlist && (
           <div className="-mx-10 mt-12 flex flex-col rounded-lg px-6 text-sm">
             <p className="m-0 mb-6 flex w-full flex-nowrap items-center text-xs text-zinc-300 before:relative before:mr-5 before:h-[1px] before:w-full before:bg-zinc-600 before:opacity-30 before:content-[''] after:relative after:ml-5 after:h-[1px] after:w-full after:bg-zinc-600 after:opacity-30 after:content-['']">

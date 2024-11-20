@@ -1,6 +1,8 @@
+import { IconName } from '@/app/components/icon/Icon';
+
 export type Note = {
-  icon: '';
-  message: '';
+  icon: IconName;
+  message: string;
 };
 
 export type Concert = {
