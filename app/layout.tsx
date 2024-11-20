@@ -1,6 +1,5 @@
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { User } from '@/types/user';
 import { Viewport } from 'next';
@@ -154,9 +153,6 @@ export default async function RootLayout({
             <MusicPlayerWrapper>{children}</MusicPlayerWrapper>
           </div>
         </body>
-        <GoogleAnalytics
-          gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''}
-        />
       </html>
     </ContextWrapper>
   );
