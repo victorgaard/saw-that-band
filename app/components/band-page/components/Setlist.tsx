@@ -70,7 +70,7 @@ function Setlist({
                   className={classNames(
                     '-ml-[1px] truncate whitespace-nowrap border border-zinc-700/60 px-4 py-3 text-sm font-medium shadow-sm transition-colors duration-75 first:ml-0 first:rounded-tl last:rounded-tr hover:text-white',
                     {
-                      ' border-b-0 bg-zinc-850 text-white': isActive,
+                      'border-b-0 bg-zinc-850 text-white': isActive,
                       'bg-zinc-900/20 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-700/50':
                         !isActive,
                       'last:rounded-none': band.concerts.length > 3
