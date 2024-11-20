@@ -74,7 +74,8 @@ function SetlistConcertsSelect({
                   onClick={() => {
                     setConcert({
                       location: currentConcert.location,
-                      date: currentConcert.date
+                      date: currentConcert.date,
+                      notes: currentConcert.notes
                     });
                     setTitle(
                       `${currentConcert.location} ${currentConcert.date.slice(
