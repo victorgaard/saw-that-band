@@ -1,11 +1,5 @@
 {
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "next", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     "camelcase": "off",
