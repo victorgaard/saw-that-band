@@ -4,7 +4,7 @@ const nextConfig = {
     unoptimized: true
   },
   experimental: {
-    // ppr: 'incremental',
+    ppr: true,
     reactCompiler: true
   }
 };

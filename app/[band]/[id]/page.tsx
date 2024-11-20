@@ -9,10 +9,10 @@ import { Concerts } from '../../../types/bands';
 import getUser from '../../utils/getUser';
 
 type ConcertProps = {
-  params: {
+  params: Promise<{
     band: string;
     id: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({
@@ -22,8 +22,9 @@ export async function generateMetadata({
   const user: User = res[0];
   const name = user.name?.split(' ')[0] || user.username;
   const bands = await getBands({ userId: user.id });
-  const bandNameURL = params.band;
-  const bandId = params.id;
+  const awaitedParams = await params;
+  const bandNameURL = awaitedParams.band;
+  const bandId = awaitedParams.id;
   const bandArray = await getBandById(bandId, user.id);
 
   if (!bandArray || !user) return { title: null };
@@ -59,7 +60,8 @@ export async function generateMetadata({
 }
 
 async function BandPage({ params }: ConcertProps) {
-  const bandId = params.id;
+  const awaitedParams = await params;
+  const bandId = awaitedParams.id;
   const res = await getUser();
   const user = res[0];
   const bandArray = await getBandById(bandId, user.id);
