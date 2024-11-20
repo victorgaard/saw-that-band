@@ -1,5 +1,5 @@
 import { Bands } from '@/types/bands';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { FixedSizeList as List } from 'react-window';
 import BandsList from './BandsList';
@@ -10,6 +10,7 @@ type BandsListWrapperProps = {
 
 function BandsListWrapper({ bands }: BandsListWrapperProps) {
   const [query, setQuery] = useState('');
+  const path = usePathname();
   const searchParams = useSearchParams();
   const searchedParam = searchParams?.get('search');
   const router = useRouter();
@@ -37,7 +38,7 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
     resetScroll();
     if (!e.target.value) {
       setQuery('');
-      router.push('/list');
+      router.push(`${path}`);
     } else {
       setQuery(e.target.value);
     }
@@ -57,11 +58,11 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
 
     if (query) {
       queryToParamsTimeout = setTimeout(() => {
-        router.push(`/list?search=${query}`);
+        router.push(`${path}?search=${query}`);
       }, 700);
     }
     return () => clearTimeout(queryToParamsTimeout);
-  }, [query, router]);
+  }, [query, path, router]);
 
   return (
     <BandsList
