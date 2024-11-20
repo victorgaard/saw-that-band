@@ -1,6 +1,6 @@
 'use client';
 
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import ProfileMapTooltip, { TooltipProps } from './ProfileMapTooltip';
 import { cn } from '@/app/utils/cn';
 
 type ProfileMapWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {

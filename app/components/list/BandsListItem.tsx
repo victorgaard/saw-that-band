@@ -1,10 +1,10 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import Image from 'next/image';
 import Link from 'next/link';
 import BandsListItemCollapsedTags from './BandsListItemCollapsedTags';
 
 type BandsListItemProps = {
-  band: Bands;
+  band: Band;
   setQuery: (query: string) => void;
   resetScroll: () => void;
 };

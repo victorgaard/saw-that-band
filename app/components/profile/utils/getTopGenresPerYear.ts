@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
 type YearlyGenre = {
   genre: string;
@@ -11,7 +11,7 @@ export type YearlyGenres = {
 };
 
 function getTopGenresByYear(
-  bands: Bands[],
+  bands: Band[],
   currentYear: number
 ): YearlyGenres[] {
   const topGenresPerYear: Record<number, YearlyGenre[]> = {};

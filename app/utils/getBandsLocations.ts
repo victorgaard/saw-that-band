@@ -1,11 +1,11 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
 type TopLocations = {
   location: string;
   count: number;
 };
 
-function getBandLocations(allBands: Bands[]) {
+function getBandLocations(allBands: Band[]) {
   const newBandsArray = [...allBands];
   const topLocations: Record<string, number> = newBandsArray.reduce(
     (counts: Record<string, number>, band) => {

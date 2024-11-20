@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import getTopBandPerYear from './getTopBandPerYear';
 
 export type BandData = {
@@ -12,7 +12,7 @@ export type BandInfo = {
 };
 
 function structureDataForBumpChart(
-  bands: Bands[],
+  bands: Band[],
   currentYear: number,
   minYear: number,
   targetYear: number

@@ -1,6 +1,6 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
-function getTopBandPerYear(bands: Bands[], startYear: number, endYear: number) {
+function getTopBandPerYear(bands: Band[], startYear: number, endYear: number) {
   const bandRank: { [key: string]: number } = {};
 
   bands.forEach(band => {

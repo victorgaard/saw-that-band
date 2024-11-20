@@ -1,6 +1,6 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
-function getAllLocations(bands: Bands[]) {
+function getAllLocations(bands: Band[]) {
   const locationMap: Map<string, Set<string>> = new Map();
   const allBands = [...bands];
 

@@ -1,6 +1,6 @@
 import structureDataForBumpChart from '@/app/components/profile/utils/structureDataForBumpChart';
 import supabase from '@/app/utils/supabase';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -14,7 +14,7 @@ export async function GET() {
   const targetMobile = currentYear - 2;
   const minYear = 2005;
   const data = structureDataForBumpChart(
-    bands as Bands[],
+    bands as Band[],
     currentYear,
     minYear,
     targetYear

@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { User } from '@/types/user';
 import { BandBio } from '../utils/getBandBio';
 import BandPageHeader from './BandPageHeader';
@@ -6,7 +6,7 @@ import BandPageLayout from './BandPageLayout';
 import SetlistWrapper from './SetlistWrapper';
 
 type BandPageWrapperProps = {
-  band: Bands;
+  band: Band;
   bandBio: BandBio | undefined;
   user: User;
 };

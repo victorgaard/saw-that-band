@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { BandBio } from '../utils/getBandBio';
@@ -6,7 +6,7 @@ import BackButton from '../../back/BackButton';
 import { cn } from '@/app/utils/cn';
 
 type BandPageHeaderProps = {
-  band: Bands;
+  band: Band;
   bandBio: BandBio | undefined;
 };
 

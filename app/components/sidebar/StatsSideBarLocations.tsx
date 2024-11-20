@@ -1,9 +1,9 @@
 import getBandLocations from '@/app/utils/getBandsLocations';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import Link from 'next/link';
 
 type StatsSideBarLocationsProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function StatsSideBarLocations({ bands }: StatsSideBarLocationsProps) {

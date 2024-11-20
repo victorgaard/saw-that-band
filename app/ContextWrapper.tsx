@@ -1,12 +1,12 @@
 'use client';
 
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { User } from '@/types/user';
 import { ReactNode, createContext, useMemo } from 'react';
 
 type AppContextType = {
   user: User;
-  bands: Bands[];
+  bands: Band[];
 };
 
 export const AppContext = createContext<AppContextType>({
@@ -25,7 +25,7 @@ export const AppContext = createContext<AppContextType>({
 type ContextWrapperProps = {
   children: ReactNode;
   user: User;
-  bands: Bands[];
+  bands: Band[];
 };
 
 function ContextWrapper({ children, user, bands }: ContextWrapperProps) {

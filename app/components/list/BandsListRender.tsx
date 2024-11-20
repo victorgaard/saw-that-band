@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
 import { CSSProperties } from 'react';
 import BandsListItem from './BandsListItem';
@@ -6,7 +6,7 @@ import BandsListItem from './BandsListItem';
 type BandsListRenderItemProps = {
   index: number;
   style: CSSProperties;
-  data: Bands[];
+  data: Band[];
   setQuery: (query: string) => void;
   resetScroll: () => void;
 };

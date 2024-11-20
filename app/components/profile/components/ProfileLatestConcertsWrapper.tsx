@@ -1,9 +1,9 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import sortBandsByConcertDate from '@/app/utils/sortBandsByConcertDate';
 import ProfileLatestConcerts from './ProfileLatestConcerts';
 
 type ProfileLatestConcertsWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function ProfileLatestConcertsWrapper({

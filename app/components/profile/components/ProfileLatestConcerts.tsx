@@ -1,11 +1,11 @@
 import getTimeAgo from '@/app/utils/getTimeAgo';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type ProfileLatestConcertsProps = {
-  latest: Bands[];
+  latest: Band[];
 };
 
 function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {

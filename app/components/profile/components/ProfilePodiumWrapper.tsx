@@ -1,6 +1,6 @@
 import { use, useEffect, useState } from 'react';
 import { AppContext } from '@/app/ContextWrapper';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import ProfilePodium from './ProfilePodium';
 import { getPodiumBandsInfo } from '../utils/getPodiumBandsInfo';
 import LoadingSpinner from '../../icons/LoadingSpinner';
@@ -26,9 +26,9 @@ function ProfilePodiumWrapper() {
 
   const [bandsInfo, setBandsInfo] = useState<
     | {
-        first: Bands[];
-        second: Bands[];
-        third: Bands[];
+        first: Band[];
+        second: Band[];
+        third: Band[];
       }
     | undefined
   >();

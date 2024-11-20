@@ -1,11 +1,11 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { FixedSizeList as List } from 'react-window';
 import BandsList from './BandsList';
 
 type BandsListWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function BandsListWrapper({ bands }: BandsListWrapperProps) {

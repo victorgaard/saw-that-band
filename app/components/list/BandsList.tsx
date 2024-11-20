@@ -1,4 +1,4 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChangeEvent, RefObject } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -9,7 +9,7 @@ import BandsListSearch from './BandsListSearch';
 import LoadingSpinner from '../icons/LoadingSpinner';
 
 type BandsListProps = {
-  filteredBands: Bands[] | undefined;
+  filteredBands: Band[] | undefined;
   query: string;
   setQuery: (query: string) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;

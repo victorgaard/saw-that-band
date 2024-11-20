@@ -1,9 +1,9 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import ProfileMostSeenBandsChart from './ProfileMostSeenBandsChart';
 import structureDataForBumpChart from '../utils/structureDataForBumpChart';
 
 type ProfileMostSeenBandsChartWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
   oldestConcertYear: number;
 };
 

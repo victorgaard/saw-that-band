@@ -1,6 +1,6 @@
 'use client';
 
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import ProfileBarChart from './ProfileBarChart';
@@ -9,7 +9,7 @@ import getConcertsByYear from '../utils/getConcertsByYear';
 import { cn } from '@/app/utils/cn';
 
 type ProfileBarChartWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
   oldestConcertYear: number;
 };
 

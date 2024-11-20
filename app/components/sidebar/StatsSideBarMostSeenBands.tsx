@@ -1,9 +1,9 @@
 import getMostSeenBand from '@/app/utils/getMostSeenBand';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import Link from 'next/link';
 
 type StatsSideBarMostSeenBandsProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function StatsSideBarMostSeenBands({ bands }: StatsSideBarMostSeenBandsProps) {

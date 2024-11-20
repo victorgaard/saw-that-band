@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { API_URL } from '@/environments/environments';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
 async function getBandById(bandId: string, userId: string) {
   const res = await fetch(
@@ -10,7 +10,7 @@ async function getBandById(bandId: string, userId: string) {
       next: { tags: [bandId, userId] }
     }
   );
-  const band: Bands[] = await res.json();
+  const band: Band[] = await res.json();
 
   return band;
 }

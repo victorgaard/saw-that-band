@@ -1,12 +1,12 @@
 import getTimeAgo from '@/app/utils/getTimeAgo';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type ProfilePodiumProps = {
-  first: Bands[];
-  second: Bands[];
-  third: Bands[];
+  first: Band[];
+  second: Band[];
+  third: Band[];
   bands: {
     id: string;
     reason: string;

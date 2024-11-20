@@ -1,9 +1,9 @@
 import getBandGenres from '@/app/utils/getBandsGenres';
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import Link from 'next/link';
 
 type StatsSideBarGenresProps = {
-  bands: Bands[];
+  bands: Band[];
 };
 
 function StatsSideBarGenres({ bands }: StatsSideBarGenresProps) {

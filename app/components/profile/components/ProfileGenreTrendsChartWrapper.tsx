@@ -1,6 +1,6 @@
 'use client';
 
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import getTopGenresByYear from '../utils/getTopGenresPerYear';
 import { cn } from '@/app/utils/cn';
 
 type ProfileGenreTrendsChartWrapperProps = {
-  bands: Bands[];
+  bands: Band[];
   oldestConcertYear: number;
 };
 

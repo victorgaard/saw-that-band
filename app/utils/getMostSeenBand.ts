@@ -1,6 +1,6 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
-function getMostSeenBand(allBands: Bands[]) {
+function getMostSeenBand(allBands: Band[]) {
   const newBandsArray = [...allBands];
   return newBandsArray
     .sort((a, b) => b.concerts.length - a.concerts.length)

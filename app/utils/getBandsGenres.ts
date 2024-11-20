@@ -1,11 +1,11 @@
-import { Bands } from '@/types/bands';
+import { Band } from '@/types/bands';
 
 type TopGenres = {
   genre: string;
   count: number;
 };
 
-function getBandGenres(allBands: Bands[]) {
+function getBandGenres(allBands: Band[]) {
   const newBandsArray = [...allBands];
   const topGenres: Record<string, number> = newBandsArray.reduce(
     (counts: Record<string, number>, band) => {
