@@ -31,17 +31,19 @@ function SetlistWrapper({ band, user }: SetlistWrapperProps) {
   }
 
   useEffect(() => {
+    if (!token) {
+      getToken();
+    }
+  }, [token]);
+
+  useEffect(() => {
     const { location, date } = concert;
 
     getSetlist(bandName, location, date).then(res => {
       setLoading(false);
       setData(res);
     });
-
-    if (!token) {
-      getToken();
-    }
-  }, [bandName, concert, token]);
+  }, [bandName, concert]);
 
   if (loading) return <SetlistSkeleton />;
 
