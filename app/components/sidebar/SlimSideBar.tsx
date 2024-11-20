@@ -2,10 +2,10 @@
 
 import { ReactElement } from 'react';
 import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
 import Link from 'next/link';
 import Logo from '../logo/Logo';
 import Tooltip from '../tooltip/Tooltip';
+import { cn } from '@/app/utils/cn';
 
 type SlimSideBarProps = {
   profileName: string;
@@ -45,12 +45,12 @@ function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
                 key={route.label}
                 href={route.href}
                 aria-label={`Navigate to ${route.label}`}
-                className={classNames('group relative flex items-center', {
+                className={cn('group relative flex items-center', {
                   'rounded outline outline-2 outline-zinc-700': isActive
                 })}
               >
                 <div
-                  className={classNames(
+                  className={cn(
                     'absolute -left-5 w-[5px] rounded-r transition-all',
                     {
                       'h-8 bg-zinc-500': isActive,
@@ -59,7 +59,7 @@ function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
                   )}
                 />
                 <div
-                  className={classNames(
+                  className={cn(
                     'flex h-10 w-10 items-center justify-center rounded transition-colors',
                     {
                       'bg-zinc-500 text-white': isActive,

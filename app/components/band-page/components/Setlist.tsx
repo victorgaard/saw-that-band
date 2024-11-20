@@ -8,11 +8,11 @@ import {
   PlayIcon,
   TicketIcon
 } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import { useContext } from 'react';
 import { SetlistData } from '../utils/getSetlist';
 import SetlistConcertsSelect from './SetlistConcertsSelect';
 import MusicPlayerContext from '../../music-player/MusicPlayerContext';
+import { cn } from '@/app/utils/cn';
 
 type SetlistProps = {
   user: User;
@@ -67,7 +67,7 @@ function Setlist({
                   }
                   type="button"
                   key={`${currentConcert.date}${currentConcert.location}`}
-                  className={classNames(
+                  className={cn(
                     '-ml-[1px] truncate whitespace-nowrap border border-zinc-700/60 px-4 py-3 text-sm font-medium shadow-sm transition-colors duration-75 first:ml-0 first:rounded-tl last:rounded-tr hover:text-white',
                     {
                       'border-b-0 bg-zinc-850 text-white': isActive,
@@ -92,7 +92,7 @@ function Setlist({
         )}
       </div>
       <div
-        className={classNames(
+        className={cn(
           'flex flex-col rounded border border-zinc-700/60 bg-zinc-850 p-4',
           {
             'rounded-tl-none': band.concerts.length > 1,
@@ -176,7 +176,7 @@ function Setlist({
                 className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-8 py-4 last:border-none hover:bg-zinc-900/20"
               >
                 <div
-                  className={classNames(
+                  className={cn(
                     'flex items-center gap-3 font-medium sm:gap-6',
                     {
                       'text-zinc-500': song.tape,

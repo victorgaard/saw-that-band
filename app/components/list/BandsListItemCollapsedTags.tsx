@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import { cn } from '@/app/utils/cn';
 import { useState } from 'react';
 
 type BandsListItemCollapsedTagsProps = {
@@ -22,7 +22,7 @@ function BandsListItemCollapsedTags({
     <div className="relative">
       <button
         type="button"
-        className={classNames('w-8 rounded p-2 text-xs hover:bg-zinc-700', {
+        className={cn('w-8 rounded p-2 text-xs hover:bg-zinc-700', {
           'bg-zinc-600': isOpen,
           'bg-zinc-700/30': !isOpen
         })}

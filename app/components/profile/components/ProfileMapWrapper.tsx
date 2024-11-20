@@ -4,10 +4,10 @@ import { Bands } from '@/types/bands';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import classNames from 'classnames';
 import ProfileMap, { Locations } from './ProfileMap';
 import groupLocationsByCountry from '../utils/groupLocationsByCountry';
 import ProfileMapTooltip, { TooltipProps } from './ProfileMapTooltip';
+import { cn } from '@/app/utils/cn';
 
 type ProfileMapWrapperProps = {
   bands: Bands[];
@@ -163,7 +163,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
                     <Link
                       key={currentLocation}
                       href={`/list?search=${currentLocation}`}
-                      className={classNames(
+                      className={cn(
                         'whitespace-nowrap rounded border p-2 px-3 text-xs font-medium text-zinc-300 shadow-sm transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white',
                         {
                           'border-zinc-600 bg-zinc-700/50 text-white':

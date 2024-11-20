@@ -1,5 +1,5 @@
+import { cn } from '@/app/utils/cn';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { ChangeEvent } from 'react';
 
@@ -28,7 +28,7 @@ function BandsListSearch({
         }}
         value={query}
         placeholder="Search for band, genre, year or location"
-        className={classNames(
+        className={cn(
           'h-full w-[90.5%] shrink-0 bg-transparent pl-14 pr-6 text-white placeholder:text-zinc-400 focus:outline-none focus:placeholder:text-zinc-400 sm:pl-20',
           {
             'md:w-[57.5%]': query,

@@ -1,9 +1,9 @@
 import { Bands } from '@/types/bands';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import Image from 'next/image';
 import { BandBio } from '../utils/getBandBio';
 import BackButton from '../../back/BackButton';
+import { cn } from '@/app/utils/cn';
 
 type BandPageHeaderProps = {
   band: Bands;
@@ -31,7 +31,7 @@ function BandPageHeader({ band, bandBio }: BandPageHeaderProps) {
               </div>
               {bandBio.similarBands?.length > 0 && (
                 <div
-                  className={classNames(
+                  className={cn(
                     'flex flex-col flex-wrap gap-2 text-sm text-zinc-400 sm:flex-row sm:items-center',
                     {
                       'mt-4': bandBio.bio.trim()

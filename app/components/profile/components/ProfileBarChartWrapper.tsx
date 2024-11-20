@@ -2,11 +2,11 @@
 
 import { Bands } from '@/types/bands';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import ProfileBarChart from './ProfileBarChart';
 import ProfileChartSelect from './ProfileChartSelect';
 import getConcertsByYear from '../utils/getConcertsByYear';
+import { cn } from '@/app/utils/cn';
 
 type ProfileBarChartWrapperProps = {
   bands: Bands[];
@@ -65,7 +65,7 @@ function ProfileBarChartWrapper({
             type="button"
             onClick={back}
             disabled={isFirst}
-            className={classNames('h-full p-2', {
+            className={cn('h-full p-2', {
               'cursor-not-allowed opacity-50': isFirst
             })}
             aria-label="Navigate to previous year"
@@ -81,7 +81,7 @@ function ProfileBarChartWrapper({
             type="button"
             onClick={next}
             disabled={isLast}
-            className={classNames('h-full p-2', {
+            className={cn('h-full p-2', {
               'cursor-not-allowed opacity-50': isLast
             })}
             aria-label="Navigate to next year"

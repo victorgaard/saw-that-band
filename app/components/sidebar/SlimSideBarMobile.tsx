@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/app/utils/cn';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactElement } from 'react';
@@ -31,7 +31,7 @@ function SlimSideBarMobile({ routes, username }: SlimSideBarMobileProps) {
               className="group z-20 mb-3 flex justify-center"
             >
               <div
-                className={classNames(
+                className={cn(
                   'absolute bottom-0 h-1 rounded-t transition-all',
                   {
                     'w-10 bg-zinc-200': isActive,
@@ -40,7 +40,7 @@ function SlimSideBarMobile({ routes, username }: SlimSideBarMobileProps) {
                 )}
               />
               <div
-                className={classNames(
+                className={cn(
                   'flex h-14 w-14 items-center justify-center rounded transition-colors',
                   {
                     'text-white': isActive,

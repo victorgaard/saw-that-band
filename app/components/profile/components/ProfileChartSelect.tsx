@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/app/utils/cn';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import { useState } from 'react';
 
 type ProfileChartSelectProps = {
@@ -43,7 +43,7 @@ function ProfileChartSelect({
             {' '}
           </div>
           <div
-            className={classNames(
+            className={cn(
               'absolute right-0 top-11 z-20 flex w-full flex-col overflow-hidden rounded bg-zinc-700 shadow-sm'
             )}
           >
@@ -58,7 +58,7 @@ function ProfileChartSelect({
                     }}
                     type="button"
                     key={currentValue}
-                    className={classNames(
+                    className={cn(
                       'flex w-full items-center justify-between whitespace-nowrap rounded bg-zinc-700 p-4 text-left text-sm font-medium hover:bg-zinc-600 sm:p-2',
                       {
                         'text-white': isActive,

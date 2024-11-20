@@ -1,8 +1,8 @@
 'use client';
 
+import { cn } from '@/app/utils/cn';
 import { Bands, Concerts } from '@/types/bands';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import { useState } from 'react';
 
 type SetlistConcertsSelectProps = {
@@ -36,7 +36,7 @@ function SetlistConcertsSelect({
       <button
         onClick={toggle}
         type="button"
-        className={classNames(
+        className={cn(
           'flex h-full items-center justify-between whitespace-nowrap border border-zinc-700/60 px-4 text-sm font-medium shadow-sm transition-colors duration-75 hover:text-white',
           {
             'w-full rounded-t bg-zinc-700 py-3': isMobile,
@@ -61,7 +61,7 @@ function SetlistConcertsSelect({
             {' '}
           </div>
           <div
-            className={classNames(
+            className={cn(
               'absolute right-0 top-12 z-20 flex w-full flex-col rounded bg-zinc-700 p-1 shadow-sm sm:top-12'
             )}
           >
@@ -85,7 +85,7 @@ function SetlistConcertsSelect({
                   }}
                   type="button"
                   key={`${currentConcert.date}${currentConcert.location}`}
-                  className={classNames(
+                  className={cn(
                     'flex w-full items-center justify-between whitespace-nowrap rounded bg-zinc-700 p-4 text-left text-sm font-medium hover:bg-zinc-600 sm:p-2',
                     {
                       'text-white': optionIsActive,

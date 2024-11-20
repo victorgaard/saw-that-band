@@ -1,6 +1,6 @@
 import Logo from '@/app/components/logo/Logo';
+import { cn } from '@/app/utils/cn';
 import { ImageResponse } from 'next/og';
-import classNames from 'classnames';
 import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
             </span>
             {band && (
               <span
-                tw={classNames('font-bold text-[90px] leading-[80px]', {
+                tw={cn('font-bold text-[90px] leading-[80px]', {
                   'text-[120px] leading-[110px]': band.length < 10,
                   'text-[90px] leading-[80px]': band.length >= 10,
                   'text-[80px] leading-[70px]': band.length >= 24
