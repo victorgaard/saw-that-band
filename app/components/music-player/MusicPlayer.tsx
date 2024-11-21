@@ -9,7 +9,6 @@ import Image from 'next/image';
 import { ChangeEvent, RefObject } from 'react';
 import { CurrentSong } from './MusicPlayerContext';
 import SpotifyIcon from '../icons/SpotifyIcon';
-import Tooltip from '../tooltip/Tooltip';
 
 type MusicPlayerProps = {
   isOpen: boolean;
@@ -24,6 +23,25 @@ type MusicPlayerProps = {
   closePlayer: () => void;
   handleSongEnd: () => void;
 };
+
+type CloseButtonProps = {
+  onClose: () => void;
+};
+
+function CloseButton({ onClose }: CloseButtonProps) {
+  {
+    return (
+      <button
+        onClick={onClose}
+        type="button"
+        className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+        aria-label="Close player"
+      >
+        <XMarkIcon className="h-8 w-8" />
+      </button>
+    );
+  }
+}
 
 function MusicPlayer({
   isOpen,
@@ -61,14 +79,7 @@ function MusicPlayer({
                   </p>
                 </div>
               </div>
-              <button
-                onClick={closePlayer}
-                type="button"
-                className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
-                aria-label="Close player"
-              >
-                <XMarkIcon className="h-8 w-8" />
-              </button>
+              <CloseButton onClose={closePlayer} />
             </div>
           )}
           {!error && notFound && (
@@ -88,14 +99,7 @@ function MusicPlayer({
                   </p>
                 </div>
               </div>
-              <button
-                onClick={closePlayer}
-                type="button"
-                className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
-                aria-label="Close player"
-              >
-                <XMarkIcon className="h-8 w-8" />
-              </button>
+              <CloseButton onClose={closePlayer} />
             </div>
           )}
           {!error && !currentSong && !notFound && (
@@ -111,7 +115,7 @@ function MusicPlayer({
               <div className="hidden items-center gap-4 sm:flex">
                 <div className="hidden h-14 w-14 items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10 sm:flex" />
                 <div className="flex h-14 w-14 items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10" />
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10" />
+                <CloseButton onClose={closePlayer} />
               </div>
             </div>
           )}
@@ -173,14 +177,7 @@ function MusicPlayer({
                     <PlayIcon className="h-8 w-8 fill-white" />
                   )}
                 </button>
-                <button
-                  onClick={closePlayer}
-                  type="button"
-                  className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border-zinc-600/50 p-4 text-zinc-400 transition-colors hover:border hover:bg-white/5 hover:text-white"
-                  aria-label="Close player"
-                >
-                  <XMarkIcon className="h-8 w-8" />
-                </button>
+                <CloseButton onClose={closePlayer} />
                 <audio ref={audioRef} onEnded={handleSongEnd}>
                   <source src={currentSong.src} type="audio/ogg" />
                   <track kind="captions" />

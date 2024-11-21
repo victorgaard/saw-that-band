@@ -15,7 +15,7 @@ type SetlistWrapperProps = {
 };
 
 function SetlistWrapper({ band, user }: SetlistWrapperProps) {
-  function setConcertState(dateFromParams: string | null) {
+  function getConcert(dateFromParams: string | null) {
     if (!dateFromParams) {
       return band.concerts[0];
     }
@@ -33,9 +33,7 @@ function SetlistWrapper({ band, user }: SetlistWrapperProps) {
 
   const dateFromParams = useSearchParams().get('date');
   const [loading, setLoading] = useState(true);
-  const [concert, setConcert] = useState<Concert>(
-    setConcertState(dateFromParams)
-  );
+  const [concert, setConcert] = useState<Concert>(getConcert(dateFromParams));
   const [data, setData] = useState<SetlistData>();
   const [token, setToken] = useState<string>();
 
