@@ -11,6 +11,14 @@ type IconProps = {
 export const Icon = ({ name, className, strokeWidth = 1 }: IconProps) => {
   const HeroIcon = HeroIcons[name];
 
+  if (!HeroIcon)
+    return (
+      <HeroIcons.SparklesIcon
+        className={cn('size-6 shrink-0 text-zinc-600', className)}
+        strokeWidth={strokeWidth}
+      />
+    );
+
   return (
     <HeroIcon
       className={cn('size-6 shrink-0 text-zinc-600', className)}
