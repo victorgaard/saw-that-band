@@ -7,6 +7,7 @@ import getSetlist, { SetlistData } from '../utils/getSetlist';
 import getSpotifyToken from '../utils/getSpotifyToken';
 import Setlist from './Setlist';
 import SetlistSkeleton from './SetlistSkeleton';
+import { useSearchParams } from 'next/navigation';
 
 type SetlistWrapperProps = {
   band: Band;
@@ -14,10 +15,30 @@ type SetlistWrapperProps = {
 };
 
 function SetlistWrapper({ band, user }: SetlistWrapperProps) {
+  function setConcertState(dateFromParams: string | null) {
+    if (!dateFromParams) {
+      return band.concerts[0];
+    }
+
+    const concertFromDateParams = band.concerts.find(
+      concert => concert.date === dateFromParams
+    );
+
+    if (!concertFromDateParams) {
+      return band.concerts[0];
+    }
+
+    return concertFromDateParams;
+  }
+
+  const dateFromParams = useSearchParams().get('date');
   const [loading, setLoading] = useState(true);
-  const [concert, setConcert] = useState<Concert>(band.concerts[0]);
+  const [concert, setConcert] = useState<Concert>(
+    setConcertState(dateFromParams)
+  );
   const [data, setData] = useState<SetlistData>();
   const [token, setToken] = useState<string>();
+
   const bandName = band.band;
 
   function getToken() {

@@ -14,6 +14,7 @@ import SetlistConcertsSelect from './SetlistConcertsSelect';
 import MusicPlayerContext from '../../music-player/MusicPlayerContext';
 import { cn } from '@/app/utils/cn';
 import ConcertNotes from './ConcertNotes';
+import { usePathname, useRouter } from 'next/navigation';
 
 type SetlistProps = {
   user: User;
@@ -34,6 +35,18 @@ function Setlist({
 }: SetlistProps) {
   const { isOpen, getSongToPlay } = useContext(MusicPlayerContext);
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  function onConcertChange(concert: Concert) {
+    setConcert({
+      location: concert.location,
+      date: concert.date,
+      notes: concert.notes
+    });
+    router.replace(`${pathname}/?&date=${concert.date}`);
+  }
+
   return (
     <div className="flex flex-col text-zinc-100">
       <p className="pb-4 text-xs font-semibold text-zinc-400">
@@ -45,7 +58,7 @@ function Setlist({
         {band.concerts.length > 1 && (
           <SetlistConcertsSelect
             band={band}
-            setConcert={setConcert}
+            onConcertChange={onConcertChange}
             concert={concert}
             isMobile
           />
@@ -60,13 +73,7 @@ function Setlist({
                 (concert.location, concert.date);
               return (
                 <button
-                  onClick={() =>
-                    setConcert({
-                      location: currentConcert.location,
-                      date: currentConcert.date,
-                      notes: currentConcert.notes
-                    })
-                  }
+                  onClick={() => onConcertChange(currentConcert)}
                   type="button"
                   key={`${currentConcert.date}${currentConcert.location}`}
                   className={cn(
@@ -86,7 +93,7 @@ function Setlist({
             {band.concerts.length > 3 && (
               <SetlistConcertsSelect
                 band={band}
-                setConcert={setConcert}
+                onConcertChange={onConcertChange}
                 concert={concert}
               />
             )}

@@ -8,27 +8,52 @@ import { useState } from 'react';
 type SetlistConcertsSelectProps = {
   band: Band;
   concert: Concert;
-  setConcert: (concert: Concert) => void;
+  onConcertChange: (concert: Concert) => void;
   isMobile?: boolean;
 };
 
 function SetlistConcertsSelect({
   band,
   concert,
-  setConcert,
+  onConcertChange,
   isMobile = false
 }: SetlistConcertsSelectProps) {
-  const standardTitle = `and ${band.concerts.length - 3} other${' '}
-  ${band.concerts.length - 3 === 1 ? 'time' : 'times'}`;
-  const newConcert = `${concert.location} ${concert.date.slice(6)}`;
+  function resolveTitle(concertTitle: string) {
+    if (isMobile) {
+      return concertTitle;
+    }
+
+    const dropdownTitle = `and ${band.concerts.length - 3} other${' '}  ${band.concerts.length - 3 === 1 ? 'time' : 'times'}`;
+
+    if (band.concerts.length > 3) {
+      const slicedConcerts = band.concerts.slice(3);
+      const concertIsListedInDropdown = slicedConcerts.find(
+        c => c.date === concert.date
+      );
+
+      if (concertIsListedInDropdown) {
+        return concertTitle;
+      }
+    }
+
+    return dropdownTitle;
+  }
+
+  const concertTitle = `${concert.location} ${concert.date.slice(6)}`;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [title, setTitle] = useState(isMobile ? newConcert : standardTitle);
+  const [title, setTitle] = useState(resolveTitle(concertTitle));
 
-  const isActive = newConcert === title;
+  const isActive = concertTitle === title;
 
   function toggle() {
     setIsOpen(!isOpen);
+  }
+
+  function onConcertSelect(concert: Concert) {
+    onConcertChange(concert);
+    setTitle(`${concert.location} ${concert.date.slice(6)}`);
+    toggle();
   }
 
   return (
@@ -71,19 +96,7 @@ function SetlistConcertsSelect({
                 (concert.location, concert.date);
               return (
                 <button
-                  onClick={() => {
-                    setConcert({
-                      location: currentConcert.location,
-                      date: currentConcert.date,
-                      notes: currentConcert.notes
-                    });
-                    setTitle(
-                      `${currentConcert.location} ${currentConcert.date.slice(
-                        6
-                      )}`
-                    );
-                    toggle();
-                  }}
+                  onClick={() => onConcertSelect(currentConcert)}
                   type="button"
                   key={`${currentConcert.date}${currentConcert.location}`}
                   className={cn(
