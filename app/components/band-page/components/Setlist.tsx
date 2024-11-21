@@ -34,8 +34,6 @@ function Setlist({
 }: SetlistProps) {
   const { isOpen, getSongToPlay } = useContext(MusicPlayerContext);
 
-  console.log(concert);
-
   return (
     <div className="flex flex-col text-zinc-100">
       <p className="pb-4 text-xs font-semibold text-zinc-400">
