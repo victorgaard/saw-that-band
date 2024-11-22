@@ -1,8 +1,7 @@
-import { API_URL } from '@/environments/environments';
-
 export type SetlistData = {
   date: Date;
   city: string[];
+  url?: string;
   venue?: string;
   tour?: string;
   coordinates?: {
@@ -69,7 +68,8 @@ async function getSetlist(band: string, location: string, date: string) {
   ) {
     data = {
       city: [location],
-      date: formatDate
+      date: formatDate,
+      url: json.setlist ? json.setlist[0].url : ''
     };
   }
 

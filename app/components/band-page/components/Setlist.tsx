@@ -6,6 +6,7 @@ import {
   GlobeAltIcon,
   MapPinIcon,
   PlayIcon,
+  PlusCircleIcon,
   TicketIcon
 } from '@heroicons/react/24/outline';
 import { useContext } from 'react';
@@ -15,6 +16,7 @@ import MusicPlayerContext from '../../music-player/MusicPlayerContext';
 import { cn } from '@/app/utils/cn';
 import ConcertNotes from './ConcertNotes';
 import { usePathname, useRouter } from 'next/navigation';
+import { constants } from '@/app/utils/constants';
 
 type SetlistProps = {
   user: User;
@@ -238,6 +240,17 @@ function Setlist({
             <p className="text-xl font-medium text-white">
               {band.band} in {concert.location} {concert.date.slice(6)}
             </p>
+            <div className="py-6">
+              <a
+                href={data.url || constants.SETLIST.ADD_SETLIST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded border border-zinc-700/60 p-2 px-3 text-sm font-medium text-zinc-300 shadow-sm transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white"
+                aria-label="Create a setlist for this concert"
+              >
+                <PlusCircleIcon className="size-4 opacity-50" /> Add setlist
+              </a>
+            </div>
           </div>
         )}
       </div>

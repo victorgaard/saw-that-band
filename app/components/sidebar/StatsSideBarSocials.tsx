@@ -86,7 +86,7 @@ function StatsSideBarSocials({ profile }: StatsSideBarSocialsProps) {
               key={link.url}
               href={link.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="hover:text-white"
               aria-label={`Follow ${name} on ${link.type}`}
             >

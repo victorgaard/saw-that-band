@@ -44,7 +44,7 @@ function BandPageHeader({ band, bandBio }: BandPageHeaderProps) {
                       <a
                         href={similarBand.url}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         key={similarBand.name}
                         className="flex items-center gap-2 whitespace-nowrap rounded bg-zinc-700/50 px-2 py-1 text-left text-xs font-medium text-zinc-100 hover:bg-zinc-700 hover:text-white"
                       >

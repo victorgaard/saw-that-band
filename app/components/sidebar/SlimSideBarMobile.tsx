@@ -57,7 +57,7 @@ function SlimSideBarMobile({ routes, username }: SlimSideBarMobileProps) {
       <a
         href={`https://www.sawthat.band/?utm_source=${username}`}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label="Create yours"
         className="flex items-center gap-2 p-3 text-sm text-zinc-400"
       >

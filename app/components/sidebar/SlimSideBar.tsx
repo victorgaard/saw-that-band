@@ -27,7 +27,7 @@ function SlimSideBar({ profileName, routes, username }: SlimSideBarProps) {
           <a
             href={`https://www.sawthat.band/?utm_source=${username}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="peer cursor-pointer text-zinc-600 transition-colors hover:text-zinc-500"
             aria-label="Create your profile"
           >

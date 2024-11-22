@@ -116,7 +116,7 @@ export default async function RootLayout({
             <a
               href="https://app.sawthat.band/signup?utm_source=nonExistingProfile"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-emerald-400 to-green-400 px-6 py-2 text-sm font-semibold text-zinc-900 transition-colors hover:from-green-400 hover:to-green-400 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:from-emerald-400 disabled:hover:to-green-400"
             >
               Register
