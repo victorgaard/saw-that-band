@@ -133,8 +133,8 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       <div className="sm:grid sm:grid-cols-3 2xl:grid-cols-2 3xl:grid-cols-3">
         <div className="pr-4 sm:col-span-2 2xl:col-span-1 3xl:col-span-2">
           <p className="text-xs font-semibold text-zinc-400">
-            {bands.length} {bands.length === 1 ? 'BAND' : 'BANDS'} SEEN LIVE
-            FROM {countries} {countries === 1 ? 'COUNTRY' : 'COUNTRIES'} AND{' '}
+            {bands.length} {bands.length === 1 ? 'BAND' : 'BANDS'} SEEN LIVE IN{' '}
+            {countries} {countries === 1 ? 'COUNTRY' : 'COUNTRIES'} AND{' '}
             {locations.length}{' '}
             {locations.length === 1 ? 'LOCATION' : 'LOCATIONS'}
           </p>

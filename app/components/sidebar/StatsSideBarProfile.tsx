@@ -19,7 +19,7 @@ function StatsSideBarProfile({
           {name} saw {bandsCount} {bandsCount === 1 ? 'band' : 'bands'}
         </p>
         <p className="text-sm text-zinc-400">
-          from {allConcertsCount}{' '}
+          in {allConcertsCount}{' '}
           {allConcertsCount === 1 ? 'concert' : 'concerts'}
         </p>
       </div>

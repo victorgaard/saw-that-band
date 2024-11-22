@@ -131,8 +131,7 @@ export async function GET(req: NextRequest) {
                 {bands?.length === 1 ? 'band' : 'bands'}
               </span>
               <span tw="text-[24px] opacity-60">
-                from {concerts}{' '}
-                {concerts?.length === 1 ? 'concert' : 'concerts'}
+                in {concerts} {concerts?.length === 1 ? 'concert' : 'concerts'}
               </span>
             </div>
           </div>
