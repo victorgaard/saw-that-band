@@ -19,6 +19,7 @@ function Picture({ user, size = 116 }: PictureProps) {
           width: size,
           height: size
         }}
+        priority
       />
     );
 
