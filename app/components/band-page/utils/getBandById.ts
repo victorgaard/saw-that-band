@@ -7,7 +7,7 @@ async function getBandById(bandId: string, userId: string) {
   const res = await fetch(
     `${API_URL}/api/band?bandId=${bandId}&userId=${userId}`,
     {
-      next: { tags: [bandId, userId] },
+      next: { tags: ['bands'] },
       cache: 'force-cache'
     }
   );
