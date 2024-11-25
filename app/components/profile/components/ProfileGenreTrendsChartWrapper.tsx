@@ -94,7 +94,7 @@ function ProfileGenreTrendsChartWrapper({
           </button>
         </div>
       </div>
-      <div className="max-[200px] relative min-h-[200px] max-w-[calc(100vw-20px)] sm:max-h-[300px] sm:min-h-[300px] sm:max-w-[calc(100vw-230px)] lg:max-w-[calc(100vw-550px)]">
+      <div className="relative min-h-[200px] max-w-[calc(100vw-20px)] sm:max-h-[300px] sm:min-h-[300px] sm:max-w-[calc(100vw-230px)] lg:max-w-[calc(100vw-550px)]">
         {hasData && (
           <ProfileGenreTrendsChart genres={genres} isMobile={isMobile} />
         )}

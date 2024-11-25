@@ -27,7 +27,7 @@ function ProfileGenreTrendsChart({
       data={data}
       margin={
         isMobile
-          ? { top: 0, right: 100, bottom: 0, left: 100 }
+          ? { top: 20, right: 100, bottom: 20, left: 100 }
           : { top: 20, right: 0, bottom: 60, left: 0 }
       }
       theme={chart.theme}
