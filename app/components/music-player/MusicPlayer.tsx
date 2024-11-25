@@ -34,7 +34,7 @@ function CloseButton({ onClose }: CloseButtonProps) {
       <button
         onClick={onClose}
         type="button"
-        className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
+        className="flex size-14 cursor-pointer items-center justify-center rounded-full border border-zinc-600/50 bg-white/5 p-4 transition-colors hover:bg-white/10"
         aria-label="Close player"
       >
         <XMarkIcon className="h-8 w-8" />

@@ -50,7 +50,11 @@ function Setlist({
   }
 
   return (
-    <div className="flex flex-col text-zinc-100">
+    <div
+      className={cn('flex flex-col pb-12 text-zinc-100 sm:pb-0', {
+        'pb-48 sm:pb-24': isOpen
+      })}
+    >
       <p className="pb-4 text-xs font-semibold text-zinc-400">
         {user.username.toLocaleUpperCase()} SAW{' '}
         <span className="font-semibold">{band.band.toLocaleUpperCase()}</span>{' '}
@@ -223,7 +227,6 @@ function Setlist({
           </div>
         )}
 
-        <div className={isOpen && data?.setlist ? 'mb-44' : 'mb-12 sm:mb-0'} />
         {data && !data.setlist && (
           <div className="-mx-4 flex flex-col items-center gap-2 rounded-lg py-16">
             <p className="m-0 mb-6 flex w-full flex-nowrap items-center text-xs text-zinc-300 before:relative before:mr-5 before:h-[1px] before:w-full before:bg-zinc-600 before:opacity-30 before:content-[''] after:relative after:ml-5 after:h-[1px] after:w-full after:bg-zinc-600 after:opacity-30 after:content-['']">
