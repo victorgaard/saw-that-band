@@ -67,7 +67,7 @@ function BandsList({
           </button>
         </div>
       )}
-
+      {/* h-[calc(100dvh-76px)] */}
       <div className="h-screen w-full">
         <AutoSizer>
           {({ height, width }) => (

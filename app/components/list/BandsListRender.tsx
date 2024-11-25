@@ -22,7 +22,7 @@ function BandsListRenderItem({
   band.concerts = sortConcertsByDate(band.concerts);
 
   return (
-    <div style={style} className="mt-20">
+    <div style={style} className="mt-20 pb-60 sm:pb-48">
       <BandsListItem
         band={band}
         setQuery={setQuery}
