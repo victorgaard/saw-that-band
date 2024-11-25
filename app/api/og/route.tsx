@@ -17,8 +17,8 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const band = searchParams.get('band');
   const picture = searchParams.get('picture');
-  const bands = searchParams.get('bands');
-  const concerts = searchParams.get('concerts');
+  const bands = Number(searchParams.get('bands'));
+  const concerts = Number(searchParams.get('concerts'));
 
   const username = searchParams.get('username');
   const userPicture = searchParams.get('userPicture');
@@ -128,10 +128,10 @@ export async function GET(req: NextRequest) {
             <div tw="flex flex-col text-white">
               <span tw="text-[24px]">
                 {userFirstName || username} saw {bands}{' '}
-                {bands?.length === 1 ? 'band' : 'bands'}
+                {bands === 1 ? 'band' : 'bands'}
               </span>
               <span tw="text-[24px] opacity-60">
-                in {concerts} {concerts?.length === 1 ? 'concert' : 'concerts'}
+                in {concerts} {concerts === 1 ? 'concert' : 'concerts'}
               </span>
             </div>
           </div>

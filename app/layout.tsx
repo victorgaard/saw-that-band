@@ -2,7 +2,6 @@ import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { TicketIcon, UserCircleIcon } from '@heroicons/react/24/outline';
-import { User } from '@/types/user';
 import { Viewport } from 'next';
 import MusicPlayerWrapper from './components/music-player/MusicPlayerWrapper';
 import SlimSideBar from './components/sidebar/SlimSideBar';
@@ -36,10 +35,9 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata() {
-  const res = await getUser();
-  const profile: User = res[0];
+  const [user] = await getUser();
 
-  if ((res && res.length === 0) || !res)
+  if (!user)
     return {
       title: {
         default:
@@ -47,10 +45,10 @@ export async function generateMetadata() {
       }
     };
 
-  const name = profile.name?.split(' ')[0] || profile.username;
+  const name = user.name?.split(' ')[0] || user.username;
 
   return {
-    metadataBase: new URL(`https://${profile.username}.sawthat.band`),
+    metadataBase: new URL(`https://${user.username}.sawthat.band`),
     referrer: 'origin-when-cross-origin',
     keywords: [`${name}`, 'saw that band', 'band catalogue'],
     formatDetection: {
@@ -68,8 +66,8 @@ export async function generateMetadata() {
       description: `Check all the bands ${name} has seen live`,
       url: '/',
       siteName: `${name} saw that band`,
-      images: `/api/og?username=${profile.username}&userPicture=${
-        profile.picture || ''
+      images: `/api/og?username=${user.username}&userPicture=${
+        user.picture || ''
       }&userFirstName=${name}`,
       locale: 'en-DE',
       type: 'website'
@@ -103,9 +101,9 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const res = await getUser();
+  const [user] = await getUser();
 
-  if ((res && res.length === 0) || !res)
+  if (!user)
     return (
       <html lang="en" className={font.className}>
         <head />
@@ -126,7 +124,6 @@ export default async function RootLayout({
       </html>
     );
 
-  const user = res[0];
   const name = user.name?.split(' ')[0] || user.username;
   const bands = await getBands({ userId: user.id });
 

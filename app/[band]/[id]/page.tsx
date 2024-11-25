@@ -1,5 +1,4 @@
 import getBands from '@/app/utils/getBands';
-import { User } from '@/types/user';
 import { Metadata } from 'next';
 import getBandById from '@/app/components/band-page/utils/getBandById';
 import sortConcertsByDate from '@/app/utils/sortConcertsByDate';
@@ -18,19 +17,20 @@ type ConcertProps = {
 export async function generateMetadata({
   params
 }: ConcertProps): Promise<Metadata> {
-  const res = await getUser();
-  const user: User = res[0];
-  const name = user.name?.split(' ')[0] || user.username;
+  const [user] = await getUser();
   const bands = await getBands({ userId: user.id });
+
   const awaitedParams = await params;
-  const bandNameURL = awaitedParams.band;
   const bandId = awaitedParams.id;
-  const bandArray = await getBandById(bandId, user.id);
 
-  if (!bandArray || !user) return { title: null };
+  const name = user.name?.split(' ')[0] || user.username;
+  const bandNameURL = awaitedParams.band;
 
-  const band = bandArray[0];
-  const concerts = bands.map(currentBand => currentBand.concerts);
+  const [band] = await getBandById(bandId, user.id);
+
+  if (!band || !user) return { title: null };
+
+  const concerts = bands.map(b => b.concerts);
   const newArray: Concert[] = [];
   const allConcerts = newArray.concat(...concerts);
 
@@ -62,12 +62,12 @@ export async function generateMetadata({
 async function BandPage({ params }: ConcertProps) {
   const awaitedParams = await params;
   const bandId = awaitedParams.id;
-  const res = await getUser();
-  const user = res[0];
-  const bandArray = await getBandById(bandId, user.id);
-  const band = { ...bandArray[0] };
-  band.concerts = sortConcertsByDate(band.concerts);
+
+  const [user] = await getUser();
+  const [band] = await getBandById(bandId, user.id);
   const bandBio = await getBandBio(band.band);
+
+  band.concerts = sortConcertsByDate(band.concerts);
 
   return <BandPageWrapper band={band} bandBio={bandBio} user={user} />;
 }
