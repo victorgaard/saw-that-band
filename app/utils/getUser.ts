@@ -7,7 +7,7 @@ async function getUser() {
   const username = header.get('host')?.split('.')[0] || '';
   const res = await fetch(`${API_URL}/api/find-user?username=${username}`, {
     next: {
-      tags: [username]
+      tags: ['users']
     },
     cache: 'force-cache'
   });
