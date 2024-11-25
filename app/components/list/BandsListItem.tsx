@@ -18,13 +18,13 @@ function BandsListItem({ band, setQuery, resetScroll }: BandsListItemProps) {
         className="group flex h-[160px] w-full items-center justify-between border-b border-zinc-700/50 from-zinc-100/5 to-zinc-500/5 to-50% p-6 text-white hover:border-zinc-600/40 hover:bg-gradient-to-tr sm:border sm:border-transparent md:rounded-lg"
       >
         <div className="flex items-center gap-6 sm:gap-8">
-          <div className="h-[112px] w-[112px] shrink-0 overflow-hidden rounded-lg bg-zinc-900">
+          <div className="size-[112px] shrink-0 overflow-hidden rounded-lg bg-zinc-900">
             <Image
               width={112}
               height={112}
               src={band.picture}
               alt={band.band}
-              className="h-[112px] w-[112px] object-cover"
+              className="size-[112px] object-cover"
               priority
             />
           </div>

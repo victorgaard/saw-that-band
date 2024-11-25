@@ -12,7 +12,7 @@ type BandPageHeaderProps = {
 
 function BandPageHeader({ band, bandBio }: BandPageHeaderProps) {
   return (
-    <div className="-mx-12 -my-8 flex flex-col gap-8 bg-gradient-to-br from-zinc-100/10 to-zinc-870 to-40% px-12 py-8">
+    <div className="-my-8 -ml-12 flex flex-col gap-8 bg-gradient-to-br from-zinc-100/10 to-zinc-870 to-40% px-12 py-8">
       <BackButton />
       <div className="flex flex-col flex-wrap gap-8 sm:flex-row sm:flex-nowrap sm:items-center">
         <Image

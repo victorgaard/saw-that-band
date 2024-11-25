@@ -6,7 +6,7 @@ type BandPageLayoutProps = {
 
 function BandPageLayout({ children }: BandPageLayoutProps) {
   return (
-    <div className="flex h-screen flex-col gap-10 overflow-x-hidden bg-zinc-870 px-4 py-8 text-white sm:px-12 sm:py-8">
+    <div className="flex h-screen flex-col gap-10 overflow-y-auto bg-zinc-870 px-4 py-8 text-white sm:px-12 sm:py-8">
       {children}
     </div>
   );

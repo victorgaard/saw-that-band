@@ -172,7 +172,7 @@ function Setlist({
         </div>
         <ConcertNotes user={user.name || user.username} notes={concert.notes} />
         {data && data.setlist && (
-          <div className="-mx-10 mt-12 flex flex-col rounded-lg px-6 text-sm">
+          <div className="mt-12 flex flex-col rounded-lg text-sm sm:-mx-10 sm:px-6">
             <p className="m-0 mb-6 flex w-full flex-nowrap items-center text-xs text-zinc-300 before:relative before:mr-5 before:h-[1px] before:w-full before:bg-zinc-600 before:opacity-30 before:content-[''] after:relative after:ml-5 after:h-[1px] after:w-full after:bg-zinc-600 after:opacity-30 after:content-['']">
               <span className="flex-shrink-0 text-xs font-semibold text-zinc-600">
                 CONCERT SETLIST
@@ -185,7 +185,7 @@ function Setlist({
                   getSongToPlay(token!, band.band, song.name);
                 }}
                 key={`${idx}${song.name}`}
-                className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-7 py-4 last:border-none hover:bg-zinc-900/20"
+                className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-2 py-4 last:border-none hover:bg-zinc-900/20 sm:px-7"
               >
                 <div
                   className={cn(

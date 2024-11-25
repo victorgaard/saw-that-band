@@ -39,7 +39,7 @@ function ProfilePodium({ first, second, third, bands }: ProfilePodiumProps) {
                   height={40}
                   src={second[0].picture}
                   alt={second[0].band}
-                  className="h-[40px] w-[40px] shrink-0 rounded-lg object-cover"
+                  className="size-10 shrink-0 rounded-lg object-cover"
                 />
                 <p className="flex flex-col flex-wrap">
                   <span>{second[0].band}</span>

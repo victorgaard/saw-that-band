@@ -129,7 +129,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
   const countries = uniqueCountries.size;
 
   return (
-    <div className="flex flex-col gap-8 rounded-lg border border-zinc-700/60 bg-zinc-850 p-6 sm:max-h-[400px] sm:min-h-[400px] sm:overflow-hidden">
+    <div className="flex flex-col gap-8 overflow-hidden rounded-lg border border-zinc-700/60 bg-zinc-850 p-4 sm:max-h-[400px] sm:min-h-[400px] sm:p-6">
       <div className="sm:grid sm:grid-cols-3 2xl:grid-cols-2 3xl:grid-cols-3">
         <div className="pr-4 sm:col-span-2 2xl:col-span-1 3xl:col-span-2">
           <p className="text-xs font-semibold text-zinc-400">
@@ -138,7 +138,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
             {locations.length}{' '}
             {locations.length === 1 ? 'LOCATION' : 'LOCATIONS'}
           </p>
-          <div className="-ml-8 flex h-[250px] w-[400px] overflow-hidden sm:-ml-2 sm:h-[400px] sm:max-h-[400px] sm:w-full sm:max-w-[600px]">
+          <div className="flex h-[250px] w-full max-w-[400px] overflow-hidden sm:-ml-2 sm:h-[400px] sm:max-h-[400px] sm:w-full sm:max-w-[600px]">
             <ProfileMap locations={locations} setTooltip={setTooltip} />
             <ProfileMapTooltip tooltip={tooltip} />
           </div>
