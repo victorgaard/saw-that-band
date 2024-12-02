@@ -15,9 +15,9 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
         <p className="text-xs font-semibold text-zinc-400">LATEST CONCERTS</p>
       </div>
       <div className="grid grid-cols-2 gap-x-4 md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-2">
-        {latest.map(concert => (
+        {latest.map((concert, idx) => (
           <Link
-            key={concert.id}
+            key={`${concert.id} ${idx}`}
             href={`/${concert.band.replaceAll(' ', '-')}/${concert.id}`}
             aria-label={`${concert.band} latest concert`}
             className="group relative flex h-[64px] items-center gap-2 overflow-hidden rounded py-1 font-medium text-zinc-100 hover:text-white sm:justify-end sm:px-2"

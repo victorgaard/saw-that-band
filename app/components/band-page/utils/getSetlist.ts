@@ -83,8 +83,6 @@ async function getSetlist(band: string, location: string, date: string) {
     };
   }
 
-  console.log(data);
-
   return data;
 }
 
