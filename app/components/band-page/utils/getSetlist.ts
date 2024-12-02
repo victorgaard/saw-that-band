@@ -1,3 +1,11 @@
+type ExtraArtist = {
+  mbid: string;
+  name: string;
+  sortName: string;
+  disambiguation: string;
+  url: string;
+};
+
 export type SetlistData = {
   date: Date;
   city: string[];
@@ -12,6 +20,8 @@ export type SetlistData = {
     name: string;
     tape?: boolean;
     info?: string;
+    cover?: ExtraArtist;
+    with?: ExtraArtist;
   }[];
 };
 
@@ -72,6 +82,8 @@ async function getSetlist(band: string, location: string, date: string) {
       url: json.setlist ? json.setlist[0].url : ''
     };
   }
+
+  console.log(data);
 
   return data;
 }

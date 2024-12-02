@@ -186,7 +186,11 @@ function Setlist({
               <div
                 aria-hidden
                 onClick={() => {
-                  getSongToPlay(token!, band.band, song.name);
+                  getSongToPlay(
+                    token || '',
+                    song.cover ? song.cover.name : band.band,
+                    song.name
+                  );
                 }}
                 key={`${idx}${song.name}`}
                 className="group flex cursor-pointer items-center justify-between gap-4 border-b border-zinc-700/50 px-2 py-4 last:border-none hover:bg-zinc-900/20 sm:px-7"
@@ -207,18 +211,40 @@ function Setlist({
                     {'  '}
                     <PlayIcon className="-ml-0.5 hidden h-4 w-4 fill-white group-hover:block" />
                   </p>
-                  <p className="flex flex-col gap-[2px]">
+                  <div className="flex flex-col gap-[2px]">
                     {song.tape
                       ? `Played from tape${song.name ? `: ${song.name}` : ''}`
                       : song.name}
-                    <span
-                      className={cn('text-xs font-normal', {
-                        'text-zinc-400': !song.tape
-                      })}
-                    >
-                      {song.info}
-                    </span>
-                  </p>
+                    <div className="flex flex-wrap items-center gap-1">
+                      {song.cover && (
+                        <span
+                          className={cn('text-xs font-normal', {
+                            'text-zinc-400': !song.tape
+                          })}
+                        >
+                          ({song.cover.name} cover)
+                        </span>
+                      )}
+                      {song.with && (
+                        <span
+                          className={cn('text-xs font-normal', {
+                            'text-zinc-400': !song.tape
+                          })}
+                        >
+                          (with {song.with.name})
+                        </span>
+                      )}
+                      {song.info && (
+                        <span
+                          className={cn('text-xs font-normal', {
+                            'text-zinc-400': !song.tape
+                          })}
+                        >
+                          {song.info}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
                 <p className="hidden group-hover:sm:block">Play</p>
                 <PlayIcon className="h-4 w-4 shrink-0 fill-white sm:hidden" />
