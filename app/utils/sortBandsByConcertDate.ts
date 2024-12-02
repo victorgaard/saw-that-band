@@ -1,8 +1,7 @@
 import { Band } from '@/types/bands';
 
-function sortBandsByConcertDate(bands: Band[]): Band[] {
-  const bandsCopy = [...bands];
-  const flattenedBands: Band[] = bandsCopy.flatMap(band =>
+function sortBandsByConcertDate(bands: Band[]) {
+  const flattenedBands: Band[] = bands.flatMap(band =>
     band.concerts.map(concert => ({
       ...band,
       concerts: [concert]
