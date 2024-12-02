@@ -1,9 +1,8 @@
 import { Band } from '@/types/bands';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { ChangeEvent, RefObject } from 'react';
+import { RefObject } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import BandsListRenderItem from './BandsListRender';
 import BandsListSearch from './BandsListSearch';
 import LoadingSpinner from '../icons/LoadingSpinner';
@@ -12,8 +11,7 @@ type BandsListProps = {
   filteredBands: Band[] | undefined;
   query: string;
   setQuery: (query: string) => void;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  router: AppRouterInstance;
+  handleChange: (newQuery: string) => void;
   listRef: RefObject<List>;
   resetScroll: () => void;
 };
@@ -23,7 +21,6 @@ function BandsList({
   query,
   setQuery,
   handleChange,
-  router,
   listRef,
   resetScroll
 }: BandsListProps) {
@@ -40,9 +37,7 @@ function BandsList({
     <div className="relative flex flex-col items-center bg-zinc-870 text-white">
       <BandsListSearch
         query={query}
-        setQuery={setQuery}
         handleChange={handleChange}
-        router={router}
         bandsCount={filteredBands.length}
       />
 
@@ -55,10 +50,7 @@ function BandsList({
             </p>
           </div>
           <button
-            onClick={() => {
-              setQuery('');
-              router.push('/list');
-            }}
+            onClick={() => handleChange('')}
             type="button"
             className="flex items-center gap-4 rounded bg-zinc-900 p-4 text-zinc-400 hover:bg-zinc-700/50 hover:text-white sm:hidden"
           >
@@ -67,7 +59,6 @@ function BandsList({
           </button>
         </div>
       )}
-      {/* h-[calc(100dvh-76px)] */}
       <div className="h-screen w-full">
         <AutoSizer>
           {({ height, width }) => (

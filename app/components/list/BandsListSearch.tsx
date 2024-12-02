@@ -5,17 +5,13 @@ import { ChangeEvent } from 'react';
 
 type BandsListSearchProps = {
   query: string;
-  setQuery: (query: string) => void;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  router: AppRouterInstance;
+  handleChange: (newQuery: string) => void;
   bandsCount: number;
 };
 
 function BandsListSearch({
   handleChange,
   query,
-  setQuery,
-  router,
   bandsCount
 }: BandsListSearchProps) {
   return (
@@ -23,9 +19,7 @@ function BandsListSearch({
       <MagnifyingGlassIcon className="absolute left-6 h-4 w-4 text-zinc-500 sm:left-12" />
       <input
         id="search"
-        onChange={e => {
-          handleChange(e);
-        }}
+        onChange={e => handleChange(e.currentTarget.value)}
         value={query}
         placeholder="Search for band, genre, year or location"
         className={cn(
@@ -39,10 +33,7 @@ function BandsListSearch({
       {query && (
         <div className="items-center gap-4">
           <button
-            onClick={() => {
-              setQuery('');
-              router.push('/list');
-            }}
+            onClick={() => handleChange('')}
             type="button"
             className="flex items-center gap-2 whitespace-nowrap rounded border border-zinc-700/60 bg-zinc-900/30 px-4 py-3 text-sm font-medium text-zinc-300 transition-colors duration-75 hover:border-zinc-600 hover:bg-zinc-700/50 hover:text-white"
           >

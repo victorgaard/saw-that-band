@@ -13,7 +13,6 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
   const path = usePathname();
   const searchParams = useSearchParams();
   const searchedParam = searchParams?.get('search');
-  const router = useRouter();
 
   const listRef = useRef<List>(null);
 
@@ -34,13 +33,21 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
       )
   );
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function replaceUrl(url: string) {
+    window.history.replaceState(
+      { ...window.history.state, as: url, url },
+      '',
+      url
+    );
+  }
+
+  function handleChange(newQuery: string) {
     resetScroll();
-    if (!e.target.value) {
+    if (!newQuery) {
       setQuery('');
-      router.push(`${path}`);
+      replaceUrl(`${path}`);
     } else {
-      setQuery(e.target.value);
+      setQuery(newQuery);
     }
   }
 
@@ -58,11 +65,12 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
 
     if (query) {
       queryToParamsTimeout = setTimeout(() => {
-        router.push(`${path}?search=${query}`);
+        const url = `${path}?search=${query}`;
+        replaceUrl(url);
       }, 700);
     }
     return () => clearTimeout(queryToParamsTimeout);
-  }, [query, path, router]);
+  }, [query, path]);
 
   return (
     <BandsList
@@ -70,7 +78,6 @@ function BandsListWrapper({ bands }: BandsListWrapperProps) {
       query={query}
       setQuery={setQuery}
       handleChange={handleChange}
-      router={router}
       listRef={listRef}
       resetScroll={resetScroll}
     />
