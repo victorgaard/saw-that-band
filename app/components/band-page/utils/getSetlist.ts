@@ -33,6 +33,8 @@ async function getSetlist(band: string, location: string, date: string) {
   if (!res.ok) return undefined;
 
   const resJson = await res.json();
+  if (resJson.error) return undefined;
+
   const json = resJson.data;
 
   let data: SetlistData | undefined;
@@ -40,6 +42,7 @@ async function getSetlist(band: string, location: string, date: string) {
   const formatDate = new Date(Number(year), Number(month) - 1, Number(day));
 
   if (
+    json.code &&
     json.code !== 404 &&
     !json.message &&
     json.setlist[0].sets.set.length > 0

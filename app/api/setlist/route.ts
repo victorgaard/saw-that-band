@@ -19,6 +19,10 @@ export async function GET(request: Request) {
     }
   );
 
+  console.log(res);
+
+  if (!res.ok) return NextResponse.json({ error: 'Network request error' });
+
   const data: SetlistData = await res.json();
   return NextResponse.json({ data });
 }
