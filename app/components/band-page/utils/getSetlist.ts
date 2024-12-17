@@ -33,20 +33,13 @@ async function getSetlist(band: string, location: string, date: string) {
   if (!res.ok) return undefined;
 
   const resJson = await res.json();
-  if (resJson.error) return undefined;
-
   const json = resJson.data;
 
   let data: SetlistData | undefined;
   const [day, month, year] = date.split('-');
   const formatDate = new Date(Number(year), Number(month) - 1, Number(day));
 
-  if (
-    json.code &&
-    json.code !== 404 &&
-    !json.message &&
-    json.setlist[0].sets.set.length > 0
-  ) {
+  if (!json.message && json.setlist[0].sets.set.length > 0) {
     const response = json.setlist[0];
     const venue = response.venue?.name;
     const tour = response.tour?.name;
@@ -76,7 +69,7 @@ async function getSetlist(band: string, location: string, date: string) {
   }
 
   if (
-    json.code === 404 ||
+    (json.code && json.code === 404) ||
     (json.setlist && json.setlist[0]?.sets.set.length === 0)
   ) {
     data = {
