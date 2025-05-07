@@ -44,7 +44,7 @@ function SetlistWrapper({ band, user }: SetlistWrapperProps) {
       if (!res) {
         setToken(undefined);
       } else {
-        setToken(res.accessToken);
+        setToken(res.access_token);
       }
     });
   }
