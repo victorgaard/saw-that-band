@@ -121,6 +121,13 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       country_code: 'NL',
       lat: 51.5606,
       lon: 5.0919
+    },
+    {
+      location: 'Lisboa',
+      country: 'Portugal',
+      country_code: 'PT',
+      lat: 38.71667,
+      lon: -9.13333
     }
   ];
   const locationsGroupedByCountry = groupLocationsByCountry(locations);
