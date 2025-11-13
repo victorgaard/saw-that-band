@@ -20,9 +20,9 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
             key={`${concert.id} ${idx}`}
             href={`/${concert.band.replaceAll(' ', '-')}/${concert.id}`}
             aria-label={`${concert.band} latest concert`}
-            className="group relative flex h-[64px] items-center gap-2 overflow-hidden rounded py-1 font-medium text-zinc-100 hover:text-white sm:justify-end sm:px-2"
+            className="group relative flex h-[64px] items-center gap-2 overflow-hidden rounded py-1 font-medium text-zinc-100 hover:text-white sm:justify-end"
           >
-            <div className="flex items-center gap-2 overflow-hidden transition-all group-hover:left-0 sm:absolute sm:-left-6">
+            <div className="flex items-center gap-2 transition-all group-hover:left-0 sm:absolute sm:-left-6">
               <ArrowRightIcon className="hidden size-4 sm:block" />
               <div className="flex items-center gap-2 sm:gap-4">
                 <Image
@@ -32,12 +32,12 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
                   alt={concert.band}
                   className="size-10 shrink-0 rounded-lg object-cover grayscale transition-all group-hover:grayscale-0"
                 />
-                <p className="flex flex-col overflow-hidden">
+                <div className="grid">
                   <span className="truncate">{concert.band}</span>
                   <span className="text-xs text-zinc-400">
                     {getTimeAgo(concert.concerts[0].date)}
                   </span>
-                </p>
+                </div>
               </div>
             </div>
           </Link>
