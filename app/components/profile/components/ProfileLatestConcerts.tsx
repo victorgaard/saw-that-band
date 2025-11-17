@@ -10,11 +10,11 @@ type ProfileLatestConcertsProps = {
 
 function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
   return (
-    <div className="flex flex-col gap-4 rounded-lg border border-zinc-700/60 bg-zinc-850 p-4 text-sm sm:p-6">
+    <div className="flex flex-col gap-4 rounded-lg border border-zinc-700/60 bg-zinc-850 p-4 text-xs sm:p-6 sm:text-sm">
       <div className="flex justify-between">
         <p className="text-xs font-semibold text-zinc-400">LATEST CONCERTS</p>
       </div>
-      <div className="grid grid-cols-2 gap-x-4 md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-2">
+      <div className="grid grid-cols-2 gap-x-6 md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-2">
         {latest.map((concert, idx) => (
           <Link
             key={`${concert.id} ${idx}`}
@@ -24,7 +24,7 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
           >
             <div className="flex items-center gap-2 transition-all group-hover:left-0 sm:absolute sm:-left-6">
               <ArrowRightIcon className="hidden size-4 sm:block" />
-              <div className="flex items-center gap-2 sm:gap-4">
+              <div className="flex items-center gap-2.5">
                 <Image
                   width={40}
                   height={40}
