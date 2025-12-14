@@ -47,34 +47,29 @@ function MusicPlayerWrapper({ children }: { children: ReactNode }) {
     setIsPlaying(false);
   }
 
-  const getSongToPlay = useCallback(
-    (token: string, band: string, song: string) => {
-      resetStates();
+  const getSongToPlay = useCallback((band: string, song: string) => {
+    resetStates();
 
-      if (token) {
-        getSong(token, band, song)
-          .then(res => {
-            const hasSong = res.tracks.items.length > 0;
+    getSong(band, song)
+      .then(res => {
+        const hasSong = res.total > 0;
 
-            if (hasSong) {
-              const newSong: CurrentSong = {
-                band: res.tracks.items[0].album.artists[0].name,
-                song: res.tracks.items[0].name,
-                src: res.tracks.items[0].preview_url,
-                album: res.tracks.items[0].album.name,
-                cover: res.tracks.items[0].album.images[1].url
-              };
-              setIsPlaying(true);
-              setCurrentSong(newSong);
-            } else {
-              setNotFound(true);
-            }
-          })
-          .catch(() => setError(true));
-      }
-    },
-    []
-  );
+        if (hasSong) {
+          const newSong: CurrentSong = {
+            band: res.data[0].artist.name,
+            song: res.data[0].title,
+            src: res.data[0].preview,
+            album: res.data[0].album.title,
+            cover: res.data[0].album.cover_medium
+          };
+          setIsPlaying(true);
+          setCurrentSong(newSong);
+        } else {
+          setNotFound(true);
+        }
+      })
+      .catch(() => setError(true));
+  }, []);
 
   useEffect(() => {
     if (isPlaying && audioRef.current) {

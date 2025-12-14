@@ -1,7 +1,7 @@
 import { API_URL } from '@/environments/environments';
 
-async function getSong(token: string, band: string, song: string) {
-  const res = await fetch(`/api/song?token=${token}&band=${band}&song=${song}`);
+async function getSong(band: string, song: string) {
+  const res = await fetch(`/api/song?band=${band}&song=${song}`);
 
   if (!res.ok) return undefined;
 

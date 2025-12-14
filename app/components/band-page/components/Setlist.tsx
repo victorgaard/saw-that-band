@@ -24,18 +24,10 @@ type SetlistProps = {
   band: Band;
   data: SetlistData | undefined;
   concert: Concert;
-  token: string | undefined;
   setConcert: (concert: Concert) => void;
 };
 
-function Setlist({
-  user,
-  band,
-  data,
-  concert,
-  token,
-  setConcert
-}: SetlistProps) {
+function Setlist({ user, band, data, concert, setConcert }: SetlistProps) {
   const { isOpen, getSongToPlay } = useContext(MusicPlayerContext);
 
   const router = useRouter();
@@ -218,7 +210,6 @@ function Setlist({
                     aria-hidden
                     onClick={() => {
                       getSongToPlay(
-                        token || '',
                         song.cover ? song.cover.name : band.band,
                         song.name
                       );

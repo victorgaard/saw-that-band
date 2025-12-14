@@ -1,5 +1,6 @@
 import {
   ExclamationCircleIcon,
+  MusicalNoteIcon,
   PauseIcon,
   PlayIcon,
   SpeakerWaveIcon,
@@ -8,7 +9,7 @@ import {
 import Image from 'next/image';
 import { ChangeEvent, RefObject } from 'react';
 import { CurrentSong } from './MusicPlayerContext';
-import SpotifyIcon from '../icons/SpotifyIcon';
+import DeezerIcon from '../icons/DeezerIcon';
 
 type MusicPlayerProps = {
   isOpen: boolean;
@@ -64,18 +65,18 @@ function MusicPlayer({
             <div className="flex items-center justify-center gap-8 sm:justify-between">
               <div className="flex w-full items-center gap-4 sm:w-auto">
                 <div className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-500">
-                  <SpotifyIcon className="h-10 w-10" />
+                  <MusicalNoteIcon className="h-10 w-10" />
                   <div className="absolute bottom-4 right-4 rounded-full bg-red-300">
                     <ExclamationCircleIcon className="h-5 w-5 text-zinc-950" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-0.5">
                   <p className="text-base font-semibold">
-                    Spotify server instability
+                    We could not fetch the preview for this track.
                   </p>
                   <p className="text-sm font-medium text-zinc-300">
-                    There was an issue on our end connecting to Spotify servers.
-                    Please try again later.
+                    There was an issue on our end connecting to Deezer. Please
+                    try again later.
                   </p>
                 </div>
               </div>
@@ -95,7 +96,7 @@ function MusicPlayer({
                   </p>
                   <p className="hidden text-sm text-zinc-400 sm:block">
                     The band or song name did not not match any results on
-                    Spotify
+                    Deezer
                   </p>
                 </div>
               </div>
@@ -130,11 +131,11 @@ function MusicPlayer({
                     alt={currentSong.band + currentSong.song}
                     className="h-20 w-20 rounded-lg object-fill"
                   />
-                  <div className="group absolute bottom-1 left-1 rounded-full bg-zinc-900">
-                    <SpotifyIcon className="h-6 w-6 text-white" />
+                  <div className="group absolute bottom-1 left-1 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-900">
+                    <DeezerIcon className="h-4 w-4 text-white" />
                   </div>
                   <div className="absolute -top-11 left-0 z-50 hidden animate-fade-in whitespace-nowrap rounded-lg bg-zinc-950 px-6 py-2 text-sm font-medium text-white shadow-lg group-hover:block">
-                    Song sample powered by Spotify
+                    Song sample powered by Deezer
                   </div>
                 </div>
                 <div className="flex w-[180px] flex-col gap-0.5 overflow-hidden sm:w-full">

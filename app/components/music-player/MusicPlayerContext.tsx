@@ -10,7 +10,7 @@ export type CurrentSong = {
 
 type MusicPlayerContextProps = {
   isOpen: boolean;
-  getSongToPlay: (token: string, band: string, song: string) => void;
+  getSongToPlay: (band: string, song: string) => void;
 };
 
 const MusicPlayerContext = createContext<MusicPlayerContextProps>({
