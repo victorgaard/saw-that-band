@@ -128,8 +128,16 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       country_code: 'PT',
       lat: 38.71667,
       lon: -9.13333
+    },
+    {
+      location: 'Tokyo',
+      country: 'Japan',
+      country_code: 'JP',
+      lat: 35.6768601,
+      lon: 139.7638947
     }
-  ];
+  ] as const;
+
   const locationsGroupedByCountry = groupLocationsByCountry(locations);
   const countriesArray = locations.map(location => location.country);
   const uniqueCountries = new Set(countriesArray);
