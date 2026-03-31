@@ -161,13 +161,13 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
         <div className="-m-6 flex flex-col gap-6 rounded-b-lg border-t border-zinc-700/60 bg-zinc-800 p-6 [-ms-overflow-style:none] [scrollbar-color:#52525b_transparent] sm:col-span-1 sm:ml-0 sm:max-h-[399px] sm:overflow-auto sm:rounded-b-none sm:border-l sm:border-t-0 [&::-webkit-scrollbar-thumb]:hover:bg-zinc-700 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:bg-transparent [&::-webkit-scrollbar]:hover:bg-zinc-800">
           {locationsGroupedByCountry.map(location => (
             <div key={location.country}>
-              <div className="flex items-center gap-2 pb-3 text-[13px] font-semibold text-zinc-400">
+              <div className="flex items-center gap-1.5 pb-3 text-[13px] font-semibold text-zinc-400">
                 <Image
                   src={`https://flagcdn.com/32x24/${location.country_code.toLowerCase()}.png`}
-                  width={12}
-                  height={12}
+                  width={14}
+                  height={10}
                   alt="Flag"
-                  className="h-3 w-3"
+                  className="h-2.5 w-3.5"
                 />
                 <span>{location.country.toLocaleUpperCase()}</span>
               </div>
