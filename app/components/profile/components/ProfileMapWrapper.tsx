@@ -123,7 +123,7 @@ function ProfileMapWrapper({ bands }: ProfileMapWrapperProps) {
       lon: 5.0919
     },
     {
-      location: 'Lisboa',
+      location: 'Lisbon',
       country: 'Portugal',
       country_code: 'PT',
       lat: 38.71667,
