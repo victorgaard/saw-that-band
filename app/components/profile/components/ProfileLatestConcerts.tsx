@@ -18,7 +18,7 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
         {latest.map((concert, idx) => (
           <Link
             key={`${concert.id} ${idx}`}
-            href={`/${concert.band.replaceAll(' ', '-')}/${concert.id}`}
+            href={`/${concert.band.replaceAll(' ', '-')}/${concert.id}?date=${concert.concerts[0].date}`}
             aria-label={`${concert.band} latest concert`}
             className="group relative flex h-[64px] items-center gap-2 overflow-hidden rounded py-1 font-medium text-zinc-100 hover:text-white sm:justify-end"
           >
