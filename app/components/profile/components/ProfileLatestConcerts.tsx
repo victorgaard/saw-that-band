@@ -25,13 +25,19 @@ function ProfileLatestConcerts({ latest }: ProfileLatestConcertsProps) {
             <div className="flex items-center gap-2 transition-all group-hover:left-0 sm:absolute sm:-left-6">
               <ArrowRightIcon className="hidden size-4 sm:block" />
               <div className="flex items-center gap-2.5">
-                <Image
-                  width={40}
-                  height={40}
-                  src={concert.picture}
-                  alt={concert.band}
-                  className="size-10 shrink-0 rounded-lg object-cover grayscale transition-all group-hover:grayscale-0"
-                />
+                {concert.picture ? (
+                  <Image
+                    width={40}
+                    height={40}
+                    src={concert.picture}
+                    alt={concert.band}
+                    className="size-10 shrink-0 rounded-lg object-cover grayscale transition-all group-hover:grayscale-0"
+                  />
+                ) : (
+                  <div className="flex size-10 items-center justify-center rounded-lg bg-zinc-700">
+                    <p>{concert.band[0]}</p>
+                  </div>
+                )}
                 <div className="grid">
                   <span className="truncate">{concert.band}</span>
                   <span className="text-xs text-zinc-400">
