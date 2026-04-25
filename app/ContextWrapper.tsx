@@ -2,6 +2,7 @@
 
 import { Band } from '@/types/bands';
 import { User } from '@/types/user';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactNode, createContext, useMemo } from 'react';
 
 type AppContextType = {
@@ -28,6 +29,8 @@ type ContextWrapperProps = {
   bands: Band[];
 };
 
+const queryClient = new QueryClient();
+
 function ContextWrapper({ children, user, bands }: ContextWrapperProps) {
   const context = useMemo(
     () => ({
@@ -36,7 +39,11 @@ function ContextWrapper({ children, user, bands }: ContextWrapperProps) {
     }),
     [bands, user]
   );
-  return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppContext.Provider value={context}>{children}</AppContext.Provider>
+    </QueryClientProvider>
+  );
 }
 
 export default ContextWrapper;

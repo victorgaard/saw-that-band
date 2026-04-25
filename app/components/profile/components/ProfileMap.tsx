@@ -9,17 +9,10 @@ import {
 } from 'react-simple-maps';
 import { useRouter } from 'next/navigation';
 import { TooltipProps } from './ProfileMapTooltip';
-
-export type Locations = {
-  location: string;
-  country: string;
-  country_code: string;
-  lat: number;
-  lon: number;
-};
+import { GeoLocation } from '@/types/geocode';
 
 type ProfileMapProps = {
-  locations: Locations[];
+  locations: GeoLocation[];
   setTooltip: (tooltip: TooltipProps | undefined) => void;
 };
 
