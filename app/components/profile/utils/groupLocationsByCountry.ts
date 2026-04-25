@@ -1,6 +1,6 @@
-import { Locations } from '../components/ProfileMap';
+import { GeoLocation } from '@/types/geocode';
 
-function groupLocationsByCountry(locations: Locations[]) {
+function groupLocationsByCountry(locations: GeoLocation[]) {
   const groupedByCountry: {
     country: string;
     country_code: string;
