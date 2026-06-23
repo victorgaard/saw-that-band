@@ -139,15 +139,11 @@ function MusicPlayer({
                   </div>
                 </div>
                 <div className="flex w-[180px] flex-col gap-0.5 overflow-hidden sm:w-full">
-                  <p className="truncate text-base font-semibold">
-                    {currentSong.song}
-                  </p>
-                  <p className="truncate text-sm font-semibold text-zinc-300">
+                  <p className="text-base font-semibold">{currentSong.song}</p>
+                  <p className="text-sm font-semibold text-zinc-300">
                     {currentSong.band}
                   </p>
-                  <p className="truncate text-sm text-zinc-400">
-                    {currentSong.album}
-                  </p>
+                  <p className="text-sm text-zinc-400">{currentSong.album}</p>
                 </div>
               </div>
               <div className="flex shrink-0 items-center gap-4 overflow-hidden">
@@ -160,7 +156,7 @@ function MusicPlayer({
                         min="0"
                         max="100"
                         value={volume * 100}
-                        onChange={e => handleVolume(e)}
+                        onChange={handleVolume}
                         className="h-1 w-full cursor-pointer appearance-none rounded-full bg-zinc-500 accent-zinc-200 active:bg-zinc-500/50 active:accent-zinc-400"
                       />
                     </div>
